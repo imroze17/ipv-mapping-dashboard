@@ -40,77 +40,69 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Warm Editorial Custom Theme Variables */
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
 }
 
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
+  /* Warm Alabaster Base Palette */
+  --background: oklch(0.985 0.003 70); /* Warm off-white */
+  --foreground: oklch(0.22 0.01 70); /* Deep slate-charcoal */
+  
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
+  --card-foreground: oklch(0.22 0.01 70);
+  
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
-}
+  --popover-foreground: oklch(0.22 0.01 70);
+  
+  --primary: oklch(0.45 0.16 35); /* Warm terracotta/burnt orange primary */
+  --primary-foreground: oklch(0.98 0.01 70);
+  
+  --secondary: oklch(0.95 0.01 70);
+  --secondary-foreground: oklch(0.35 0.01 70);
+  
+  --muted: oklch(0.96 0.005 70);
+  --muted-foreground: oklch(0.5 0.01 70);
+  
+  --accent: oklch(0.96 0.01 45); /* Soft gold/amber tint */
+  --accent-foreground: oklch(0.35 0.1 45);
+  
+  --destructive: oklch(0.55 0.18 25); /* Deep red */
+  --destructive-foreground: oklch(0.98 0 0);
+  
+  --border: oklch(0.9 0.005 70);
+  --input: oklch(0.9 0.005 70);
+  --ring: oklch(0.45 0.16 35);
+  
+  --radius: 0.75rem;
 
-.dark {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-500);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.85 0.005 65);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.85 0.005 65);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.85 0.005 65);
-  --secondary: oklch(0.24 0.006 286.033);
-  --secondary-foreground: oklch(0.7 0.005 65);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground:  oklch(0.92 0.005 65);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.488 0.243 264.376);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.85 0.005 65);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground:  oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.488 0.243 264.376);
+  /* Custom Persona Colors (OKLCH) */
+  --amara-color: oklch(0.48 0.18 28); /* Red - High-Touch Survivor */
+  --amara-light: oklch(0.96 0.02 28);
+  
+  --priya-color: oklch(0.58 0.16 48); /* Amber - Medium-Touch */
+  --priya-light: oklch(0.97 0.02 48);
+  
+  --elena-color: oklch(0.42 0.17 300); /* Purple - Isolated Professional */
+  --elena-light: oklch(0.95 0.02 300);
+
+  /* Semantic Overlay Colors */
+  --friction-color: oklch(0.48 0.18 28);
+  --friction-light: oklch(0.96 0.02 28);
+  
+  --equity-color: oklch(0.58 0.16 48);
+  --equity-light: oklch(0.97 0.02 48);
+  
+  --coordination-color: oklch(0.42 0.17 300);
+  --coordination-light: oklch(0.95 0.02 300);
+  
+  --intervention-color: oklch(0.52 0.14 145); /* Forest green */
+  --intervention-light: oklch(0.96 0.02 145);
+  
+  --digital-color: oklch(0.54 0.12 210); /* Teal/blue */
+  --digital-light: oklch(0.96 0.02 210);
 }
 
 @layer base {
@@ -118,7 +110,10 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/10 selection:text-primary;
+  }
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--font-serif);
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -134,25 +129,12 @@
 }
 
 @layer components {
-  /**
-   * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
-   */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
-    padding-right: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .flex {
@@ -160,18 +142,53 @@
     min-width: 0;
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: 1024px) {
     .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
-      padding-right: 1.5rem;
+      padding-left: 3rem;
+      padding-right: 3rem;
+      max-width: 1440px;
     }
   }
 
-  @media (min-width: 1024px) {
-    .container {
-      padding-left: 2rem; /* 32px - desktop padding */
-      padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
-    }
+  /* Custom tag styles mapping directly to spec classes */
+  .tag {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-xs font-semibold whitespace-nowrap border;
+  }
+  .tag--friction {
+    background-color: var(--friction-light);
+    color: var(--friction-color);
+    border-color: oklch(from var(--friction-color) l c h / 0.15);
+  }
+  .tag--equity {
+    background-color: var(--equity-light);
+    color: var(--equity-color);
+    border-color: oklch(from var(--equity-color) l c h / 0.15);
+  }
+  .tag--coordination {
+    background-color: var(--coordination-light);
+    color: var(--coordination-color);
+    border-color: oklch(from var(--coordination-color) l c h / 0.15);
+  }
+  .tag--intervention {
+    background-color: var(--intervention-light);
+    color: var(--intervention-color);
+    border-color: oklch(from var(--intervention-color) l c h / 0.15);
+  }
+  .tag--digital {
+    background-color: var(--digital-light);
+    color: var(--digital-color);
+    border-color: oklch(from var(--digital-color) l c h / 0.15);
+  }
+
+  /* Custom scrollbars */
+  .custom-scrollbar::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/40 transition-colors;
   }
 }
