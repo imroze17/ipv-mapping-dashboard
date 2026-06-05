@@ -96,6 +96,25 @@ export default function SidebarLegend({ isOpen = true }: SidebarLegendProps) {
         </div>
       </div>
 
+      {/* Acronym Glossary */}
+      <div className="pt-4 border-t border-border space-y-2">
+        <div className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+          Acronym Glossary
+        </div>
+        <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-[10px] text-muted-foreground leading-tight">
+          <div><strong>GAR:</strong> Gov't Assisted Refugee</div>
+          <div><strong>PR:</strong> Permanent Resident</div>
+          <div><strong>TR:</strong> Temporary Resident</div>
+          <div><strong>RAP:</strong> Resettlement Assistance</div>
+          <div><strong>LINC:</strong> Language Instruction</div>
+          <div><strong>CHC:</strong> Community Health Centre</div>
+          <div><strong>ED:</strong> Emergency Dept</div>
+          <div><strong>OHIP:</strong> Ont. Health Insurance</div>
+          <div><strong>IRCC:</strong> Immigration Canada</div>
+          <div><strong>UNHCR:</strong> UN Refugee Agency</div>
+        </div>
+      </div>
+
       <div className="pt-3 border-t border-border">
         <p className="text-[10px] text-muted-foreground leading-relaxed">
           <strong>Sources:</strong> Literature review, first-hand interviews, and Subject Matter Expert review.

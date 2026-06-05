@@ -168,10 +168,10 @@ export default function Overview({ onTabChange }: OverviewProps) {
                   </div>
 
                   <div className="space-y-1.5">
-                    <h3 className="text-lg font-bold font-serif text-foreground flex items-center gap-2">
-                      {persona.name}
+                    <h3 className="text-lg font-bold font-serif text-foreground flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
+                      <span>{persona.name}</span>
                       <span className="text-xs font-normal text-muted-foreground">
-                        ({persona.status})
+                        — {persona.status}
                       </span>
                     </h3>
                     <div className="flex flex-wrap gap-2 text-[10px] text-muted-foreground">

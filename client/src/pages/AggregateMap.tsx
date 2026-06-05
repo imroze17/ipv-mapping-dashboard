@@ -85,13 +85,13 @@ export default function AggregateMap() {
                   Category
                 </th>
                 <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 border-r border-border text-center w-[110px]">
-                  Amara (GAR)
+                  Amara<br/><span className="text-[9px] font-normal lowercase normal-case text-stone-400">Refugee Class (GAR)</span>
                 </th>
                 <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 border-r border-border text-center w-[110px]">
-                  Priya (Sponsored)
+                  Priya<br/><span className="text-[9px] font-normal lowercase normal-case text-stone-400">Family Class (Sponsored)</span>
                 </th>
                 <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 text-center w-[110px]">
-                  Elena (Economic)
+                  Elena<br/><span className="text-[9px] font-normal lowercase normal-case text-stone-400">Economic Class (TR to PR)</span>
                 </th>
               </tr>
             </thead>

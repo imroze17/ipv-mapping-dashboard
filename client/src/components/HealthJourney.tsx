@@ -28,7 +28,7 @@ export default function HealthJourney({ persona }: HealthJourneyProps) {
             <tr className="border-b border-border bg-stone-50/50">
               {/* Corner Header Cell */}
               <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 border-r border-border w-[150px] lg:w-[180px]">
-                Pathway Lanes
+                Pathway Stages
               </th>
               
               {/* Four Stage Columns */}

@@ -59,7 +59,7 @@ export const personas: Persona[] = [
     id: "amara",
     name: "Amara",
     type: "High-Touch Survivor",
-    status: "Gov't Assisted Refugee (GAR)",
+    status: "Refugee Class - Government Assisted Refugee (GAR)",
     location: "Urban",
     entryPoint: "Emergency Dept (ED)",
     agency: "Low",
@@ -104,27 +104,27 @@ export const personas: Persona[] = [
       {
         stage: "Pre-Arrival",
         events: "UNHCR referral, IRCC processing, IOM orientation",
-        barriers: ["No knowledge of Canadian system", "trauma from displacement"]
+        barriers: ["No knowledge of Canadian system", "Trauma from displacement"]
       },
       {
         stage: "Arrival & RAP",
         events: "Airport reception, temporary housing (RAP), RAP orientation, OHIP enrolment",
-        barriers: ["English-only intake forms", "partner controls documents"]
+        barriers: ["English-only intake forms", "Partner controls documents"]
       },
       {
         stage: "Early Settlement",
         events: "LINC enrollment, permanent housing search, ongoing RAP casework",
-        barriers: ["No childcare for language classes", "joint bank account partner-controlled"]
+        barriers: ["No childcare for language classes", "Joint bank account partner-controlled"]
       },
       {
         stage: "System Navigation",
         events: "School enrolment (children), social assistance, credential assessment",
-        barriers: ["Confusion across agency mandates", "fear of child protection", "limited interpreter access"]
+        barriers: ["Confusion across agency mandates", "Fear of child protection", "Limited interpreter access"]
       },
       {
         stage: "Community Integration",
         events: "Cultural community contact, employment search, PR application",
-        barriers: ["Partner blocks community access", "sponsorship fear used as control mechanism"]
+        barriers: ["Partner blocks community access", "Sponsorship fear used as control mechanism"]
       }
     ],
     healthJourney: [
@@ -202,7 +202,7 @@ export const personas: Persona[] = [
     id: "priya",
     name: "Priya",
     type: "Medium-Touch Navigator",
-    status: "Family Class (Sponsored)",
+    status: "Family Class - Sponsored",
     location: "Mid-Urban Centre",
     entryPoint: "Primary Care / Family Physician",
     agency: "Medium",
@@ -246,27 +246,27 @@ export const personas: Persona[] = [
       {
         stage: "Pre-Arrival",
         events: "Online pre-arrival services, IRCC sponsored application, partner manages all correspondence",
-        barriers: ["Excluded from her own immigration process", "no knowledge of her rights as sponsored person"]
+        barriers: ["Excluded from her own immigration process", "No knowledge of her rights as sponsored person"]
       },
       {
         stage: "Landing",
         events: "PR card receipt (partner controls it), joint bank account opened, LINC language classes",
-        barriers: ["Financial dependency from day one", "all IRCC communications go to sponsor"]
+        barriers: ["Financial dependency from day one", "All IRCC communications go to sponsor"]
       },
       {
         stage: "Early Settlement",
         events: "Foreign credential recognition process, seeking employment, settlement agency contact",
-        barriers: ["In-laws accompany to all appointments", "credential barriers limit independence"]
+        barriers: ["In-laws accompany to all appointments", "Credential barriers limit independence"]
       },
       {
         stage: "Isolation Deepens",
         events: "Social circle limited to in-laws, online-only information-seeking, routine healthcare visits",
-        barriers: ["Device monitoring cuts off safe information access", "doctor doesn't ask to see her alone"]
+        barriers: ["Device monitoring cuts off safe information access", "Doctor doesn't ask to see her alone"]
       },
       {
         stage: "Help-Seeking",
         events: "Searches rights info online, possible contact with settlement worker, anonymous navigator chat",
-        barriers: ["Fear of sponsorship cancellation", "shame — 'it's not physical, so it's not real abuse'"]
+        barriers: ["Fear of sponsorship cancellation", "Shame — 'it's not physical, so it's not real abuse'"]
       }
     ],
     healthJourney: [
@@ -342,7 +342,7 @@ export const personas: Persona[] = [
     id: "elena",
     name: "Elena",
     type: "Isolated Professional",
-    status: "Economic Class (TR → PR)",
+    status: "Economic Class - TR to PR",
     location: "Rural",
     entryPoint: "Community Health Centre (CHC)",
     agency: "High (hindered by language & location)",
@@ -386,27 +386,27 @@ export const personas: Persona[] = [
       {
         stage: "TR Work Permit",
         events: "Employer-sponsored entry, begins work in rural community, no settlement services (TR not eligible for most)",
-        barriers: ["No RAP or settlement support", "employer controls immigration status"]
+        barriers: ["No RAP or settlement support", "Employer controls immigration status"]
       },
       {
         stage: "TR → PR Transition",
         events: "Provincial Nominee Program application, PR card received, employment continues",
-        barriers: ["Ongoing employer dependency", "isolation deepens in rural setting"]
+        barriers: ["Ongoing employer dependency", "Isolation deepens in rural setting"]
       },
       {
         stage: "Post-PR Settlement",
         events: "Now eligible for some settlement services, seeks employment beyond current employer, LINC access sought",
-        barriers: ["Rural LINC availability near-zero", "no credential recognition pathway visible"]
+        barriers: ["Rural LINC availability near-zero", "No credential recognition pathway visible"]
       },
       {
         stage: "Deepening Control",
         events: "Partner becomes sole community link, financial control established, psychological and financial abuse escalates",
-        barriers: ["No community to disclose to", "rural police response slow / partner may be known to police"]
+        barriers: ["No community to disclose to", "Rural police response slow / partner may be known to police"]
       },
       {
         stage: "Help-Seeking",
         events: "Presents at CHC for mental health concerns, searches Mandarin resources online, possible telehealth contact",
-        barriers: ["Mandarin mental health resources extremely scarce", "rural CHC worker lacks IPV-specialist training"]
+        barriers: ["Mandarin mental health resources extremely scarce", "Rural CHC worker lacks IPV-specialist training"]
       }
     ],
     healthJourney: [
