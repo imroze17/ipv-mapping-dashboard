@@ -14,7 +14,7 @@ export default function SidebarLegend({ isOpen = true }: SidebarLegendProps) {
         <h3 className="text-sm font-bold font-serif tracking-wide text-foreground uppercase border-b border-border pb-2">
           Pathway Legend
         </h3>
-        <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">
+        <p className="text-xs text-stone-600 mt-1.5 leading-relaxed">
           Standardized classifications used across all newcomer IPV pathway maps.
         </p>
       </div>
@@ -29,7 +29,7 @@ export default function SidebarLegend({ isOpen = true }: SidebarLegendProps) {
             <div className="text-xs font-bold text-[var(--friction-color)]">
               ⚡ Friction Point
             </div>
-            <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">
+            <p className="text-xs text-stone-600 mt-0.5 leading-relaxed">
               A moment where the system fails, delays, or creates a dead end.
             </p>
           </div>
@@ -44,7 +44,7 @@ export default function SidebarLegend({ isOpen = true }: SidebarLegendProps) {
             <div className="text-xs font-bold text-[var(--equity-color)]">
               ⚠️ Equity Gap
             </div>
-            <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">
+            <p className="text-xs text-stone-600 mt-0.5 leading-relaxed">
               Where language, immigration status, or culture creates a unique barrier.
             </p>
           </div>
@@ -59,7 +59,7 @@ export default function SidebarLegend({ isOpen = true }: SidebarLegendProps) {
             <div className="text-xs font-bold text-[var(--coordination-color)]">
               💬 Coordination Failure
             </div>
-            <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">
+            <p className="text-xs text-stone-600 mt-0.5 leading-relaxed">
               Drop-off between agencies — referral not made or not followed through.
             </p>
           </div>
@@ -74,7 +74,7 @@ export default function SidebarLegend({ isOpen = true }: SidebarLegendProps) {
             <div className="text-xs font-bold text-[var(--intervention-color)]">
               ✦ Intervention Opportunity
             </div>
-            <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">
+            <p className="text-xs text-stone-600 mt-0.5 leading-relaxed">
               Where a navigator or digital tool could have the highest impact.
             </p>
           </div>
@@ -89,7 +89,7 @@ export default function SidebarLegend({ isOpen = true }: SidebarLegendProps) {
             <div className="text-xs font-bold text-[var(--digital-color)]">
               📱 Digital Friction
             </div>
-            <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">
+            <p className="text-xs text-stone-600 mt-0.5 leading-relaxed">
               Where static online info fails to provide the dynamic support needed.
             </p>
           </div>
@@ -98,10 +98,10 @@ export default function SidebarLegend({ isOpen = true }: SidebarLegendProps) {
 
       {/* Acronym Glossary */}
       <div className="pt-4 border-t border-border space-y-2">
-        <div className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+        <div className="text-[10px] font-bold uppercase tracking-wider text-stone-700">
           Acronym Glossary
         </div>
-        <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-[10px] text-muted-foreground leading-tight">
+        <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-[10px] text-stone-600 leading-tight">
           <div><strong>GAR:</strong> Gov't Assisted Refugee</div>
           <div><strong>PR:</strong> Permanent Resident</div>
           <div><strong>TR:</strong> Temporary Resident</div>
@@ -116,7 +116,7 @@ export default function SidebarLegend({ isOpen = true }: SidebarLegendProps) {
       </div>
 
       <div className="pt-3 border-t border-border">
-        <p className="text-[10px] text-muted-foreground leading-relaxed">
+        <p className="text-[10px] text-stone-600 leading-relaxed">
           <strong>Sources:</strong> Literature review, first-hand interviews, and Subject Matter Expert review.
         </p>
       </div>

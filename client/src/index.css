@@ -61,13 +61,13 @@
   --primary-foreground: oklch(0.98 0.01 70);
   
   --secondary: oklch(0.95 0.01 70);
-  --secondary-foreground: oklch(0.35 0.01 70);
+  --secondary-foreground: oklch(0.28 0.01 70);
   
   --muted: oklch(0.96 0.005 70);
-  --muted-foreground: oklch(0.5 0.01 70);
+  --muted-foreground: oklch(0.38 0.01 70);
   
   --accent: oklch(0.96 0.01 45); /* Soft gold/amber tint */
-  --accent-foreground: oklch(0.35 0.1 45);
+  --accent-foreground: oklch(0.28 0.1 45);
   
   --destructive: oklch(0.55 0.18 25); /* Deep red */
   --destructive-foreground: oklch(0.98 0 0);
@@ -79,29 +79,29 @@
   --radius: 0.75rem;
 
   /* Custom Persona Colors (OKLCH) */
-  --amara-color: oklch(0.48 0.18 28); /* Red - High-Touch Survivor */
+  --amara-color: oklch(0.42 0.18 28); /* Red - High-Touch Survivor */
   --amara-light: oklch(0.96 0.02 28);
   
-  --priya-color: oklch(0.58 0.16 48); /* Amber - Medium-Touch */
+  --priya-color: oklch(0.45 0.14 48); /* Amber - Medium-Touch */
   --priya-light: oklch(0.97 0.02 48);
   
-  --elena-color: oklch(0.42 0.17 300); /* Purple - Isolated Professional */
+  --elena-color: oklch(0.38 0.17 300); /* Purple - Isolated Professional */
   --elena-light: oklch(0.95 0.02 300);
 
   /* Semantic Overlay Colors */
-  --friction-color: oklch(0.48 0.18 28);
+  --friction-color: oklch(0.42 0.18 28);
   --friction-light: oklch(0.96 0.02 28);
   
-  --equity-color: oklch(0.58 0.16 48);
+  --equity-color: oklch(0.45 0.14 48);
   --equity-light: oklch(0.97 0.02 48);
   
-  --coordination-color: oklch(0.42 0.17 300);
+  --coordination-color: oklch(0.38 0.17 300);
   --coordination-light: oklch(0.95 0.02 300);
   
-  --intervention-color: oklch(0.52 0.14 145); /* Forest green */
+  --intervention-color: oklch(0.38 0.12 145); /* Forest green */
   --intervention-light: oklch(0.96 0.02 145);
   
-  --digital-color: oklch(0.54 0.12 210); /* Teal/blue */
+  --digital-color: oklch(0.38 0.11 210); /* Teal/blue */
   --digital-light: oklch(0.96 0.02 210);
 }
 

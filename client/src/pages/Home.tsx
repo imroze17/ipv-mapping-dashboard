@@ -109,10 +109,10 @@ export default function Home() {
       </main>
 
       {/* Global Dashboard Footer */}
-      <footer className="border-t border-border bg-stone-50 py-6 mt-16 text-center text-[11px] text-stone-400">
+      <footer className="border-t border-border bg-stone-50 py-6 mt-16 text-center text-[11px] text-stone-600">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="leading-relaxed">
-            © 2026 Changemark & Vesta SIT. All rights reserved. Prepared by Imroze Singh.
+            © 2026 Changemark & Vesta SIT. All rights reserved.
           </p>
           <div className="flex gap-4">
             <span className="font-semibold text-stone-500 uppercase tracking-widest bg-stone-100 border border-stone-200 px-1.5 py-0.5 rounded">

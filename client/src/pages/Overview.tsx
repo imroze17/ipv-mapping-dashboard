@@ -51,7 +51,7 @@ export default function Overview({ onTabChange }: OverviewProps) {
               Executive Summary & Purpose
             </h2>
             <p className="text-xs text-muted-foreground">
-              Draft — June 2026 | Prepared by Imroze Singh, Changemark
+              Draft — June 2026 | Prepared for VESTA
             </p>
           </div>
           
@@ -123,7 +123,7 @@ export default function Overview({ onTabChange }: OverviewProps) {
           <div className="pt-4 border-t border-border space-y-2">
             <div className="text-xs font-bold text-foreground">Need Technical Help?</div>
             <p className="text-[11px] text-muted-foreground leading-relaxed">
-              This dashboard is maintained by Changemark. For content updates or feedback, please contact Imroze Singh.
+              This dashboard is maintained by Changemark. For content updates or feedback, please contact the project coordinator.
             </p>
           </div>
         </div>
