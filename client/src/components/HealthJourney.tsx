@@ -1,5 +1,5 @@
 import React from "react";
-import { Persona } from "../lib/data";
+import { Persona, InterventionItem } from "../lib/data";
 import { HelpCircle, ChevronRight } from "lucide-react";
 
 interface HealthJourneyProps {
@@ -7,14 +7,14 @@ interface HealthJourneyProps {
 }
 
 export default function HealthJourney({ persona }: HealthJourneyProps) {
-  const { healthJourney, emotions, color, lightColor } = persona;
+  const { healthJourney, color, lightColor } = persona;
 
   return (
     <div className="space-y-8 animate-fadeIn">
       {/* Editorial Section Header */}
       <div className="border-b border-border pb-3">
         <h3 className="text-lg font-bold font-serif text-foreground">
-          Section C — Health Journey Swim Lanes
+          Section C — Health Journey Timeline
         </h3>
         <p className="text-xs text-muted-foreground mt-0.5">
           Mapping touchpoints, friction, equity gaps, and intervention opportunities across four distinct healthcare stages.
@@ -119,11 +119,22 @@ export default function HealthJourney({ persona }: HealthJourneyProps) {
               </td>
               {healthJourney.map((stage, idx) => (
                 <td key={idx} className="p-4 border-r border-border last:border-r-0 align-top">
-                  <ul className="space-y-2">
-                    {stage.intervention.map((point, pIdx) => (
+                  <ul className="space-y-2.5">
+                    {stage.intervention.map((point: InterventionItem, pIdx: number) => (
                       <li key={pIdx} className="text-xs text-stone-700 flex items-start gap-1.5 leading-relaxed font-medium">
                         <span className="text-[var(--intervention-color)] font-bold mt-0.5 flex-shrink-0">✦</span>
-                        <span>{point}</span>
+                        <span>
+                          <span className={`inline-block text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded mr-1 mb-0.5 ${
+                            point.cat === "nav"
+                              ? "bg-[var(--intervention-light)] text-[var(--intervention-color)]"
+                              : point.cat === "digital"
+                              ? "bg-[var(--digital-light)] text-[var(--digital-color)]"
+                              : "bg-stone-100 text-stone-500"
+                          }`}>
+                            {point.cat === "nav" ? "Navigator Practice" : point.cat === "digital" ? "Digital Tool" : "System"}
+                          </span>
+                          {point.text}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -134,46 +145,6 @@ export default function HealthJourney({ persona }: HealthJourneyProps) {
         </table>
       </div>
 
-      {/* Emotion Line */}
-      <div className="space-y-4">
-        <h4 className="text-xs font-bold uppercase tracking-wider text-foreground">
-          Emotional Trajectory Line
-        </h4>
-        
-        <div className="bg-stone-50 border border-border rounded-xl p-5 shadow-sm">
-          <div className="relative flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-4">
-            {/* SVG Connector line for desktop */}
-            <div className="hidden md:block absolute top-6 left-10 right-10 h-0.5 bg-stone-200 z-0" />
-
-            {emotions.map((item, idx) => {
-              const stageColor = healthJourney[idx]?.stageColor || "#ccc";
-              return (
-                <div key={idx} className="relative z-10 flex md:flex-col items-start md:items-center gap-4 md:gap-2 md:text-center md:w-1/4">
-                  {/* Emoji/Indicator Bubble */}
-                  <div 
-                    style={{ borderColor: stageColor, backgroundColor: "white" }}
-                    className="w-12 h-12 rounded-full border-2 flex items-center justify-center text-lg shadow-sm flex-shrink-0"
-                  >
-                    {item.emotion.split(" ")[0]}
-                  </div>
-
-                  <div className="space-y-1">
-                    <div className="text-xs font-bold text-foreground">
-                      {item.emotion.substring(item.emotion.indexOf(" ") + 1)}
-                    </div>
-                    <div className="text-[10px] font-semibold text-stone-400 uppercase tracking-wider">
-                      {item.stage}
-                    </div>
-                    <p className="text-[11px] text-muted-foreground leading-relaxed max-w-[180px] md:mx-auto">
-                      {item.note}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

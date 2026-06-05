@@ -161,7 +161,7 @@ export default function AggregateMap() {
         <div className="bg-stone-50 border border-border rounded-xl p-4 text-xs text-muted-foreground flex gap-2.5 shadow-sm leading-relaxed">
           <Info size={16} className="text-stone-400 flex-shrink-0 mt-0.5" />
           <div>
-            <strong>Cross-Persona Insight:</strong> Notice how <strong>"No navigator role exists in current pathway"</strong>, <strong>"Fear of immigration consequences"</strong>, and <strong>"Safety planning assumes physical departure"</strong> act as universal barriers across all newcomer classes, regardless of their English fluency or geographic isolation. This strongly reinforces the need for an integrated, multi-sector Navigator Practice Toolkit.
+            <strong>Cross-Persona Insight:</strong> Notice how <strong>"No healthcare navigator role exists in current pathway"</strong>, <strong>"Fear of immigration consequences"</strong>, and <strong>"Safety planning assumes physical departure"</strong> act as universal barriers across all newcomer classes, regardless of their English fluency or geographic isolation. This strongly reinforces the need for an integrated, multi-sector Navigator Practice Toolkit.
           </div>
         </div>
       </div>

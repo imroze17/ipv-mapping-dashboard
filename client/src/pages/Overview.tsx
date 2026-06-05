@@ -63,7 +63,7 @@ export default function Overview({ onTabChange }: OverviewProps) {
               Newcomers face compounding layers of vulnerability. Language barriers, fear of sponsorship cancellation, isolation, lack of child care, and unfamiliarity with Canadian legal and healthcare frameworks create severe friction points. 
             </p>
             <p>
-              By visualizing these distinct journeys, we identify critical coordination failures across healthcare, settlement, and legal sectors. Ultimately, these maps highlight <strong>high-impact intervention opportunities</strong> where specialized peer navigators or digital toolkits can step in to provide safe, confidential, and culturally-adapted pathways to safety.
+              By visualizing these distinct journeys, we identify critical coordination failures across healthcare, settlement, and legal sectors. Ultimately, these maps highlight <strong>high-impact intervention opportunities</strong> where specialized navigators or digital toolkits can step in to provide safe, confidential, and culturally-adapted pathways to safety.
             </p>
           </div>
 
@@ -112,10 +112,10 @@ export default function Overview({ onTabChange }: OverviewProps) {
                 Frontline workers at Community Health Centres (CHCs), Refugee Health Clinics, Emergency Departments, and Settlement Agencies will utilize this tool to coordinate care.
               </p>
               <p>
-                <strong>SME Reviewers:</strong> Angela, Ashley, Oksana.
+                <strong>Sources:</strong> Literature review, first-hand interviews, and Subject Matter Expert review.
               </p>
               <p>
-                <strong>Next Milestone:</strong> Integration of healthcare provider interview analysis (completed by Holly on June 1) and client feedback on June 10.
+                
               </p>
             </div>
           </div>
@@ -136,7 +136,7 @@ export default function Overview({ onTabChange }: OverviewProps) {
             The Three Personas
           </h2>
           <p className="text-xs text-muted-foreground max-w-xl">
-            Each persona represents a distinct newcomer immigration class, level of system-navigation agency, and unique intersection of barriers.
+            One map can't capture the diversity of the newcomer experience. Instead, we created personas — fictitious people who represent the primary themes showing up in literature and first-hand interviews — to show how different immigration classes, systemic barriers, and navigation styles intersect.
           </p>
         </div>
 

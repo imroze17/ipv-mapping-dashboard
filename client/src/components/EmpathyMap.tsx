@@ -145,7 +145,7 @@ export default function EmpathyMap({ persona }: EmpathyMapProps) {
           <div className="flex items-center gap-2 text-emerald-800">
             <CheckCircle2 size={16} />
             <h4 className="text-xs font-bold uppercase tracking-wider">
-              Gain Points (Aspirations & Safety)
+              Gain Points (Aspirations & Hopes)
             </h4>
           </div>
           <p className="text-xs text-emerald-900/80 leading-relaxed font-medium">

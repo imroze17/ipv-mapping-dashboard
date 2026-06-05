@@ -56,10 +56,10 @@ export default function StakeholderMap({ persona }: StakeholderMapProps) {
       {/* Editorial Section Header */}
       <div className="border-b border-border pb-3">
         <h3 className="text-lg font-bold font-serif text-foreground">
-          Section D — Stakeholder Map
+          Section D — {persona.name}'s Circle
         </h3>
         <p className="text-xs text-muted-foreground mt-0.5">
-          An interactive network mapping social, medical, legal, and community stakeholders relative to {persona.name}. Bubble sizes reflect relative influence/power over her trajectory.
+          An interactive map visualizing the social, medical, legal, and community influences in {persona.name}'s network. Bubble sizes reflect relative influence/power over her trajectory.
         </p>
       </div>
 

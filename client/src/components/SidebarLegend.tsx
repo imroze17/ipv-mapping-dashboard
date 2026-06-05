@@ -97,25 +97,8 @@ export default function SidebarLegend({ isOpen = true }: SidebarLegendProps) {
       </div>
 
       <div className="pt-3 border-t border-border">
-        <h4 className="text-xs font-bold text-foreground uppercase tracking-wider mb-2">
-          Placeholder Status Flags
-        </h4>
-        <div className="grid grid-cols-2 gap-1.5 text-[10px]">
-          <span className="px-1.5 py-0.5 bg-amber-50 text-amber-800 rounded border border-amber-200 text-center font-medium">
-            [INTERVIEW DATA — TBD]
-          </span>
-          <span className="px-1.5 py-0.5 bg-blue-50 text-blue-800 rounded border border-blue-200 text-center font-medium">
-            [CONFIRM WITH HOLLY]
-          </span>
-          <span className="px-1.5 py-0.5 bg-purple-50 text-purple-800 rounded border border-purple-200 text-center font-medium">
-            [SME REVIEW]
-          </span>
-          <span className="px-1.5 py-0.5 bg-rose-50 text-rose-800 rounded border border-rose-200 text-center font-medium">
-            [CLIENT FEEDBACK]
-          </span>
-        </div>
-        <p className="text-[10px] text-muted-foreground mt-2 leading-relaxed">
-          These tags indicate sections that will be updated following Holly's analysis of provider interviews.
+        <p className="text-[10px] text-muted-foreground leading-relaxed">
+          <strong>Sources:</strong> Literature review, first-hand interviews, and Subject Matter Expert review.
         </p>
       </div>
     </div>

@@ -1,3 +1,8 @@
+export interface InterventionItem {
+  cat: "nav" | "sys" | "digital";
+  text: string;
+}
+
 export interface Persona {
   id: string;
   name: string;
@@ -31,7 +36,7 @@ export interface Persona {
     touchpoints: string[];
     friction: string[];
     equity: string[];
-    intervention: string[];
+    intervention: InterventionItem[];
   }[];
   emotions: {
     stage: string;
@@ -60,7 +65,7 @@ export const personas: Persona[] = [
     agency: "Low",
     languages: "Limited English",
     quote: "Will the police take my children away? My husband is also suffering — this is not 'normal' violence.",
-    description: "Amara recently resettled in a major urban centre with three children. Her resettlement caseworker is her primary lifeline. IPV is compounded by her husband's untreated trauma and mutual fear of the Canadian legal system. IPV is often masked by overwhelming resettlement logistics.",
+    description: "Amara recently resettled in a major urban centre with three children. Her resettlement caseworker is her primary lifeline, especially given extremely limited English language. IPV is compounded by her husband's untreated trauma and mutual fear of the Canadian legal system. IPV is often masked by overwhelming resettlement logistics.",
     color: "var(--amara-color)",
     lightColor: "var(--amara-light)",
     empathy: {
@@ -70,6 +75,7 @@ export const personas: Persona[] = [
         "I don't know my rights in Canada",
         "Fear of being deported if I report",
         "Shame — IPV is a private/family matter",
+        "Confusion between the Western definition of IPV and my cultural upbringing — in my culture, this was not seen as abuse",
         "Overwhelmed by resettlement logistics"
       ],
       hears: [
@@ -129,7 +135,11 @@ export const personas: Persona[] = [
         touchpoints: ["RAP wellness check triggers ED visit", "Intake nurse (no IPV screening protocol)", "ED physician", "RAP caseworker present in waiting area"],
         friction: ["Partner accompanies — blocks private disclosure opportunity", "No interpreter offered at intake", "No private room available for screening"],
         equity: ["English-only intake forms", "IPV not within RAP caseworker's mandate", "No cultural safety protocols for disclosure"],
-        intervention: ["IPV-informed ED screening protocol", "Peer navigator stationed in or near ED", "Culturally safe disclosure scripts for intake nurse"]
+        intervention: [
+          { cat: "sys", text: "IPV-informed ED screening protocol" },
+          { cat: "nav", text: "Navigator stationed in or near ED" },
+          { cat: "sys", text: "Culturally safe disclosure scripts for intake nurse" }
+        ]
       },
       {
         stage: "Treatment",
@@ -138,7 +148,12 @@ export const personas: Persona[] = [
         touchpoints: ["Referral to refugee health clinic", "Specialized trauma assessment", "Children's welfare check", "Mental health referral"],
         friction: ["Long wait times for refugee health clinic", "Children present at appointments — no childcare", "Mental health services severely limited"],
         equity: ["Services don't account for ongoing safety risk at home", "Interpreter confidentiality issues in small community (peer interpreter may know partner)"],
-        intervention: ["Co-located services (settlement + health in one site)", "Navigator bridges RAP casework and healthcare system"]
+        intervention: [
+          { cat: "sys", text: "Co-located services (settlement + health in one site)" },
+          { cat: "nav", text: "Navigator bridges RAP casework and healthcare system" },
+          { cat: "sys", text: "Translated materials in primary language" },
+          { cat: "sys", text: "Education workshops in multiple languages" }
+        ]
       },
       {
         stage: "Discharge",
@@ -147,7 +162,10 @@ export const personas: Persona[] = [
         touchpoints: ["Safety planning (if IPV has been disclosed)", "Referral to shelter or outreach worker", "Follow-up appointment scheduled"],
         friction: ["Safety plan assumes ability to leave home — often not feasible", "Shelter capacity full; no vacancy", "No transportation available"],
         equity: ["Shelter intake forms English-only", "Immigration status not verified — women sometimes turned away"],
-        intervention: ["Safety planning co-created with peer navigator (her language)", "Warm handoff to trusted outreach worker before leaving hospital"]
+        intervention: [
+          { cat: "nav", text: "Safety planning co-created with navigator (her language)" },
+          { cat: "nav", text: "Warm handoff to trusted outreach worker before leaving hospital" }
+        ]
       },
       {
         stage: "Return",
@@ -156,7 +174,11 @@ export const personas: Persona[] = [
         touchpoints: ["Follow-up with family physician", "Ongoing RAP case management", "Legal aid referral"],
         friction: ["No consistent care provider across system entries", "Follow-up lost if she moves housing (common for RAP families)"],
         equity: ["No coordinated IPV + settlement case file", "No handoff protocol between ED and primary care"],
-        intervention: ["Navigator maintains continuity across re-entries to system", "Shared care plan spanning settlement and health sectors"]
+        intervention: [
+          { cat: "nav", text: "Navigator maintains continuity across re-entries to system" },
+          { cat: "sys", text: "Shared care plan spanning settlement and health sectors" },
+          { cat: "sys", text: "Workshops on abuse and health for clients and providers" }
+        ]
       }
     ],
     emotions: [
@@ -171,7 +193,7 @@ export const personas: Persona[] = [
       { id: "caseworker", name: "RAP Caseworker", role: "Supportive Actor", influence: "High", category: "system", note: "Primary lifeline; limited IPV knowledge; not mandated for IPV", position: { x: 20, y: 30 } },
       { id: "nurse", name: "ED Nurse", role: "Supportive Actor", influence: "Medium", category: "system", note: "Potential disclosure point; needs IPV training and alone-time protocol", position: { x: 15, y: 65 } },
       { id: "clinic", name: "Refugee Health Clinic", role: "Supportive Actor", influence: "Medium", category: "system", note: "Specialized care; access delayed; long wait times", position: { x: 45, y: 80 } },
-      { id: "navigator", name: "Peer Navigator", role: "Intervention Opportunity", influence: "High", category: "intervention", note: "✦ Highest impact; doesn't yet exist in this pathway", position: { x: 50, y: 50 } },
+      { id: "navigator", name: "Navigator", role: "Intervention Opportunity", influence: "High", category: "intervention", note: "✦ Highest impact; doesn't yet exist in this pathway", position: { x: 25, y: 55 } },
       { id: "shelter", name: "IPV Shelter", role: "Supportive Actor", influence: "Medium", category: "intervention", note: "Safety net; language and capacity barriers", position: { x: 80, y: 70 } },
       { id: "community", name: "Cultural Community", role: "Mixed Support/Surveillance", influence: "Medium", category: "community", note: "Mixed — support + surveillance; can be source of comfort and pressure", position: { x: 85, y: 48 } }
     ]
@@ -181,12 +203,12 @@ export const personas: Persona[] = [
     name: "Priya",
     type: "Medium-Touch Navigator",
     status: "Family Class (Sponsored)",
-    location: "Winnipeg, Mid-Urban",
+    location: "Mid-Urban Centre",
     entryPoint: "Primary Care / Family Physician",
     agency: "Medium",
     languages: "Moderate English",
     quote: "If I leave, will I lose my immigration status? I was independent before — now I have nothing that's mine.",
-    description: "Priya joined her husband's extended family in Winnipeg. Educated and tech-savvy, but socially isolated within her sponsorship circle. Husband manages finances and immigration paperwork. Phone and computer are monitored — searching 'domestic violence' is unsafe. In-laws accompany her to appointments, blocking private disclosure. Fears sponsorship cancellation if she reports.",
+    description: "Priya joined her husband's extended family in a mid-urban centre. Educated and tech-savvy, but socially isolated within her sponsorship circle and unable to attain employment in her field. Husband manages finances and immigration paperwork. Phone and computer are monitored — searching 'domestic violence' is unsafe. In-laws accompany her to appointments to support translation, blocking private disclosure. Fears sponsorship cancellation if she reports.",
     color: "var(--priya-color)",
     lightColor: "var(--priya-light)",
     empathy: {
@@ -196,7 +218,7 @@ export const personas: Persona[] = [
         "My in-laws will blame me if I report",
         "I don't want my husband to be deported",
         "Am I even experiencing abuse? It's not physical.",
-        "Fear of losing access to my children"
+        "Fear of losing access to my children — he has my children's immigration documents"
       ],
       hears: [
         "Husband: 'I can cancel your sponsorship any time'",
@@ -255,7 +277,11 @@ export const personas: Persona[] = [
         touchpoints: ["Routine visit to family physician", "Child immunization appointment", "Clinic receptionist", "Online health portal (MyHealth)"],
         friction: ["Partner or in-law accompanies to appointment — no private screening opportunity", "No clinic protocol to see patient alone", "Partner translates during appointment, blocking disclosure"],
         equity: ["IPV screening not trauma-informed", "No process to see patient privately", "Device monitoring prevents safe use of online health portal"],
-        intervention: ["Clinic protocol requiring brief alone-time with patient (universal screening)", "Subtle wellness screen embedded in MyHealth patient portal", "Anonymous navigator chat accessible from a private device or clinic terminal"]
+        intervention: [
+          { cat: "sys", text: "Clinic protocol requiring brief alone-time with patient (universal screening)" },
+          { cat: "digital", text: "Subtle wellness screen embedded in MyHealth patient portal" },
+          { cat: "digital", text: "Anonymous navigator chat accessible from a private device or clinic terminal" }
+        ]
       },
       {
         stage: "Treatment",
@@ -264,7 +290,12 @@ export const personas: Persona[] = [
         touchpoints: ["Wellness screening (if seen alone)", "GP assessment", "Mental health referral (if disclosed)", "Prescription management"],
         friction: ["Mental health services inaccessible without strong English", "Fear that clinical notes will be shared with or accessed by partner"],
         equity: ["Cultural definitions of abuse not recognized by Western-trained providers", "Services designed for English-fluent users only"],
-        intervention: ["Culturally informed counselling with language match", "Peer navigator bridges GP and legal/immigration support"]
+        intervention: [
+          { cat: "nav", text: "Culturally informed counselling with language match" },
+          { cat: "nav", text: "Navigator bridges GP and legal/immigration support" },
+          { cat: "sys", text: "Workshops on abuse and health for both clients and providers" },
+          { cat: "sys", text: "Education workshops in multiple languages" }
+        ]
       },
       {
         stage: "Discharge",
@@ -273,7 +304,10 @@ export const personas: Persona[] = [
         touchpoints: ["Follow-up appointment scheduled", "Safety planning (if disclosed)", "Referral to community support"],
         friction: ["Safety plan assumes ability to leave — leaves her without status or financial resources", "Fear of losing access to children", "No shelter options explained clearly"],
         equity: ["Shelter intake assumes clarity on legal status", "Resources not available in her language"],
-        intervention: ["Peer navigator provides confidential options including status-protected options", "Digital tool with disguise/exit feature for safe device use"]
+        intervention: [
+          { cat: "nav", text: "Navigator provides confidential options including status-protected options" },
+          { cat: "digital", text: "Digital tool with disguise/exit feature for safe device use" }
+        ]
       },
       {
         stage: "Return",
@@ -282,7 +316,10 @@ export const personas: Persona[] = [
         touchpoints: ["Return to GP for ongoing care", "Settlement worker liaison", "Legal aid referral"],
         friction: ["No continuity — different GP each visit", "Sponsorship status not part of the care file"],
         equity: ["No IPV-immigration integration in primary care", "Follow-up communications lost if partner changes her phone number"],
-        intervention: ["Navigator maintains care continuity across visits", "Sponsorship rights information integrated into care plan"]
+        intervention: [
+          { cat: "nav", text: "Navigator maintains care continuity across visits" },
+          { cat: "sys", text: "Sponsorship rights information integrated into care plan" }
+        ]
       }
     ],
     emotions: [
@@ -297,7 +334,7 @@ export const personas: Persona[] = [
       { id: "caseworker", name: "Settlement Worker", role: "Supportive Actor", influence: "High", category: "system", note: "Trust-builder; most effective if culturally matched", position: { x: 20, y: 30 } },
       { id: "gp", name: "Family Physician", role: "Supportive Actor", influence: "Medium", category: "system", note: "Missed opportunity; no alone-time protocol; doesn't ask directly", position: { x: 15, y: 65 } },
       { id: "legal", name: "Legal Aid", role: "Supportive Actor", influence: "Medium", category: "system", note: "Critical knowledge gap — she doesn't know she cannot be deported due to IPV", position: { x: 45, y: 80 } },
-      { id: "navigator", name: "Peer Navigator", role: "Intervention Opportunity", influence: "High", category: "intervention", note: "✦ Highest impact; doesn't yet exist in this pathway", position: { x: 50, y: 50 } },
+      { id: "navigator", name: "Navigator", role: "Intervention Opportunity", influence: "High", category: "intervention", note: "✦ Highest impact; doesn't yet exist in this pathway", position: { x: 25, y: 55 } },
       { id: "online", name: "Online Community", role: "Supportive Actor", influence: "Medium", category: "community", note: "Private info source; unsafe due to device monitoring", position: { x: 85, y: 48 } }
     ]
   },
@@ -306,12 +343,12 @@ export const personas: Persona[] = [
     name: "Elena",
     type: "Isolated Professional",
     status: "Economic Class (TR → PR)",
-    location: "Rural Ontario",
+    location: "Rural",
     entryPoint: "Community Health Centre (CHC)",
     agency: "High (hindered by language & location)",
     languages: "Mandarin, limited English",
-    quote: "I am educated — why can't I find work here? If I report, will my employer-tied status be affected?",
-    description: "Elena transitioned from a Temporary Resident work permit to Permanent Residency in a small Ontario community to fill a labour shortage. Despite high professional skills, she faces significant employment barriers and is profoundly socially isolated. Her partner is her sole bridge to community. IPV is characterized by psychological and financial control. She presents at healthcare as 'stress' or 'anxiety' — not as IPV.",
+    quote: "I am educated — why can't I find relevant work here? If I report, will my employer-tied status be affected?",
+    description: "Elena transitioned from a Temporary Resident work permit to Permanent Residency in a small rural community to fill a labour shortage. Despite high professional skills, she faces significant employment barriers and is profoundly socially isolated, compounded by limited English skills. Her partner is her sole bridge to community. IPV is characterized by psychological and financial control. She presents to healthcare with 'stress' and 'anxiety', not with physical symptoms of IPV.",
     color: "var(--elena-color)",
     lightColor: "var(--elena-light)",
     empathy: {
@@ -377,10 +414,15 @@ export const personas: Persona[] = [
         stage: "Access",
         stageLabel: "Stage 1",
         stageColor: "#0580A0",
-        touchpoints: ["CHC intake worker", "Social worker at CHC", "Employment counsellor", "Possible telehealth GP"],
+        touchpoints: ["CHC intake worker", "Public health nurse at CHC", "Employment counsellor", "Possible telehealth GP"],
         friction: ["CHC worker has no Mandarin language capacity", "IPV not named — presents as 'stress' or 'employment pressure'", "No interpreter services available", "Rural distance to any specialist"],
-        equity: ["Mandarin excluded from service delivery across the board", "Economic-class IPV pattern not well understood by providers", "No 'no wrong door' rural referral protocol"],
-        intervention: ["Mandarin telehealth navigator", "Rural CHC IPV toolkit for frontline workers (this project's deliverable)", "No-wrong-door rural referral network", "Subsidized phone/internet for rural survivors"]
+        equity: ["Mandarin excluded from service delivery across the board", "Economic-class IPV pattern not well understood by providers", "No no-wrong-door rural referral protocol"],
+        intervention: [
+          { cat: "nav", text: "Mandarin-speaking telehealth navigator" },
+          { cat: "sys", text: "Rural CHC IPV toolkit for frontline workers (this project's deliverable)" },
+          { cat: "sys", text: "No-wrong-door rural referral network" },
+          { cat: "sys", text: "Subsidized phone/internet for rural survivors" }
+        ]
       },
       {
         stage: "Treatment",
@@ -389,16 +431,24 @@ export const personas: Persona[] = [
         touchpoints: ["Social worker assessment", "Mental health counselling (very limited)", "Referral to IPV supports (if known to worker)", "Telehealth specialist"],
         friction: ["No Mandarin-language mental health services in rural Ontario", "Trauma not recognized as IPV-related — treated as generalized anxiety", "Referral pathways not known to the CHC worker"],
         equity: ["Rural CHC not connected to urban IPV specialists", "Cultural definitions of abuse (psychological, financial) not in clinical scope", "Telehealth platforms typically English-only"],
-        intervention: ["Mandarin-language counselling via telehealth", "Navigator bridges rural CHC and urban IPV specialists"]
+        intervention: [
+          { cat: "nav", text: "Mandarin-language counselling via telehealth" },
+          { cat: "nav", text: "Navigator bridges rural CHC and urban IPV specialists" },
+          { cat: "sys", text: "Education workshops in multiple languages" }
+        ]
       },
       {
         stage: "Discharge",
         stageLabel: "Stage 3",
         stageColor: "#1A8550",
         touchpoints: ["Follow-up plan with CHC", "Referral to distant shelter (hours away by road)", "Transportation coordination required"],
-        friction: ["Nearest shelter is hours away — partner controls vehicle", "Safety planning conducted without Mandarin support", "No winter travel options in parts of rural Ontario"],
+        friction: ["Nearest shelter is hours away — partner controls vehicle", "Safety planning conducted without Mandarin support", "No winter travel options — including no Uber/rideshare or public transit"],
         equity: ["4% of shelters serve populations under 1,000; none nearby", "No fly-in or remote shelter capacity", "Immigration status (PR) unknown to CHC worker — may affect perceived eligibility"],
-        intervention: ["Virtual safety planning in Mandarin via telehealth", "Navigator coordinates transportation logistics", "Digital resource hub (Mandarin, audio-visual, no literacy required)"]
+        intervention: [
+          { cat: "nav", text: "Virtual safety planning in Mandarin via telehealth" },
+          { cat: "nav", text: "Navigator coordinates transportation logistics" },
+          { cat: "digital", text: "Digital resource hub (Mandarin, audio-visual, no literacy required)" }
+        ]
       },
       {
         stage: "Return",
@@ -407,7 +457,12 @@ export const personas: Persona[] = [
         touchpoints: ["Ongoing telehealth visits", "CHC social worker for continuity", "Employment support (if available)"],
         friction: ["Follow-up requires reliable internet and phone — rural connectivity gaps", "Partner may intercept communications", "No longitudinal care file across CHC visits"],
         equity: ["Employer dependency not flagged as immigration risk factor in care", "Isolation means no informal support network to help her return", "No handoff between telehealth provider and CHC worker"],
-        intervention: ["Navigator maintains continuity across telehealth and in-person visits", "Employer-tied status risk integrated into care plan", "Offline resource options (audio, community drop-ins if any exist)"]
+        intervention: [
+          { cat: "nav", text: "Navigator maintains continuity across telehealth and in-person visits" },
+          { cat: "sys", text: "Employer-tied status risk integrated into care plan" },
+          { cat: "digital", text: "Offline resource options (audio, community drop-ins if any exist)" },
+          { cat: "sys", text: "Workshops on abuse and health for clients and providers" }
+        ]
       }
     ],
     emotions: [
@@ -421,7 +476,7 @@ export const personas: Persona[] = [
       { id: "employer", name: "Employer", role: "Controlling Actor", influence: "Medium", category: "controlling", note: "Controls immigration status via work permit dependency", position: { x: 80, y: 30 } },
       { id: "socialworker", name: "CHC Social Worker", role: "Supportive Actor", influence: "High", category: "system", note: "Key entry point; needs IPV training; doesn't know Mandarin", position: { x: 20, y: 30 } },
       { id: "telehealth", name: "Telehealth Provider", role: "Supportive Actor", influence: "Medium", category: "system", note: "Critical for rural access; needs Mandarin capacity", position: { x: 15, y: 65 } },
-      { id: "navigator", name: "Mandarin Navigator", role: "Intervention Opportunity", influence: "High", category: "intervention", note: "✦ Highest impact; does not yet exist in this pathway", position: { x: 50, y: 50 } },
+      { id: "navigator", name: "Mandarin-Speaking Navigator", role: "Intervention Opportunity", influence: "High", category: "intervention", note: "✦ Highest impact; does not yet exist in this pathway", position: { x: 25, y: 55 } },
       { id: "online", name: "Online Mandarin Community", role: "Supportive Actor", influence: "Medium", category: "community", note: "Only social outlet; no local presence; subject to partner monitoring", position: { x: 85, y: 48 } },
       { id: "specialist", name: "Urban IPV Specialist", role: "Supportive Actor", influence: "Medium", category: "intervention", note: "Via navigator referral; currently inaccessible without navigator bridge", position: { x: 45, y: 80 } }
     ]
@@ -440,9 +495,9 @@ export const sharedFrictions: SharedFriction[] = [
   { friction: "No private time with patient during healthcare visit", amara: true, priya: true, elena: false, category: "Friction" },
   { friction: "Partner/family member controls access to appointments", amara: true, priya: true, elena: false, category: "Friction" },
   { friction: "Language barriers across all service touchpoints", amara: true, priya: false, elena: true, category: "Equity Gap" },
-  { friction: "No Mandarin/heritage language service delivery", amara: true, priya: false, elena: true, category: "Equity Gap" },
+  { friction: "No heritage language service delivery", amara: true, priya: false, elena: true, category: "Equity Gap" },
   { friction: "Fear of immigration consequences prevents disclosure", amara: true, priya: true, elena: true, category: "Equity Gap" },
-  { friction: "No navigator role exists in current pathway", amara: true, priya: true, elena: true, category: "Coordination Failure" },
+  { friction: "No healthcare navigator role exists in current pathway", amara: true, priya: true, elena: true, category: "Coordination Failure" },
   { friction: "Safety planning assumes ability to physically leave", amara: true, priya: true, elena: true, category: "Friction" },
   { friction: "Mental health services unavailable or inaccessible", amara: true, priya: true, elena: true, category: "Friction" },
   { friction: "No continuity across system re-entries", amara: true, priya: true, elena: true, category: "Coordination Failure" },
@@ -461,12 +516,14 @@ export interface OpportunityPoint {
 }
 
 export const opportunities: OpportunityPoint[] = [
-  { opportunity: "Culturally safe, language-matched peer navigator role", personas: ["Amara", "Priya", "Elena"], stage: "All", type: "Navigator" },
-  { opportunity: "Universal alone-time protocol in all healthcare settings", personas: ["Amara", "Priya"], stage: "Access", type: "System change" },
-  { opportunity: "Integrated IPV + settlement case file / shared care plan", personas: ["Amara", "Priya", "Elena"], stage: "All", type: "Coordination" },
-  { opportunity: "Multilingual, audio-visual digital resource hub", personas: ["Amara", "Priya", "Elena"], stage: "All", type: "Digital tool" },
-  { opportunity: "Anonymous / disguisable navigator chat tool", personas: ["Priya", "Elena"], stage: "Access", type: "Digital tool" },
-  { opportunity: "Telehealth with language-matched navigators", personas: ["Elena", "Amara"], stage: "Access + Treatment", type: "Digital + Navigation" },
-  { opportunity: "Rural CHC IPV toolkit for frontline workers", personas: ["Elena"], stage: "Access", type: "Toolkit" },
-  { opportunity: "Safety planning co-created with navigator", personas: ["Amara", "Elena"], stage: "Discharge", type: "Navigator" }
+  { opportunity: "Culturally safe, language-matched navigator role", personas: ["Amara", "Priya", "Elena"], stage: "All", type: "Navigator Practice" },
+  { opportunity: "Universal alone-time protocol in all healthcare settings", personas: ["Amara", "Priya"], stage: "Access", type: "System Improvements" },
+  { opportunity: "Integrated IPV + settlement case file / shared care plan", personas: ["Amara", "Priya", "Elena"], stage: "All", type: "System Improvements" },
+  { opportunity: "Multilingual, audio-visual digital resource hub", personas: ["Amara", "Priya", "Elena"], stage: "All", type: "Digital Tools" },
+  { opportunity: "Anonymous / disguisable navigator chat tool", personas: ["Priya", "Elena"], stage: "Access", type: "Digital Tools" },
+  { opportunity: "Telehealth with language-matched navigators", personas: ["Elena", "Amara"], stage: "Access + Treatment", type: "Navigator Practice" },
+  { opportunity: "Rural CHC IPV toolkit for frontline workers", personas: ["Elena"], stage: "Access", type: "System Improvements" },
+  { opportunity: "Safety planning co-created with navigator", personas: ["Amara", "Elena"], stage: "Discharge", type: "Navigator Practice" },
+  { opportunity: "Education workshops in multiple languages", personas: ["Amara", "Priya", "Elena"], stage: "All", type: "System Improvements" },
+  { opportunity: "Workshops on abuse and health for clients and providers", personas: ["Amara", "Priya", "Elena"], stage: "All", type: "System Improvements" }
 ];
