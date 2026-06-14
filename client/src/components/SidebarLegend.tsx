@@ -112,6 +112,8 @@ export default function SidebarLegend({ isOpen = true }: SidebarLegendProps) {
           <div><strong>OHIP:</strong> Ont. Health Insurance</div>
           <div><strong>IRCC:</strong> Immigration Canada</div>
           <div><strong>UNHCR:</strong> UN Refugee Agency</div>
+          <div><strong>OCAP:</strong> Ownership/Control/Access</div>
+          <div><strong>SIT:</strong> System Integration Tool</div>
         </div>
       </div>
 

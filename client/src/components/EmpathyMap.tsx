@@ -17,7 +17,9 @@ export default function EmpathyMap({ persona }: EmpathyMapProps) {
           Section A — Empathy Map
         </h3>
         <p className="text-xs text-muted-foreground mt-0.5">
-          Understanding the internal and external environment of {persona.name} as she navigates resettlement and abuse.
+          {persona.type === "Practitioner"
+            ? `Understanding the internal and external environment of ${persona.name} as she supports survivors and navigates systemic barriers.`
+            : `Understanding the internal and external environment of ${persona.name} as she navigates resettlement and abuse.`}
         </p>
       </div>
 

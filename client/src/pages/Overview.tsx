@@ -65,6 +65,9 @@ export default function Overview({ onTabChange }: OverviewProps) {
             <p>
               By visualizing these distinct journeys, we identify critical coordination failures across healthcare, settlement, and legal sectors. Ultimately, these maps highlight <strong>high-impact intervention opportunities</strong> where specialized navigators or digital toolkits can step in to provide safe, confidential, and culturally-adapted pathways to safety.
             </p>
+            <p>
+              Regardless of immigration status, urban vs rural living location, education or entry point; we recognize that agency of all who are victims of IPV is enormously affected by the abuser. Abusers use every type of control they can to maintain the control they have over the victim. The list of Friction and Equity Gaps is non exhaustive for each of the personas.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
@@ -133,23 +136,25 @@ export default function Overview({ onTabChange }: OverviewProps) {
       <div id="personas-section" className="space-y-6 pt-4">
         <div className="space-y-2">
           <h2 className="text-2xl font-serif font-bold text-foreground">
-            The Three Personas
+            The Pathway Personas
           </h2>
           <p className="text-xs text-muted-foreground max-w-xl">
-            One map can't capture the diversity of the newcomer experience. Instead, we created personas — fictitious people who represent the primary themes showing up in literature and first-hand interviews — to show how different immigration classes, systemic barriers, and navigation styles intersect.
+            One map can't capture the diversity of the newcomer experience. Instead, we created personas — representing both survivor pathways and frontline practitioner workflows — to show how different immigration classes, systemic barriers, and navigation styles intersect.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {personas.map((persona) => {
             const iconColorClass = 
               persona.id === "amara" ? "text-[var(--amara-color)] bg-[var(--amara-light)]" :
               persona.id === "priya" ? "text-[var(--priya-color)] bg-[var(--priya-light)]" :
+              persona.id === "maya" ? "text-[var(--maya-color)] bg-[var(--maya-light)]" :
               "text-[var(--elena-color)] bg-[var(--elena-light)]";
             
             const borderHoverClass = 
               persona.id === "amara" ? "hover:border-[var(--amara-color)]/50" :
               persona.id === "priya" ? "hover:border-[var(--priya-color)]/50" :
+              persona.id === "maya" ? "hover:border-[var(--maya-color)]/50" :
               "hover:border-[var(--elena-color)]/50";
 
             return (

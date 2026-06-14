@@ -14,10 +14,12 @@ export default function SettlementJourney({ persona }: SettlementJourneyProps) {
       {/* Editorial Section Header */}
       <div className="border-b border-border pb-3">
         <h3 className="text-lg font-bold font-serif text-foreground">
-          Section B — Settlement Journey Timeline
+          Section B — {persona.type === "Practitioner" ? "Practitioner Workflow Stages" : "Settlement Journey Timeline"}
         </h3>
         <p className="text-xs text-muted-foreground mt-0.5">
-          A horizontal timeline of her integration pathway in Canada, highlighting key events and emerging systemic barriers.
+          {persona.type === "Practitioner" 
+            ? "A horizontal timeline of her frontline practitioner workflow stages, highlighting key processes and emerging systemic barriers."
+            : "A horizontal timeline of her integration pathway in Canada, highlighting key events and emerging systemic barriers."}
         </p>
       </div>
 

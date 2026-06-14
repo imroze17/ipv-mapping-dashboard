@@ -90,8 +90,11 @@ export default function AggregateMap() {
                 <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 border-r border-border text-center w-[110px]">
                   Priya<br/><span className="text-[9px] font-normal lowercase normal-case text-stone-400">Family Class (Sponsored)</span>
                 </th>
-                <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 text-center w-[110px]">
+                <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 border-r border-border text-center w-[110px]">
                   Elena<br/><span className="text-[9px] font-normal lowercase normal-case text-stone-400">Economic Class (TR to PR)</span>
+                </th>
+                <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 text-center w-[110px]">
+                  Maya<br/><span className="text-[9px] font-normal lowercase normal-case text-stone-400">Practitioner (Social Worker)</span>
                 </th>
               </tr>
             </thead>
@@ -139,10 +142,23 @@ export default function AggregateMap() {
                     </td>
 
                     {/* Elena Cell */}
-                    <td className={`p-4 text-center ${item.elena ? "bg-[var(--elena-light)]/20" : ""}`}>
+                    <td className={`p-4 border-r border-border text-center ${item.elena ? "bg-[var(--elena-light)]/20" : ""}`}>
                       {item.elena ? (
                         <div className="flex justify-center">
                           <span className="w-5 h-5 rounded-full bg-[var(--elena-light)] border border-[var(--elena-color)]/20 flex items-center justify-center text-[var(--elena-color)]">
+                            <Check size={12} strokeWidth={3} />
+                          </span>
+                        </div>
+                      ) : (
+                        <span className="text-stone-300 text-xs">—</span>
+                      )}
+                    </td>
+
+                    {/* Maya Cell */}
+                    <td className={`p-4 text-center ${item.maya ? "bg-[var(--maya-light)]/20" : ""}`}>
+                      {item.maya ? (
+                        <div className="flex justify-center">
+                          <span className="w-5 h-5 rounded-full bg-[var(--maya-light)] border border-[var(--maya-color)]/20 flex items-center justify-center text-[var(--maya-color)]">
                             <Check size={12} strokeWidth={3} />
                           </span>
                         </div>
@@ -208,6 +224,7 @@ export default function AggregateMap() {
                       const pColor = 
                         name === "Amara" ? "bg-[var(--amara-light)] text-[var(--amara-color)] border-[var(--amara-color)]/10" :
                         name === "Priya" ? "bg-[var(--priya-light)] text-[var(--priya-color)] border-[var(--priya-color)]/10" :
+                        name === "Maya" ? "bg-[var(--maya-light)] text-[var(--maya-color)] border-[var(--maya-color)]/10" :
                         "bg-[var(--elena-light)] text-[var(--elena-color)] border-[var(--elena-color)]/10";
                       
                       return (

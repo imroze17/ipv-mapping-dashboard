@@ -21,9 +21,9 @@ export default function PersonaTab({ persona }: PersonaTabProps) {
 
   const sections = [
     { id: "empathy", label: "A. Empathy Map", icon: <Heart size={14} />, ref: empathyRef },
-    { id: "settlement", label: "B. Settlement Journey", icon: <Compass size={14} />, ref: settlementRef },
+    { id: "settlement", label: persona.type === "Practitioner" ? "B. Workflow Stages" : "B. Settlement Journey", icon: <Compass size={14} />, ref: settlementRef },
     { id: "health", label: "C. Health Journey Timeline", icon: <Map size={14} />, ref: healthRef },
-    { id: "stakeholder", label: `D. ${persona.name}'s Circle`, icon: <Users size={14} />, ref: stakeholderRef }
+    { id: "stakeholder", label: persona.type === "Practitioner" ? `D. ${persona.name}'s Workspace` : `D. ${persona.name}'s Circle`, icon: <Users size={14} />, ref: stakeholderRef }
   ];
 
   // Scroll to section helper
@@ -88,7 +88,7 @@ export default function PersonaTab({ persona }: PersonaTabProps) {
           </div>
 
           <h2 className="text-2xl lg:text-3xl font-serif font-bold text-foreground">
-            {persona.name}'s Pathway Map
+            {persona.name}'s {persona.type === "Practitioner" ? "Practitioner Workflow Map" : "Pathway Map"}
           </h2>
           
           <blockquote className="border-l-2 border-stone-400 pl-3 py-0.5 italic text-xs lg:text-sm text-stone-600 leading-relaxed">

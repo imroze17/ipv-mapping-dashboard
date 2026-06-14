@@ -19,6 +19,8 @@ export default function Home() {
         return <PersonaTab persona={personas[1]} />;
       case "elena":
         return <PersonaTab persona={personas[2]} />;
+      case "maya":
+        return <PersonaTab persona={personas[3]} />;
       case "aggregate":
         return <AggregateMap />;
       default:
@@ -67,6 +69,7 @@ export default function Home() {
               const pActiveColorClass = 
                 p.id === "amara" ? "bg-[var(--amara-color)] text-white shadow-sm" :
                 p.id === "priya" ? "bg-[var(--priya-color)] text-white shadow-sm" :
+                p.id === "maya" ? "bg-[var(--maya-color)] text-white shadow-sm" :
                 "bg-[var(--elena-color)] text-white shadow-sm";
 
               return (

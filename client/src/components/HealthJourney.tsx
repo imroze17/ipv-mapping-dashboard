@@ -14,10 +14,12 @@ export default function HealthJourney({ persona }: HealthJourneyProps) {
       {/* Editorial Section Header */}
       <div className="border-b border-border pb-3">
         <h3 className="text-lg font-bold font-serif text-foreground">
-          Section C — Health Journey Timeline
+          Section C — {persona.type === "Practitioner" ? "Service Support Timeline" : "Health Journey Timeline"}
         </h3>
         <p className="text-xs text-muted-foreground mt-0.5">
-          Mapping touchpoints, friction, equity gaps, and intervention opportunities across four distinct healthcare stages.
+          {persona.type === "Practitioner"
+            ? "Mapping support touchpoints, administrative frictions, equity gaps, and coordination interventions across four distinct service stages."
+            : "Mapping touchpoints, friction, equity gaps, and intervention opportunities across four distinct healthcare stages."}
         </p>
       </div>
 

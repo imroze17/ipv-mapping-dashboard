@@ -194,14 +194,23 @@ export const personas: Persona[] = [
       { id: "nurse", name: "ED Nurse", role: "Supportive Actor", influence: "Medium", category: "system", note: "Potential disclosure point; needs IPV training and alone-time protocol", position: { x: 15, y: 65 } },
       { id: "clinic", name: "Refugee Health Clinic", role: "Supportive Actor", influence: "Medium", category: "system", note: "Specialized care; access delayed; long wait times", position: { x: 45, y: 80 } },
       { id: "navigator", name: "Navigator", role: "Intervention Opportunity", influence: "High", category: "intervention", note: "✦ Highest impact; doesn't yet exist in this pathway", position: { x: 25, y: 55 } },
-      { id: "shelter", name: "IPV Shelter", role: "Supportive Actor", influence: "Medium", category: "intervention", note: "Safety net; language and capacity barriers", position: { x: 80, y: 70 } },
-      { id: "community", name: "Cultural Community", role: "Mixed Support/Surveillance", influence: "Medium", category: "community", note: "Mixed — support + surveillance; can be source of comfort and pressure", position: { x: 85, y: 48 } }
+      { id: "shelter", name: "IPV Shelter", role: "Supportive Actor", influence: "Medium", category: "intervention", note: "Safety net; language and capacity barriers", position: { x: 80, y: 75 } },
+      { id: "community", name: "Cultural Community", role: "Mixed Support/Surveillance", influence: "Medium", category: "community", note: "Mixed — support + surveillance; can be source of comfort and pressure", position: { x: 85, y: 48 } },
+      {
+        id: "children",
+        name: "Children (x3)",
+        role: "Dependents / Surveillance Risk",
+        influence: "High",
+        category: "community",
+        note: "Present at all appointments — no childcare available. Sometimes used as interpreters, which is inappropriate for IPV disclosures. Fear of child protection removal is a primary barrier to Amara seeking help.",
+        position: { x: 68, y: 65 }
+      }
     ]
   },
   {
     id: "priya",
     name: "Priya",
-    type: "Medium-Touch Navigator",
+    type: "Medium-Touch Survivor",
     status: "Family Class - Sponsored",
     location: "Mid-Urban Centre",
     entryPoint: "Primary Care / Family Physician",
@@ -335,7 +344,16 @@ export const personas: Persona[] = [
       { id: "gp", name: "Family Physician", role: "Supportive Actor", influence: "Medium", category: "system", note: "Missed opportunity; no alone-time protocol; doesn't ask directly", position: { x: 15, y: 65 } },
       { id: "legal", name: "Legal Aid", role: "Supportive Actor", influence: "Medium", category: "system", note: "Critical knowledge gap — she doesn't know she cannot be deported due to IPV", position: { x: 45, y: 80 } },
       { id: "navigator", name: "Navigator", role: "Intervention Opportunity", influence: "High", category: "intervention", note: "✦ Highest impact; doesn't yet exist in this pathway", position: { x: 25, y: 55 } },
-      { id: "online", name: "Online Community", role: "Supportive Actor", influence: "Medium", category: "community", note: "Private info source; unsafe due to device monitoring", position: { x: 85, y: 48 } }
+      { id: "online", name: "Online Community", role: "Supportive Actor", influence: "Medium", category: "community", note: "Private info source; unsafe due to device monitoring", position: { x: 85, y: 48 } },
+      {
+        id: "children",
+        name: "Children",
+        role: "Dependents / Abuser's Leverage",
+        influence: "High",
+        category: "community",
+        note: "Fear of losing custody is a significant barrier to disclosure and leaving. Abuser uses children as leverage to maintain control.",
+        position: { x: 70, y: 62 }
+      }
     ]
   },
   {
@@ -480,6 +498,174 @@ export const personas: Persona[] = [
       { id: "online", name: "Online Mandarin Community", role: "Supportive Actor", influence: "Medium", category: "community", note: "Only social outlet; no local presence; subject to partner monitoring", position: { x: 85, y: 48 } },
       { id: "specialist", name: "Urban IPV Specialist", role: "Supportive Actor", influence: "Medium", category: "intervention", note: "Via navigator referral; currently inaccessible without navigator bridge", position: { x: 45, y: 80 } }
     ]
+  },
+  {
+    id: "maya",
+    name: "Maya",
+    type: "Practitioner",
+    status: "Non-profit Social Worker",
+    location: "Urban",
+    entryPoint: "Non-profit Shelter / Settlement Agency",
+    agency: "N/A",
+    languages: "English; limited Mandarin",
+    quote: "So one thing that is stopping us from really helping women is that we don't know the different agencies so well and how they work. We are told: 'If you are spending too much time on this case, how are we going to complete our numbers for the funders?'",
+    description: "Maya is a social worker at an urban non-profit supporting newcomer, immigrant, and refugee women and their children to access safe shelter, psychosocial supports, and transition safely. She also provides uncompensated health navigation in a fragmented, understaffed system. Faced with funding cuts and limited beds, her organization is pivoting toward shorter crisis stays. Maya spends hours navigating IPV disclosures through third-party interpreters, maintaining labor-intensive referral networks, and carrying the emotional weight of sending vulnerable families into a fragmented system.",
+    color: "var(--maya-color)",
+    lightColor: "var(--maya-light)",
+    empathy: {
+      thinks: [
+        "Worried she is missing trauma indicators and cultural nuances due to language barriers",
+        "Anxious about sending women to overcapacity shelters or using outdated directory info",
+        "Exhausted by circular referring instead of continuous support",
+        "Struggles to leave secondary traumatic stress at work"
+      ],
+      hears: [
+        "Supervisor: 'Don't spend too much time on one case — we must hit funder target numbers'",
+        "Clients: 'It's not a big deal; in my culture this is normal'",
+        "External agencies: 'Our housing waitlists are 6-12 months long'",
+        "Landlords: 'They can't stay — their abuser could damage the property'"
+      ],
+      sees: [
+        "Changing immigration policies (e.g., Bill C-12 — strict timelines and expanded enforcement powers)",
+        "Clunky legacy software, manual paperwork, unintegrated Word docs and PDFs",
+        "Clients lacking health coverage because immigration documents were stolen by abuser",
+        "Explicit systemic racism from healthcare providers and other social workers"
+      ],
+      says: [
+        "Spends hours manually upkeeping resource directories",
+        "Leverages personal referral networks because official channels are slow",
+        "Pleads with healthcare services to overlook missing documentation",
+        "Limits deep relationship-building to process intakes quickly, despite knowing it harms care"
+      ],
+      pain: "Administrative overload, technological deficits, resource directory dead-ends",
+      gain: "Integrated multi-agency hubs, automated case management tools, shifting of funder metrics to relational safety over target numbers"
+    },
+    settlement: [
+      {
+        stage: "Crisis Intake & Stabilization",
+        events: "Safety planning. Shelter intake assessments.",
+        barriers: ["Precarious client documentation leads to ineligibility for government-funded settlement support."]
+      },
+      {
+        stage: "Emergency Shelter Stay",
+        events: "Local resource access. Pairing with community interpreters (when unavailable, children serve as interpreters).",
+        barriers: ["Lack of language-specific, gender-matched interpreters."]
+      },
+      {
+        stage: "Status & Health Navigation",
+        events: "Primary medical evaluation. Legal aid registration.",
+        barriers: ["Legal aid calculations include partner's income, disqualifying the assetless survivor."]
+      },
+      {
+        stage: "Transitional Housing Application",
+        events: "DV priority housing declarations (to bypass social housing waitlists).",
+        barriers: ["6-to-12-month waitlist. Systemic bias from housing providers."]
+      },
+      {
+        stage: "Case Closure",
+        events: "Forced discharge and referral.",
+        barriers: ["Internal pressure to meet targets. Clients forced to re-unpack trauma at each new referral agency."]
+      }
+    ],
+    healthJourney: [
+      {
+        stage: "Access",
+        stageLabel: "Stage 1",
+        stageColor: "#0580A0",
+        touchpoints: [
+          "Acts as ad-hoc systems advocate (no service mandate or operational resources)",
+          "Attempts to bypass via informal referrals for clients with stolen documentation"
+        ],
+        friction: [
+          "Clients are turned away due to precarious documentation",
+          "Some clients left with no choice but to consider returning to home countries for treatment"
+        ],
+        equity: [
+          "No healthcare service navigation mandate within Maya's non-profit role",
+          "Abusers routinely steal or hide immigration documentation"
+        ],
+        intervention: [
+          { cat: "sys", text: "'No door is the wrong door' protocol — health service regardless of documentation" },
+          { cat: "nav", text: "Embed IPV resources and referral scripts into LINC classes, training language teachers as safe entry points" },
+          { cat: "digital", text: "Automated tracking tools to reduce admin workload" }
+        ]
+      },
+      {
+        stage: "Treatment",
+        stageLabel: "Stage 2",
+        stageColor: "#6630A6",
+        touchpoints: [
+          "Coordinates follow-up appointments"
+        ],
+        friction: [
+          "Abusers fabricate mental health diagnoses (e.g., schizophrenia) to strip survivors of child custody",
+          "Clients frequently matched with male providers, causing discomfort"
+        ],
+        equity: [
+          "Newcomer support staff lack IPV expertise; medical staff lack newcomer status and cultural safety training",
+          "Interpreters unequipped for graphic IPV disclosures, leading to broken communication during clinical care"
+        ],
+        intervention: [
+          { cat: "sys", text: "Gender-matching protocols for clinical providers and language services" },
+          { cat: "nav", text: "Train interpreters with IPV knowledge to support health navigation" }
+        ]
+      },
+      {
+        stage: "Discharge",
+        stageLabel: "Stage 3",
+        stageColor: "#1A8550",
+        touchpoints: [
+          "Reviews discharge papers and prescriptions the client cannot understand"
+        ],
+        friction: [
+          "Clients leave appointments without understanding medications or follow-up purposes"
+        ],
+        equity: [
+          "Absence of integrated, shared case files between settlement data and healthcare records",
+          "Health system fee-for-service model and shelter target metrics focus on turnover, not relational safety"
+        ],
+        intervention: [
+          { cat: "sys", text: "Mandatory warm hand-off protocol between clinicians and community IPV caseworkers" },
+          { cat: "digital", text: "Multi-language audio/visual playback tools for reviewing clinical discharge materials" }
+        ]
+      },
+      {
+        stage: "Return",
+        stageLabel: "Stage 4",
+        stageColor: "#CC7208",
+        touchpoints: [
+          "Coordinates transitional housing applications while monitoring client health status",
+          "Attempts to secure long-term treatment plans"
+        ],
+        friction: [
+          "Organizational mandates cut off newcomer support after 2 years, leaving clients abruptly unsupported",
+          "Loss of care continuity if client moves shelters or relocates outside urban boundary"
+        ],
+        equity: [
+          "Long-term referrals fail because of outdated resource directories requiring manual upkeep",
+          "Ongoing healthcare coverage unavailable to newcomers with precarious documentation"
+        ],
+        intervention: [
+          { cat: "sys", text: "Co-located health, legal, and settlement services within a single hub" },
+          { cat: "nav", text: "Women's-only coffee circles to distribute medical, legal, and safety navigation info" }
+        ]
+      }
+    ],
+    emotions: [
+      { stage: "Access", emotion: "Overwhelmed / Stretched", note: "Advocating for clients beyond her mandate with no operational resources to do so." },
+      { stage: "Treatment", emotion: "Frustrated / Worried", note: "Systemic racism and interpreter gaps break clinical care she's trying to coordinate." },
+      { stage: "Discharge", emotion: "Burnt Out / Guilty", note: "Forced to close cases before clients are stable; re-traumatizes people she's built trust with." },
+      { stage: "Return", emotion: "Determined / Drained", note: "Leverages personal networks to fill system gaps, at significant personal cost." }
+    ],
+    stakeholders: [
+      { id: "funders", name: "Funders", role: "Controlling Actor", influence: "High", category: "controlling", note: "Rigidly dictates metrics by client volume and 2-year service mandates; prioritizes numbers over depth of care.", position: { x: 50, y: 15 } },
+      { id: "employer", name: "Employer / Leadership", role: "Controlling Actor", influence: "High", category: "controlling", note: "Enforces target-driven metrics for agency survival; pressures Maya to minimize time on complex cases.", position: { x: 80, y: 30 } },
+      { id: "housing", name: "Housing Authorities", role: "Supportive Actor", influence: "High", category: "system", note: "Controls clients' transitional safety; uncooperative due to fears of abuser retaliation and property damage.", position: { x: 20, y: 30 } },
+      { id: "interpreters", name: "Community Interpreters", role: "Supportive Actor", influence: "Low", category: "community", note: "Vital for communication; restricted by limited funding, lack of IPV training, and vicarious trauma.", position: { x: 15, y: 65 } },
+      { id: "networks", name: "Informal Advocacy Networks", role: "Supportive Actor", influence: "Low", category: "intervention", note: "Trusted colleagues who facilitate unofficial warm handoffs when formal systems fail.", position: { x: 85, y: 48 } },
+      { id: "navigator", name: "Peer Navigator (Proposed)", role: "Intervention Opportunity", influence: "High", category: "intervention", note: "Highest impact. A shared navigator would eliminate Maya's uncompensated ad-hoc health navigation role.", position: { x: 50, y: 50 } },
+      { id: "clients", name: "Newcomer Women Clients", role: "Supportive Actor", influence: "Medium", category: "community", note: "Central to Maya's work; must re-unpack trauma at each re-entry due to lack of shared case files.", position: { x: 45, y: 80 } }
+    ]
   }
 ];
 
@@ -488,24 +674,27 @@ export interface SharedFriction {
   amara: boolean;
   priya: boolean;
   elena: boolean;
+  maya: boolean;
   category: "Friction" | "Equity Gap" | "Coordination Failure" | "Digital Friction";
 }
 
 export const sharedFrictions: SharedFriction[] = [
-  { friction: "No private time with patient during healthcare visit", amara: true, priya: true, elena: false, category: "Friction" },
-  { friction: "Partner/family member controls access to appointments", amara: true, priya: true, elena: false, category: "Friction" },
-  { friction: "Language barriers across all service touchpoints", amara: true, priya: false, elena: true, category: "Equity Gap" },
-  { friction: "No heritage language service delivery", amara: true, priya: false, elena: true, category: "Equity Gap" },
-  { friction: "Fear of immigration consequences prevents disclosure", amara: true, priya: true, elena: true, category: "Equity Gap" },
-  { friction: "No healthcare navigator role exists in current pathway", amara: true, priya: true, elena: true, category: "Coordination Failure" },
-  { friction: "Safety planning assumes ability to physically leave", amara: true, priya: true, elena: true, category: "Friction" },
-  { friction: "Mental health services unavailable or inaccessible", amara: true, priya: true, elena: true, category: "Friction" },
-  { friction: "No continuity across system re-entries", amara: true, priya: true, elena: true, category: "Coordination Failure" },
-  { friction: "Device/technology access controlled by partner", amara: false, priya: true, elena: true, category: "Digital Friction" },
-  { friction: "Online resources English-only", amara: true, priya: true, elena: true, category: "Digital Friction" },
-  { friction: "IPV not named / presented as something else", amara: true, priya: false, elena: true, category: "Friction" },
-  { friction: "Interpreter confidentiality risks in small communities", amara: true, priya: false, elena: true, category: "Equity Gap" },
-  { friction: "No handoff protocol between healthcare and settlement", amara: true, priya: true, elena: true, category: "Coordination Failure" }
+  { friction: "No private time with patient during healthcare visit", amara: true, priya: true, elena: false, maya: false, category: "Friction" },
+  { friction: "Partner/family member controls access to appointments", amara: true, priya: true, elena: false, maya: false, category: "Friction" },
+  { friction: "Language barriers across all service touchpoints", amara: true, priya: false, elena: true, maya: true, category: "Equity Gap" },
+  { friction: "No heritage language service delivery", amara: true, priya: false, elena: true, maya: false, category: "Equity Gap" },
+  { friction: "Fear of immigration consequences prevents disclosure", amara: true, priya: true, elena: true, maya: false, category: "Equity Gap" },
+  { friction: "No healthcare navigator role exists in current pathway", amara: true, priya: true, elena: true, maya: true, category: "Coordination Failure" },
+  { friction: "Safety planning assumes ability to physically leave", amara: true, priya: true, elena: true, maya: false, category: "Friction" },
+  { friction: "Mental health services unavailable or inaccessible", amara: true, priya: true, elena: true, maya: false, category: "Friction" },
+  { friction: "No continuity across system re-entries", amara: true, priya: true, elena: true, maya: true, category: "Coordination Failure" },
+  { friction: "Device/technology access controlled by partner", amara: false, priya: true, elena: true, maya: false, category: "Digital Friction" },
+  { friction: "Online resources English-only", amara: true, priya: true, elena: true, maya: false, category: "Digital Friction" },
+  { friction: "IPV not named / presented as something else", amara: true, priya: false, elena: true, maya: false, category: "Friction" },
+  { friction: "Interpreter confidentiality risks in small communities", amara: true, priya: false, elena: true, maya: false, category: "Equity Gap" },
+  { friction: "No handoff protocol between healthcare and settlement", amara: true, priya: true, elena: true, maya: true, category: "Coordination Failure" },
+  { friction: "Funder metrics prioritize volume over relational safety", amara: false, priya: false, elena: false, maya: true, category: "Coordination Failure" },
+  { friction: "Administrative directory decay and manual tracking silos", amara: false, priya: false, elena: false, maya: true, category: "Digital Friction" }
 ];
 
 export interface OpportunityPoint {
@@ -516,14 +705,18 @@ export interface OpportunityPoint {
 }
 
 export const opportunities: OpportunityPoint[] = [
-  { opportunity: "Culturally safe, language-matched navigator role", personas: ["Amara", "Priya", "Elena"], stage: "All", type: "Navigator Practice" },
+  { opportunity: "Culturally safe, language-matched navigator role", personas: ["Amara", "Priya", "Elena", "Maya"], stage: "All", type: "Navigator Practice" },
   { opportunity: "Universal alone-time protocol in all healthcare settings", personas: ["Amara", "Priya"], stage: "Access", type: "System Improvements" },
-  { opportunity: "Integrated IPV + settlement case file / shared care plan", personas: ["Amara", "Priya", "Elena"], stage: "All", type: "System Improvements" },
-  { opportunity: "Multilingual, audio-visual digital resource hub", personas: ["Amara", "Priya", "Elena"], stage: "All", type: "Digital Tools" },
+  { opportunity: "Integrated IPV + settlement case file / shared care plan", personas: ["Amara", "Priya", "Elena", "Maya"], stage: "All", type: "System Improvements" },
+  { opportunity: "Multilingual, audio-visual digital resource hub", personas: ["Amara", "Priya", "Elena", "Maya"], stage: "All", type: "Digital Tools" },
   { opportunity: "Anonymous / disguisable navigator chat tool", personas: ["Priya", "Elena"], stage: "Access", type: "Digital Tools" },
   { opportunity: "Telehealth with language-matched navigators", personas: ["Elena", "Amara"], stage: "Access + Treatment", type: "Navigator Practice" },
   { opportunity: "Rural CHC IPV toolkit for frontline workers", personas: ["Elena"], stage: "Access", type: "System Improvements" },
   { opportunity: "Safety planning co-created with navigator", personas: ["Amara", "Elena"], stage: "Discharge", type: "Navigator Practice" },
   { opportunity: "Education workshops in multiple languages", personas: ["Amara", "Priya", "Elena"], stage: "All", type: "System Improvements" },
-  { opportunity: "Workshops on abuse and health for clients and providers", personas: ["Amara", "Priya", "Elena"], stage: "All", type: "System Improvements" }
+  { opportunity: "Workshops on abuse and health for clients and providers", personas: ["Amara", "Priya", "Elena"], stage: "All", type: "System Improvements" },
+  { opportunity: "No Door is the Wrong Door policy protocol", personas: ["Maya"], stage: "Access", type: "System Improvements" },
+  { opportunity: "Trauma-informed IPV training for community interpreters", personas: ["Maya", "Amara", "Elena"], stage: "Treatment / All", type: "Navigator Practice" },
+  { opportunity: "Relational safety funder metrics", personas: ["Maya"], stage: "All", type: "System Improvements" },
+  { opportunity: "Automated, dynamic resource directory aggregator", personas: ["Maya"], stage: "All", type: "Digital Tools" }
 ];

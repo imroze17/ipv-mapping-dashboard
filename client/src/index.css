@@ -87,6 +87,9 @@
   
   --elena-color: oklch(0.38 0.17 300); /* Purple - Isolated Professional */
   --elena-light: oklch(0.95 0.02 300);
+  
+  --maya-color: #0D6845;   /* Forest green — differentiates practitioner from survivors */
+  --maya-light: #D1FAE5;
 
   /* Semantic Overlay Colors */
   --friction-color: oklch(0.42 0.18 28);

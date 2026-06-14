@@ -121,7 +121,9 @@ export default function StakeholderMap({ persona }: StakeholderMapProps) {
               className="absolute w-20 h-24 lg:w-28 lg:h-28 rounded-full border-2 flex flex-col items-center justify-center text-center p-3 z-30 cursor-default"
             >
               <span style={{ color }} className="text-xs font-extrabold font-serif">{persona.name}</span>
-              <span className="text-[9px] text-muted-foreground leading-tight mt-1 uppercase tracking-wider font-semibold">Survivor</span>
+              <span className="text-[9px] text-muted-foreground leading-tight mt-1 uppercase tracking-wider font-semibold">
+                {persona.type === "Practitioner" ? "Practitioner" : "Survivor"}
+              </span>
             </div>
 
             {/* Surrounding Stakeholder Bubbles */}
