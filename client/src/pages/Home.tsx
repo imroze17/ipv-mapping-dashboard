@@ -3,6 +3,7 @@ import Overview from "./Overview";
 import PersonaTab from "./PersonaTab";
 import AggregateMap from "./AggregateMap";
 import SidebarLegend from "../components/SidebarLegend";
+import AccessibilityControls from "../components/AccessibilityControls";
 import { personas } from "../lib/data";
 import { LayoutDashboard, Users, Map, HelpCircle, Heart, Compass, ShieldAlert, Sparkles, AlertTriangle } from "lucide-react";
 
@@ -110,6 +111,9 @@ export default function Home() {
           </aside>
         </div>
       </main>
+
+      {/* Accessibility Controls Widget */}
+      <AccessibilityControls />
 
       {/* Global Dashboard Footer */}
       <footer className="border-t border-border bg-stone-50 py-6 mt-16 text-center text-[11px] text-stone-600">

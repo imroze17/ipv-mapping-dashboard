@@ -14,7 +14,7 @@ export default function SidebarLegend({ isOpen = true }: SidebarLegendProps) {
         <h3 className="text-sm font-bold font-serif tracking-wide text-foreground uppercase border-b border-border pb-2">
           Pathway Legend
         </h3>
-        <p className="text-xs text-stone-600 mt-1.5 leading-relaxed">
+        <p className="text-xs text-stone-700 mt-1.5 leading-relaxed">
           Standardized classifications used across all newcomer IPV pathway maps.
         </p>
       </div>
@@ -29,7 +29,7 @@ export default function SidebarLegend({ isOpen = true }: SidebarLegendProps) {
             <div className="text-xs font-bold text-[var(--friction-color)]">
               ⚡ Friction Point
             </div>
-            <p className="text-xs text-stone-600 mt-0.5 leading-relaxed">
+            <p className="text-xs text-stone-700 mt-0.5 leading-relaxed">
               A moment where the system fails, delays, or creates a dead end.
             </p>
           </div>
@@ -44,7 +44,7 @@ export default function SidebarLegend({ isOpen = true }: SidebarLegendProps) {
             <div className="text-xs font-bold text-[var(--equity-color)]">
               ⚠️ Equity Gap
             </div>
-            <p className="text-xs text-stone-600 mt-0.5 leading-relaxed">
+            <p className="text-xs text-stone-700 mt-0.5 leading-relaxed">
               Where language, immigration status, or culture creates a unique barrier.
             </p>
           </div>
@@ -59,7 +59,7 @@ export default function SidebarLegend({ isOpen = true }: SidebarLegendProps) {
             <div className="text-xs font-bold text-[var(--coordination-color)]">
               💬 Coordination Failure
             </div>
-            <p className="text-xs text-stone-600 mt-0.5 leading-relaxed">
+            <p className="text-xs text-stone-700 mt-0.5 leading-relaxed">
               Drop-off between agencies — referral not made or not followed through.
             </p>
           </div>
@@ -74,7 +74,7 @@ export default function SidebarLegend({ isOpen = true }: SidebarLegendProps) {
             <div className="text-xs font-bold text-[var(--intervention-color)]">
               ✦ Intervention Opportunity
             </div>
-            <p className="text-xs text-stone-600 mt-0.5 leading-relaxed">
+            <p className="text-xs text-stone-700 mt-0.5 leading-relaxed">
               Where a navigator or digital tool could have the highest impact.
             </p>
           </div>
@@ -89,7 +89,7 @@ export default function SidebarLegend({ isOpen = true }: SidebarLegendProps) {
             <div className="text-xs font-bold text-[var(--digital-color)]">
               📱 Digital Friction
             </div>
-            <p className="text-xs text-stone-600 mt-0.5 leading-relaxed">
+            <p className="text-xs text-stone-700 mt-0.5 leading-relaxed">
               Where static online info fails to provide the dynamic support needed.
             </p>
           </div>
@@ -97,29 +97,29 @@ export default function SidebarLegend({ isOpen = true }: SidebarLegendProps) {
       </div>
 
       {/* Acronym Glossary */}
-      <div className="pt-4 border-t border-border space-y-2">
-        <div className="text-[10px] font-bold uppercase tracking-wider text-stone-700">
+      <div className="pt-4 border-t border-border space-y-2.5">
+        <div className="text-xs font-bold uppercase tracking-wider text-stone-800">
           Acronym Glossary
         </div>
-        <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-[10px] text-stone-600 leading-tight">
-          <div><strong>GAR:</strong> Gov't Assisted Refugee</div>
-          <div><strong>PR:</strong> Permanent Resident</div>
-          <div><strong>TR:</strong> Temporary Resident</div>
-          <div><strong>RAP:</strong> Resettlement Assistance</div>
-          <div><strong>LINC:</strong> Language Instruction</div>
-          <div><strong>CHC:</strong> Community Health Centre</div>
-          <div><strong>ED:</strong> Emergency Dept</div>
-          <div><strong>OHIP:</strong> Ont. Health Insurance</div>
-          <div><strong>IRCC:</strong> Immigration Canada</div>
-          <div><strong>UNHCR:</strong> UN Refugee Agency</div>
-          <div><strong>OCAP:</strong> Ownership/Control/Access</div>
-          <div><strong>SIT:</strong> System Integration Tool</div>
+        <div className="flex flex-col gap-1.5 text-xs text-stone-700 leading-normal">
+          <div><strong className="text-stone-900 font-bold">GAR:</strong> Government Assisted Refugee</div>
+          <div><strong className="text-stone-900 font-bold">PR:</strong> Permanent Resident</div>
+          <div><strong className="text-stone-900 font-bold">TR:</strong> Temporary Resident</div>
+          <div><strong className="text-stone-900 font-bold">RAP:</strong> Resettlement Assistance Program</div>
+          <div><strong className="text-stone-900 font-bold">LINC:</strong> Language Instruction for Newcomers to Canada</div>
+          <div><strong className="text-stone-900 font-bold">CHC:</strong> Community Health Centre</div>
+          <div><strong className="text-stone-900 font-bold">ED:</strong> Emergency Department</div>
+          <div><strong className="text-stone-900 font-bold">OHIP:</strong> Ontario Health Insurance Plan</div>
+          <div><strong className="text-stone-900 font-bold">IRCC:</strong> Immigration, Refugees and Citizenship Canada</div>
+          <div><strong className="text-stone-900 font-bold">UNHCR:</strong> United Nations High Commissioner for Refugees</div>
+          <div><strong className="text-stone-900 font-bold">OCAP:</strong> Ownership, Control, Access, and Possession</div>
+          <div><strong className="text-stone-900 font-bold">SIT:</strong> System Integration Tool</div>
         </div>
       </div>
 
-      <div className="pt-3 border-t border-border">
-        <p className="text-[10px] text-stone-600 leading-relaxed">
-          <strong>Sources:</strong> Literature review, first-hand interviews, and Subject Matter Expert review.
+      <div className="pt-3.5 border-t border-border">
+        <p className="text-xs text-stone-700 leading-relaxed">
+          <strong className="text-stone-900">Sources:</strong> Literature review, first-hand interviews, and Subject Matter Expert review.
         </p>
       </div>
     </div>

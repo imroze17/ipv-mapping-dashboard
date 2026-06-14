@@ -195,3 +195,73 @@
     @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/40 transition-colors;
   }
 }
+
+/* Accessibility Custom Controls */
+:root {
+  --base-font-scale: 1;
+}
+
+.text-size-normal {
+  font-size: 100%;
+}
+
+.text-size-large {
+  font-size: 115%;
+}
+
+.text-size-larger {
+  font-size: 130%;
+}
+
+/* Apply dyslexic-friendly font overrides */
+.accessibility-dyslexic-font,
+.accessibility-dyslexic-font * {
+  font-family: 'Comic Sans MS', 'Dyslexic', sans-serif !important;
+  letter-spacing: 0.05em !important;
+  word-spacing: 0.1em !important;
+  line-height: 1.6 !important;
+}
+
+/* High Contrast mode overrides to meet strict WCAG AAA guidelines */
+.accessibility-high-contrast {
+  --background: oklch(1 0 0) !important;
+  --foreground: oklch(0 0 0) !important;
+  --card: oklch(1 0 0) !important;
+  --card-foreground: oklch(0 0 0) !important;
+  --border: oklch(0 0 0) !important;
+  --muted-foreground: oklch(0.2 0 0) !important;
+  
+  /* Make sure borders and outlines are extremely prominent */
+  border-width: 2px !important;
+  
+  /* Text and icon overrides */
+  color: oklch(0 0 0) !important;
+}
+
+.accessibility-high-contrast button,
+.accessibility-high-contrast a {
+  border: 2px solid currentColor !important;
+  font-weight: 800 !important;
+}
+
+.accessibility-high-contrast .bg-card,
+.accessibility-high-contrast .bg-background {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+.accessibility-high-contrast p,
+.accessibility-high-contrast span,
+.accessibility-high-contrast h1,
+.accessibility-high-contrast h2,
+.accessibility-high-contrast h3,
+.accessibility-high-contrast h4,
+.accessibility-high-contrast h5,
+.accessibility-high-contrast h6,
+.accessibility-high-contrast li,
+.accessibility-high-contrast td,
+.accessibility-high-contrast th {
+  color: #000000 !important;
+  font-weight: 500 !important;
+}
