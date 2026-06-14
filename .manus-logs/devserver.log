@@ -1,0 +1,95 @@
+[2026-06-02T19:48:45.972Z] Starting dev server with command: pnpm run dev
+[2026-06-02T19:48:48.095Z] > ipv-mapping-dashboard@1.0.0 dev /home/ubuntu/ipv-mapping-dashboard
+[2026-06-02T19:48:48.096Z] > vite --host
+[2026-06-02T19:48:48.587Z] VITE v7.1.9  ready in 445 ms
+[2026-06-02T19:48:48.587Z] ➜  Local:   http://localhost:3000/
+[2026-06-02T19:48:48.587Z] ➜  Network: http://169.254.0.21:3000/
+[2026-06-02T19:49:10.983Z] 7:49:10 PM [vite] (client) page reload index.html
+[2026-06-02T19:49:15.844Z] 7:49:15 PM [vite] (client) page reload index.html
+[2026-06-02T19:52:15.536Z] [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[2026-06-02T19:52:17.476Z] 7:52:17 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+[2026-06-02T20:07:14.544Z] 8:07:14 PM [vite] vite.config.ts changed, restarting server...
+[2026-06-02T20:07:14.589Z] 8:07:14 PM [vite] server restarted.
+[2026-06-02T20:53:10.958Z] 8:53:10 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+[2026-06-02T20:54:40.154Z] 8:54:40 PM [vite] (client) page reload index.html
+[2026-06-02T20:54:40.155Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.156Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.157Z] 8:54:40 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+[2026-06-02T20:54:40.159Z] 8:54:40 PM [vite] (client) hmr update /src/index.css, /src/components/EmpathyMap.tsx
+[2026-06-02T20:54:40.159Z] 8:54:40 PM [vite] (client) hmr update /src/components/ErrorBoundary.tsx, /src/index.css
+[2026-06-02T20:54:40.160Z] 8:54:40 PM [vite] (client) hmr update /src/index.css, /src/components/HealthJourney.tsx
+[2026-06-02T20:54:40.160Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.160Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.161Z] 8:54:40 PM [vite] (client) hmr update /src/index.css, /src/components/SettlementJourney.tsx
+[2026-06-02T20:54:40.161Z] 8:54:40 PM [vite] (client) hmr update /src/index.css, /src/components/SidebarLegend.tsx
+[2026-06-02T20:54:40.161Z] 8:54:40 PM [vite] (client) hmr update /src/index.css, /src/components/StakeholderMap.tsx
+[2026-06-02T20:54:40.164Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.164Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.164Z] 8:54:40 PM [vite] (client) page reload src/main.tsx
+[2026-06-02T20:54:40.170Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.171Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.171Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.171Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.171Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.171Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.172Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.172Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.172Z] 8:54:40 PM [vite] (client) hmr update /src/index.css, /src/components/ui/button.tsx
+[2026-06-02T20:54:40.172Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.173Z] 8:54:40 PM [vite] (client) hmr update /src/index.css, /src/components/ui/card.tsx
+[2026-06-02T20:54:40.173Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.173Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.173Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.173Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.174Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.174Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.174Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.174Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.175Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.175Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.175Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.175Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.176Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.176Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.176Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.177Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.177Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.177Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.177Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.178Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.178Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.178Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.178Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.178Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.179Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.179Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.179Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.179Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.180Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.180Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.180Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.180Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.180Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.181Z] 8:54:40 PM [vite] (client) hmr update /src/components/ui/sonner.tsx, /src/index.css
+[2026-06-02T20:54:40.181Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.181Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.181Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.181Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.182Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.182Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.182Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.182Z] 8:54:40 PM [vite] (client) hmr update /src/components/ui/tooltip.tsx, /src/index.css
+[2026-06-02T20:54:40.186Z] 8:54:40 PM [vite] (client) hmr update /src/contexts/ThemeContext.tsx, /src/index.css
+[2026-06-02T20:54:40.186Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.187Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.187Z] 8:54:40 PM [vite] (client) hmr update /src/index.css
+[2026-06-02T20:54:40.187Z] 8:54:40 PM [vite] (client) hmr update /src/index.css, /src/pages/Home.tsx, /src/pages/Overview.tsx, /src/pages/AggregateMap.tsx
+[2026-06-02T20:54:40.187Z] 8:54:40 PM [vite] (client) hmr update /src/index.css, /src/components/ErrorBoundary.tsx, /src/components/ui/tooltip.tsx, /src/components/ui/button.tsx, /src/components/ui/card.tsx
+[2026-06-02T20:54:40.188Z] 8:54:40 PM [vite] (client) hmr update /src/index.css, /src/pages/AggregateMap.tsx
+[2026-06-02T20:54:40.188Z] 8:54:40 PM [vite] (client) hmr update /src/pages/Home.tsx, /src/index.css
+[2026-06-02T20:54:40.188Z] 8:54:40 PM [vite] (client) hmr update /src/pages/NotFound.tsx, /src/index.css
+[2026-06-02T20:54:40.189Z] 8:54:40 PM [vite] (client) hmr update /src/index.css, /src/pages/Overview.tsx
+[2026-06-02T20:54:40.189Z] 8:54:40 PM [vite] (client) hmr update /src/index.css, /src/pages/PersonaTab.tsx
+[2026-06-02T20:54:40.239Z] 8:54:40 PM [vite] changed tsconfig file detected: /home/ubuntu/ipv-mapping-dashboard/tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.
+[2026-06-02T20:54:40.240Z] 8:54:40 PM [vite] vite.config.ts changed, restarting server...
+[2026-06-02T20:54:40.680Z] 8:54:40 PM [vite] server restarted.

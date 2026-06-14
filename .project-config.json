@@ -1,0 +1,35 @@
+{
+  "build_command": "pnpm run build",
+  "capabilities": [],
+  "dev_command": "pnpm run dev",
+  "env_vars": {},
+  "experiments": null,
+  "git_remote": {
+    "repo_url": "s3://vida-prod-gitrepo/webdev-git/91635441/eLU5t6bbkTqTXXL4Ar3gUg",
+    "access_key_id": "ASIAZV3A2ECZG4CZGSDS",
+    "secret_access_key": "z4yUwt6S0mNWjmVYdVbY+b9DKS6/JsZwR0e20btR",
+    "session_token": "IQoJb3JpZ2luX2VjEGQaCXVzLWVhc3QtMSJIMEYCIQCM+W8e0GZuvApGH/ukmhJajaYLDes1zxryTUs4qE9IigIhAIbvLpfDXx9BUgule1BlXxBdMoQvtlHmdA6fZn5++DpoKuIDCC0QBBoMNjY1Mzg2MDk4ODY2Igw4XVPzRnEWN1XA/GEqvwM0hACwsegF7skA2iS0/obckhmuST5Cc9H+15S0hLrTF3iullcfyH0M1QNHEoaqvin9DEH4g4IFO2cLUmh8zqgz3N2xGyZiTHB3+ORTYIEr3DJcoxjrjGAa89D/4s2TJPzUGm1okukEr9vNJcAVVAj2VZtQ1J1ARrpMkgnMhWu9kJ/1jS+eomTtoHk+93NBnDwK1NukdltA3nN3l9c/9LRFKG1yCh5wgkb6+9LP0Bo/rKAOYAl8TgOM9Sxa/hscNo8ovXYsZ9Pz2xS9pi5dRSv0QV4DWlOzjtiu6Wr8PwoLBnq4X53dvDwWEa8/fDuHvZKjWA0Gr7Cj4nJ7b6ijO6vQxO9HHcJvfdGkFRw6/ccrdyb+zcYIa4ehLbx3HA8NLnNQmQDzCfxxMWJV3iekPX+AUb1lJYoSiZIOVUUpgghctgSNAjnAQHk/4fxA/W+rGFCTqaWdwqpuflSvFIJ5jI1C2ZM9VS7pZ64JJY1MhAyvmUoRq/aodfX6hoMXgBMTBnCBMTO7gLGakwcT0T5KnOdzuNK1K1/6taSuY7lQlXnMLjSGz9Ch0DIngKSS5Zq997cbOgrWY9RMoh261M2EW70wlef80AY6nAEx30bYqcD49aAu0TV0Xh5xNvJ/0E+Pn0JWQi8GpnHJbWXAXAmsPtV7lnNuikqMIcjNfj328bUKob/zZvgkhIPg4SJs8FXBzWlgFAWeNORzOy4U6WxZ3z83QOyvJzL00IKrQ2U+fJCPeuglD0TrUWR1IQKySLwbryNMd5pPjmgWLLPREtt4KTOCzXBI/O3oniYzXIMkmeiBeb5ZHr4=",
+    "expiration": "2026-06-03T07:48:37.000Z"
+  },
+  "name": "ipv-mapping-dashboard",
+  "path": "/home/ubuntu/ipv-mapping-dashboard",
+  "port": 3000,
+  "secrets": {
+    "BUILT_IN_FORGE_API_KEY": "8mDQmBEU2U6R26xwUYHpVd",
+    "BUILT_IN_FORGE_API_URL": "https://forge.manus.ai",
+    "JWT_SECRET": "FcrgZSasRSKTfCJBY8uXMX",
+    "OAUTH_SERVER_URL": "https://api.manus.im",
+    "OWNER_NAME": "Imroze Singh",
+    "OWNER_OPEN_ID": "Gmpjy5g8N3XPnycGvg4D3W",
+    "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
+    "VITE_ANALYTICS_WEBSITE_ID": "1a1234fe-4b1a-46bd-99b7-8dde76b498a9",
+    "VITE_APP_ID": "eLU5t6bbkTqTXXL4Ar3gUg",
+    "VITE_APP_LOGO": "",
+    "VITE_APP_TITLE": "IPV Healthcare Pathway Mapping Dashboard",
+    "VITE_FRONTEND_FORGE_API_KEY": "5narcQMNoRaMRVeobNfYbb",
+    "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",
+    "VITE_OAUTH_PORTAL_URL": "https://manus.im"
+  },
+  "template_id": "web-static",
+  "test_command": "pnpm test"
+}
