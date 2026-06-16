@@ -42,7 +42,7 @@ export default function AggregateMap({ highlightedInterventionId, onClearHighlig
           Systemic View
         </div>
         <h2 className="text-2xl lg:text-3xl font-serif font-bold text-foreground">
-          Section 8 — Aggregate Map & Synthesis
+          Aggregate Map & Synthesis
         </h2>
         <p className="text-xs text-muted-foreground mt-1 max-w-3xl leading-relaxed">
           The aggregate view surfaces critical patterns across all three survivor personas. By placing individual pathways side-by-side, we expose systemic friction, recurring equity gaps, and high-impact intervention points for the toolkit design.
@@ -54,7 +54,7 @@ export default function AggregateMap({ highlightedInterventionId, onClearHighlig
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
             <h3 className="text-sm font-bold uppercase tracking-wider text-foreground font-serif">
-              Shared Friction & Barrier Matrix
+              Section A — Shared Friction & Barrier Matrix
             </h3>
             <p className="text-xs text-muted-foreground">
               A heatmap indicating the presence and impact of systemic barriers across each newcomer persona.
@@ -175,7 +175,7 @@ export default function AggregateMap({ highlightedInterventionId, onClearHighlig
       <div className="space-y-4">
         <div className="space-y-1">
           <h3 className="text-sm font-bold uppercase tracking-wider text-foreground font-serif">
-            Section 9 — Highest-Impact Opportunities
+            Section B — Highest-Impact Opportunities
           </h3>
           <p className="text-xs text-muted-foreground">
             The three core intervention directions that address the most widespread, critical friction points across the pathways.
@@ -338,7 +338,7 @@ function InterventionPrioritizationTable({ highlightedInterventionId, onClearHig
     <div ref={tableRef} className="space-y-6 pt-6 border-t border-border">
       <div className="space-y-1">
         <h3 className="text-sm font-bold uppercase tracking-wider text-foreground font-serif flex items-center gap-2">
-          <Star size={16} className="text-stone-500 fill-stone-100" /> Intervention Prioritization Table
+          <Star size={16} className="text-stone-500 fill-stone-100" /> Section C — Intervention Prioritization Table
         </h3>
         <p className="text-xs text-muted-foreground">
           An interactive, multi-factor analysis of potential solutions, evaluating impact, technical/operational feasibility, and required resources.
