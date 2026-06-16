@@ -81,13 +81,13 @@ export default function AggregateMap({ highlightedInterventionId, onClearHighlig
 
         {/* Comparison Table */}
         <div className="overflow-x-auto custom-scrollbar border border-border rounded-xl shadow-sm bg-card">
-          <table className="w-full border-collapse text-left min-w-[800px]">
+          <table className="w-full border-collapse text-left min-w-[850px]">
             <thead>
               <tr className="border-b border-border bg-stone-50/50">
                 <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 border-r border-border w-[350px]">
                   Systemic Barrier / Friction Point
                 </th>
-                <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 border-r border-border text-center w-[120px]">
+                <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 border-r border-border text-center w-[150px]">
                   Category
                 </th>
                 <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 border-r border-border text-center w-[110px]">
@@ -105,8 +105,8 @@ export default function AggregateMap({ highlightedInterventionId, onClearHighlig
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
-              {filteredFrictions.map((f) => (
-                <tr key={f.id} className="hover:bg-stone-50/30 transition-colors">
+              {filteredFrictions.map((f, idx) => (
+                <tr key={idx} className="hover:bg-stone-50/30 transition-colors">
                   <td className="p-4 border-r border-border">
                     <div className="space-y-1">
                       <div className="text-xs font-semibold text-foreground flex items-start gap-1.5">
@@ -114,15 +114,12 @@ export default function AggregateMap({ highlightedInterventionId, onClearHighlig
                         {f.category === "Equity Gap" && <ShieldAlert size={13} className="text-[var(--equity-color)] shrink-0 mt-0.5" />}
                         {f.category === "Coordination Failure" && <Users size={13} className="text-[var(--coordination-color)] shrink-0 mt-0.5" />}
                         {f.category === "Digital Friction" && <Info size={13} className="text-[var(--digital-color)] shrink-0 mt-0.5" />}
-                        {f.name}
+                        {f.friction}
                       </div>
-                      <p className="text-[11px] text-muted-foreground pl-5 leading-relaxed">
-                        {f.description}
-                      </p>
                     </div>
                   </td>
                   <td className="p-4 border-r border-border text-center">
-                    <span className={`px-2 py-0.5 rounded text-[9px] font-bold border ${getCategoryBadgeStyle(f.category)}`}>
+                    <span className={`px-2 py-0.5 rounded text-[9px] font-bold border whitespace-nowrap ${getCategoryBadgeStyle(f.category)}`}>
                       {f.category}
                     </span>
                   </td>
@@ -186,22 +183,23 @@ export default function AggregateMap({ highlightedInterventionId, onClearHighlig
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {opportunities.map((opp) => {
+          {opportunities.slice(0, 3).map((opp, index) => {
+            const id = index + 1;
             const iconColor = 
-              opp.id === 1 ? "bg-emerald-50 text-emerald-700 border-emerald-200/50" :
-              opp.id === 2 ? "bg-teal-50 text-teal-700 border-teal-200/50" :
+              id === 1 ? "bg-emerald-50 text-emerald-700 border-emerald-200/50" :
+              id === 2 ? "bg-teal-50 text-teal-700 border-teal-200/50" :
               "bg-purple-50 text-purple-700 border-purple-200/50";
             
             return (
               <div 
-                key={opp.id} 
+                key={id} 
                 className="bg-card text-card-foreground rounded-xl border border-border p-5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-4"
               >
                 <div className="space-y-3">
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center border ${iconColor}`}>
-                    {opp.id === 1 && <ShieldAlert size={16} />}
-                    {opp.id === 2 && <Sparkles size={16} />}
-                    {opp.id === 3 && <Users size={16} />}
+                  <div className={`p-2 rounded-lg border w-fit ${iconColor}`}>
+                    {id === 1 && <ShieldAlert size={16} />}
+                    {id === 2 && <Sparkles size={16} />}
+                    {id === 3 && <Users size={16} />}
                   </div>
                   <h4 className="text-xs font-bold text-foreground leading-snug">
                     {opp.opportunity}
