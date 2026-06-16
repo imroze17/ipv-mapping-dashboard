@@ -687,12 +687,18 @@ export const personas: Persona[] = [
       {
         stage: "Transitional Housing Application",
         events: "DV priority housing declarations (to bypass social housing waitlists).",
-        barriers: ["6-to-12-month waitlist. Systemic bias from housing providers."]
+        barriers: [
+          "6-to-12 month waitlist",
+          "Systemic bias from housing providers"
+        ]
       },
       {
         stage: "Case Closure",
         events: "Forced discharge and referral.",
-        barriers: ["Internal pressure to meet targets. Clients forced to re-unpack trauma at each new referral agency."]
+        barriers: [
+          "Internal pressure to meet targets.",
+          "Clients forced to re-unpack trauma at each new referral agency."
+        ]
       }
     ],
     healthJourney: [
@@ -766,7 +772,8 @@ export const personas: Persona[] = [
           "Reviews discharge papers and prescriptions the client cannot understand"
         ],
         friction: [
-          "Clients leave appointments without understanding medications or follow-up purposes"
+          "Clients leave appointments without understanding medications or follow-up purposes",
+          "Access to medical care for a primary assessment"
         ],
         equity: [
           "Absence of integrated, shared case files between settlement data and healthcare records",
