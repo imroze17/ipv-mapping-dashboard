@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Persona } from "../lib/data";
+import { Persona, synthesizedQuotes } from "../lib/data";
 import EmpathyMap from "../components/EmpathyMap";
 import { QuoteCallout } from "../components/QuoteCallout";
 import SettlementJourney from "../components/SettlementJourney";
@@ -104,7 +104,10 @@ export default function PersonaTab({ persona, onNavigateToOpportunity }: Persona
       </div>
 
       {/* Synthesized Research Quote Block */}
-      <QuoteCallout placement={persona.id as any} />
+      {(() => {
+        const personaQuote = synthesizedQuotes.find(q => q.placement === persona.id);
+        return personaQuote ? <QuoteCallout quote={personaQuote} /> : null;
+      })()}
 
       {/* Sticky Sub-Navigation */}
       <div className="sticky top-[84px] z-40 bg-stone-50/90 backdrop-blur-md border border-border rounded-xl p-1 shadow-sm">
