@@ -61,7 +61,7 @@ export default function HealthJourney({ persona, onNavigateToOpportunity }: Heal
       return "education-workshops-in-multiple-language";
     }
     if (cleanText.includes("workshops on abuse") || cleanText.includes("workshops for clients")) {
-      return "workshops on abuse and health for client";
+      return "workshops-on-abuse-and-health-for-client";
     }
     if (cleanText.includes("myhealth") || cleanText.includes("patient portal")) {
       return "subtle-wellness-screen-embedded-in-myhea";

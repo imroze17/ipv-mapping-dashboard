@@ -4,7 +4,7 @@ import { AlertCircle, ShieldAlert, Check, Users, Sparkles, Filter, Info, Star, C
 import { QuoteCallout } from "../components/QuoteCallout";
 
 interface AggregateMapProps {
-  highlightedInterventionId?: number | null;
+  highlightedInterventionId?: string | null;
   onClearHighlight?: () => void;
 }
 
@@ -249,7 +249,7 @@ export default function AggregateMap({ highlightedInterventionId, onClearHighlig
 }
 
 interface TableProps {
-  highlightedInterventionId?: number | null;
+  highlightedInterventionId?: string | null;
   onClearHighlight?: () => void;
 }
 
@@ -258,10 +258,10 @@ function InterventionPrioritizationTable({ highlightedInterventionId, onClearHig
   const [filterCat, setFilterCat] = useState<string>("All");
   const [filterFeasibility, setFilterFeasibility] = useState<string>("All");
   const [filterImpact, setFilterImpact] = useState<string>("All");
-  const [expandedRow, setExpandedRow] = useState<number | null>(null);
+  const [expandedRow, setExpandedRow] = useState<string | null>(null);
 
   const tableRef = useRef<HTMLDivElement>(null);
-  const rowRefs = useRef<{ [key: number]: HTMLTableRowElement | null }>({});
+  const rowRefs = useRef<{ [key: string]: HTMLTableRowElement | null }>({});
 
   const categories = ["All", "Navigator Practice", "Digital Tool", "System Improvement"];
   const feasibilityLevels = ["All", "High", "Medium", "Low"];
@@ -306,7 +306,7 @@ function InterventionPrioritizationTable({ highlightedInterventionId, onClearHig
     return matchCat && matchFeas && matchImp;
   });
 
-  const toggleRow = (id: number) => {
+  const toggleRow = (id: string) => {
     setExpandedRow(expandedRow === id ? null : id);
   };
 
@@ -488,9 +488,9 @@ function InterventionPrioritizationTable({ highlightedInterventionId, onClearHig
                                   <Check size={12} className="text-emerald-600" /> Equity Gaps Addressed
                                 </h4>
                                 <div className="flex flex-wrap gap-1.5">
-                                  {item.gapsAddressed.map((gap, idx) => (
+                                  {item.gapsAddressed.split(",").map((gap, idx) => (
                                     <span key={idx} className="px-2 py-1 bg-emerald-50/60 text-emerald-800 border border-emerald-100 rounded text-[10px] font-medium">
-                                      {gap}
+                                      {gap.trim()}
                                     </span>
                                   ))}
                                 </div>
@@ -502,9 +502,9 @@ function InterventionPrioritizationTable({ highlightedInterventionId, onClearHig
                                   <BookOpen size={12} className="text-stone-500" /> Operational Resources Required
                                 </h4>
                                 <div className="flex flex-wrap gap-1.5">
-                                  {item.resources.map((res, idx) => (
+                                  {item.resources.split(",").map((res, idx) => (
                                     <span key={idx} className="px-2 py-1 bg-stone-100 text-stone-700 border border-stone-200 rounded text-[10px] font-medium">
-                                      {res}
+                                      {res.trim()}
                                     </span>
                                   ))}
                                 </div>
