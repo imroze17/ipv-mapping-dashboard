@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { sharedFrictions, opportunities, personas, interventionPriorities, synthesizedQuotes } from "../lib/data";
 import { AlertCircle, ShieldAlert, Check, Users, Sparkles, Filter, Info, Star, ChevronRight, ChevronDown, ListFilter, ArrowUpDown, BookOpen } from "lucide-react";
 import { QuoteCallout } from "../components/QuoteCallout";
 
-export default function AggregateMap() {
+interface AggregateMapProps {
+  highlightedInterventionId?: number | null;
+  onClearHighlight?: () => void;
+}
+
+export default function AggregateMap({ highlightedInterventionId, onClearHighlight }: AggregateMapProps) {
   const [activeFilter, setActiveFilter] = useState<string>("All");
 
   const filterCategories = ["All", "Friction", "Equity Gap", "Coordination Failure", "Digital Friction"];
@@ -86,113 +91,83 @@ export default function AggregateMap() {
                   Category
                 </th>
                 <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 border-r border-border text-center w-[110px]">
-                  Amara<br/><span className="text-[9px] font-normal lowercase normal-case text-stone-400">Refugee Class (GAR)</span>
+                  Amara<br/><span className="text-[9px] font-normal normal-case text-stone-400">Refugee Class (GAR)</span>
                 </th>
                 <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 border-r border-border text-center w-[110px]">
-                  Priya<br/><span className="text-[9px] font-normal lowercase normal-case text-stone-400">Family Class (Sponsored)</span>
+                  Priya<br/><span className="text-[9px] font-normal normal-case text-stone-400">Family Class (Sponsored)</span>
                 </th>
                 <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 border-r border-border text-center w-[110px]">
-                  Elena<br/><span className="text-[9px] font-normal lowercase normal-case text-stone-400">Economic Class (TR to PR)</span>
+                  Elena<br/><span className="text-[9px] font-normal normal-case text-stone-400">Economic Class (TR to PR)</span>
                 </th>
                 <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 text-center w-[110px]">
-                  Maya<br/><span className="text-[9px] font-normal lowercase normal-case text-stone-400">Practitioner (Social Worker)</span>
+                  Maya<br/><span className="text-[9px] font-normal normal-case text-stone-400">Practitioner (Social Worker)</span>
                 </th>
               </tr>
             </thead>
-            
             <tbody className="divide-y divide-border">
-              {filteredFrictions.map((item, idx) => {
-                return (
-                  <tr key={idx} className="hover:bg-stone-50/40 transition-colors">
-                    {/* Barrier Name */}
-                    <td className="p-4 text-xs font-semibold text-foreground border-r border-border">
-                      {item.friction}
-                    </td>
-
-                    {/* Category Badge */}
-                    <td className="p-4 border-r border-border text-center">
-                      <span className={`tag ${getCategoryBadgeStyle(item.category)}`}>
-                        {item.category}
-                      </span>
-                    </td>
-
-                    {/* Amara Cell */}
-                    <td className={`p-4 border-r border-border text-center ${item.amara ? "bg-[var(--amara-light)]/20" : ""}`}>
-                      {item.amara ? (
-                        <div className="flex justify-center">
-                          <span className="w-5 h-5 rounded-full bg-[var(--amara-light)] border border-[var(--amara-color)]/20 flex items-center justify-center text-[var(--amara-color)]">
-                            <Check size={12} strokeWidth={3} />
-                          </span>
-                        </div>
-                      ) : (
-                        <span className="text-stone-300 text-xs">—</span>
-                      )}
-                    </td>
-
-                    {/* Priya Cell */}
-                    <td className={`p-4 border-r border-border text-center ${item.priya ? "bg-[var(--priya-light)]/20" : ""}`}>
-                      {item.priya ? (
-                        <div className="flex justify-center">
-                          <span className="w-5 h-5 rounded-full bg-[var(--priya-light)] border border-[var(--priya-color)]/20 flex items-center justify-center text-[var(--priya-color)]">
-                            <Check size={12} strokeWidth={3} />
-                          </span>
-                        </div>
-                      ) : (
-                        <span className="text-stone-300 text-xs">—</span>
-                      )}
-                    </td>
-
-                    {/* Elena Cell */}
-                    <td className={`p-4 border-r border-border text-center ${item.elena ? "bg-[var(--elena-light)]/20" : ""}`}>
-                      {item.elena ? (
-                        <div className="flex justify-center">
-                          <span className="w-5 h-5 rounded-full bg-[var(--elena-light)] border border-[var(--elena-color)]/20 flex items-center justify-center text-[var(--elena-color)]">
-                            <Check size={12} strokeWidth={3} />
-                          </span>
-                        </div>
-                      ) : (
-                        <span className="text-stone-300 text-xs">—</span>
-                      )}
-                    </td>
-
-                    {/* Maya Cell */}
-                    <td className={`p-4 text-center ${item.maya ? "bg-[var(--maya-light)]/20" : ""}`}>
-                      {item.maya ? (
-                        <div className="flex justify-center">
-                          <span className="w-5 h-5 rounded-full bg-[var(--maya-light)] border border-[var(--maya-color)]/20 flex items-center justify-center text-[var(--maya-color)]">
-                            <Check size={12} strokeWidth={3} />
-                          </span>
-                        </div>
-                      ) : (
-                        <span className="text-stone-300 text-xs">—</span>
-                      )}
-                    </td>
-                  </tr>
-                );
-              })}
+              {filteredFrictions.map((f) => (
+                <tr key={f.id} className="hover:bg-stone-50/30 transition-colors">
+                  <td className="p-4 border-r border-border">
+                    <div className="space-y-1">
+                      <div className="text-xs font-semibold text-foreground flex items-start gap-1.5">
+                        {f.category === "Friction" && <AlertCircle size={13} className="text-[var(--friction-color)] shrink-0 mt-0.5" />}
+                        {f.category === "Equity Gap" && <ShieldAlert size={13} className="text-[var(--equity-color)] shrink-0 mt-0.5" />}
+                        {f.category === "Coordination Failure" && <Users size={13} className="text-[var(--coordination-color)] shrink-0 mt-0.5" />}
+                        {f.category === "Digital Friction" && <Info size={13} className="text-[var(--digital-color)] shrink-0 mt-0.5" />}
+                        {f.name}
+                      </div>
+                      <p className="text-[11px] text-muted-foreground pl-5 leading-relaxed">
+                        {f.description}
+                      </p>
+                    </div>
+                  </td>
+                  <td className="p-4 border-r border-border text-center">
+                    <span className={`px-2 py-0.5 rounded text-[9px] font-bold border ${getCategoryBadgeStyle(f.category)}`}>
+                      {f.category}
+                    </span>
+                  </td>
+                  <td className="p-4 border-r border-border text-center">
+                    <span className={`inline-flex items-center justify-center w-5 h-5 rounded-full text-[10px] font-bold ${f.amara ? "bg-[var(--amara-light)] text-[var(--amara-color)] border border-[var(--amara-color)]/10" : "text-stone-200"}`}>
+                      {f.amara ? "●" : "—"}
+                    </span>
+                  </td>
+                  <td className="p-4 border-r border-border text-center">
+                    <span className={`inline-flex items-center justify-center w-5 h-5 rounded-full text-[10px] font-bold ${f.priya ? "bg-[var(--priya-light)] text-[var(--priya-color)] border border-[var(--priya-color)]/10" : "text-stone-200"}`}>
+                      {f.priya ? "●" : "—"}
+                    </span>
+                  </td>
+                  <td className="p-4 border-r border-border text-center">
+                    <span className={`inline-flex items-center justify-center w-5 h-5 rounded-full text-[10px] font-bold ${f.elena ? "bg-[var(--elena-light)] text-[var(--elena-color)] border border-[var(--elena-color)]/10" : "text-stone-200"}`}>
+                      {f.elena ? "●" : "—"}
+                    </span>
+                  </td>
+                  <td className="p-4 text-center">
+                    <span className={`inline-flex items-center justify-center w-5 h-5 rounded-full text-[10px] font-bold ${f.maya ? "bg-[var(--maya-light)] text-[var(--maya-color)] border border-[var(--maya-color)]/10" : "text-stone-200"}`}>
+                      {f.maya ? "●" : "—"}
+                    </span>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
-
-        {/* Synthesis Callout */}
-        <div className="bg-stone-50 border border-border rounded-xl p-4 text-xs text-muted-foreground flex gap-2.5 shadow-sm leading-relaxed">
-          <Info size={16} className="text-stone-400 flex-shrink-0 mt-0.5" />
-          <div>
-            <strong>Cross-Persona Insight:</strong> Notice how <strong>"No healthcare navigator role exists in current pathway"</strong>, <strong>"Fear of immigration consequences"</strong>, and <strong>"Safety planning assumes physical departure"</strong> act as universal barriers across all newcomer classes, regardless of their English fluency or geographic isolation. This strongly reinforces the need for an integrated, multi-sector Navigator Practice Toolkit.
-          </div>
-        </div>
       </div>
 
-      {/* Synthesized Quotes Section */}
-      {synthesizedQuotes.some(q => q.placement === "aggregate") && (
+      {/* Synthesized Research Quotes */}
+      {synthesizedQuotes.filter(q => q.placement === "aggregate").length > 0 && (
         <div className="space-y-4">
-          <h3 className="text-sm font-bold uppercase tracking-wider text-foreground font-serif flex items-center gap-2">
-            <BookOpen size={16} className="text-stone-500" /> Cross-Cutting Stakeholder Perspectives
-          </h3>
+          <div className="space-y-1">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-foreground font-serif">
+              Synthesized Qualitative Feedback
+            </h3>
+            <p className="text-xs text-muted-foreground">
+              Direct, anonymous insights collected from newcomer clients and settlement support practitioners.
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {synthesizedQuotes
               .filter(q => q.placement === "aggregate")
-              .map(quote => (
+              .map((quote) => (
                 <QuoteCallout key={quote.id} quote={quote} />
               ))}
           </div>
@@ -203,31 +178,32 @@ export default function AggregateMap() {
       <div className="space-y-4">
         <div className="space-y-1">
           <h3 className="text-sm font-bold uppercase tracking-wider text-foreground font-serif">
-            Highest-Impact Intervention Opportunities
+            Section 9 — Highest-Impact Opportunities
           </h3>
           <p className="text-xs text-muted-foreground">
-            Targeted design interventions for the navigator practice toolkit that address multi-persona friction points.
+            The three core intervention directions that address the most widespread, critical friction points across the pathways.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {opportunities.map((opp, idx) => {
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {opportunities.map((opp) => {
+            const iconColor = 
+              opp.id === 1 ? "bg-emerald-50 text-emerald-700 border-emerald-200/50" :
+              opp.id === 2 ? "bg-teal-50 text-teal-700 border-teal-200/50" :
+              "bg-purple-50 text-purple-700 border-purple-200/50";
+            
             return (
               <div 
-                key={idx} 
-                className="bg-card text-card-foreground border border-border rounded-xl p-5 shadow-sm space-y-4 hover:border-stone-300 transition-colors flex flex-col justify-between"
+                key={opp.id} 
+                className="bg-card text-card-foreground rounded-xl border border-border p-5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-4"
               >
                 <div className="space-y-3">
-                  <div className="flex justify-between items-start gap-2">
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-[var(--intervention-light)] text-[var(--intervention-color)] border border-[var(--intervention-color)]/10 text-[10px] font-bold uppercase tracking-wider">
-                      ✦ {opp.type}
-                    </span>
-                    <span className="text-[10px] font-semibold text-muted-foreground bg-stone-50 border border-border px-1.5 py-0.5 rounded">
-                      Stage: {opp.stage}
-                    </span>
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center border ${iconColor}`}>
+                    {opp.id === 1 && <ShieldAlert size={16} />}
+                    {opp.id === 2 && <Sparkles size={16} />}
+                    {opp.id === 3 && <Users size={16} />}
                   </div>
-
-                  <h4 className="text-sm font-bold font-serif text-foreground leading-snug">
+                  <h4 className="text-xs font-bold text-foreground leading-snug">
                     {opp.opportunity}
                   </h4>
                 </div>
@@ -262,21 +238,66 @@ export default function AggregateMap() {
       </div>
 
       {/* NEW Section: Intervention Prioritization Table */}
-      <InterventionPrioritizationTable />
+      <div id="prioritization-table-section">
+        <InterventionPrioritizationTable 
+          highlightedInterventionId={highlightedInterventionId} 
+          onClearHighlight={onClearHighlight} 
+        />
+      </div>
     </div>
   );
 }
 
+interface TableProps {
+  highlightedInterventionId?: number | null;
+  onClearHighlight?: () => void;
+}
+
 // Interactive Intervention Prioritization Table Component
-function InterventionPrioritizationTable() {
+function InterventionPrioritizationTable({ highlightedInterventionId, onClearHighlight }: TableProps) {
   const [filterCat, setFilterCat] = useState<string>("All");
   const [filterFeasibility, setFilterFeasibility] = useState<string>("All");
   const [filterImpact, setFilterImpact] = useState<string>("All");
   const [expandedRow, setExpandedRow] = useState<number | null>(null);
 
+  const tableRef = useRef<HTMLDivElement>(null);
+  const rowRefs = useRef<{ [key: number]: HTMLTableRowElement | null }>({});
+
   const categories = ["All", "Navigator Practice", "Digital Tool", "System Improvement"];
   const feasibilityLevels = ["All", "High", "Medium", "Low"];
   const impactLevels = ["All", "High", "Medium"];
+
+  // Handle outside highlighting triggers
+  useEffect(() => {
+    if (highlightedInterventionId) {
+      // Find item
+      const item = interventionPriorities.find(p => p.id === highlightedInterventionId);
+      if (item) {
+        // Clear filters so the item is guaranteed to be visible
+        setFilterCat("All");
+        setFilterFeasibility("All");
+        setFilterImpact("All");
+        
+        // Expand the matching row
+        setExpandedRow(highlightedInterventionId);
+
+        // Scroll to the row after a brief delay to let filters reset
+        setTimeout(() => {
+          const rowEl = rowRefs.current[highlightedInterventionId];
+          if (rowEl) {
+            rowEl.scrollIntoView({ behavior: "smooth", block: "center" });
+            
+            // Add a temporary CSS highlight effect
+            rowEl.classList.add("bg-amber-50/80", "ring-2", "ring-amber-400/40");
+            setTimeout(() => {
+              rowEl.classList.remove("bg-amber-50/80", "ring-2", "ring-amber-400/40");
+              if (onClearHighlight) onClearHighlight();
+            }, 3000);
+          }
+        }, 150);
+      }
+    }
+  }, [highlightedInterventionId]);
 
   const filteredData = interventionPriorities.filter((item) => {
     const matchCat = filterCat === "All" || item.category === filterCat;
@@ -316,7 +337,7 @@ function InterventionPrioritizationTable() {
   };
 
   return (
-    <div className="space-y-6 pt-6 border-t border-border">
+    <div ref={tableRef} className="space-y-6 pt-6 border-t border-border">
       <div className="space-y-1">
         <h3 className="text-sm font-bold uppercase tracking-wider text-foreground font-serif flex items-center gap-2">
           <Star size={16} className="text-stone-500 fill-stone-100" /> Intervention Prioritization Table
@@ -398,8 +419,9 @@ function InterventionPrioritizationTable() {
                 return (
                   <React.Fragment key={item.id}>
                     <tr 
+                      ref={el => { rowRefs.current[item.id] = el; }}
                       onClick={() => toggleRow(item.id)}
-                      className="hover:bg-stone-50/40 transition-colors cursor-pointer"
+                      className={`hover:bg-stone-50/40 transition-all cursor-pointer ${isExpanded ? "bg-stone-50/20" : ""}`}
                     >
                       {/* Expand Icon */}
                       <td className="p-4 text-center border-r border-border">
@@ -448,22 +470,43 @@ function InterventionPrioritizationTable() {
                       <tr className="bg-stone-50/50">
                         <td colSpan={7} className="p-5 border-t border-b border-border">
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="space-y-2">
-                              <h4 className="text-xs font-bold text-stone-500 uppercase tracking-wider">Detailed Description</h4>
-                              <p className="text-xs text-stone-700 leading-relaxed font-sans">
+                            {/* Left side: Barriers & Description */}
+                            <div className="space-y-2.5">
+                              <h4 className="text-[10px] font-bold text-stone-400 uppercase tracking-wider flex items-center gap-1">
+                                <AlertCircle size={12} /> Barriers to Entry & Context
+                              </h4>
+                              <p className="text-xs text-stone-600 leading-relaxed bg-white p-3 rounded-lg border border-border">
                                 {item.description}
                               </p>
                             </div>
-                            <div className="space-y-3">
-                              <h4 className="text-xs font-bold text-stone-500 uppercase tracking-wider">Strategic Fit</h4>
-                              <div className="bg-white p-3 rounded-lg border border-border space-y-1.5">
-                                <div className="flex justify-between text-[11px]">
-                                  <span className="font-semibold text-stone-500">Key Gaps Addressed:</span>
-                                  <span className="font-bold text-stone-700">{item.gapsAddressed}</span>
+
+                            {/* Right side: Gaps Addressed & Resources */}
+                            <div className="space-y-4">
+                              {/* Gaps Addressed */}
+                              <div className="space-y-1.5">
+                                <h4 className="text-[10px] font-bold text-stone-400 uppercase tracking-wider flex items-center gap-1">
+                                  <Check size={12} className="text-emerald-600" /> Equity Gaps Addressed
+                                </h4>
+                                <div className="flex flex-wrap gap-1.5">
+                                  {item.gapsAddressed.map((gap, idx) => (
+                                    <span key={idx} className="px-2 py-1 bg-emerald-50/60 text-emerald-800 border border-emerald-100 rounded text-[10px] font-medium">
+                                      {gap}
+                                    </span>
+                                  ))}
                                 </div>
-                                <div className="flex justify-between text-[11px]">
-                                  <span className="font-semibold text-stone-500">Resource Intensity:</span>
-                                  <span className="font-bold text-stone-700">{item.resources}</span>
+                              </div>
+
+                              {/* Resources Required */}
+                              <div className="space-y-1.5">
+                                <h4 className="text-[10px] font-bold text-stone-400 uppercase tracking-wider flex items-center gap-1">
+                                  <BookOpen size={12} className="text-stone-500" /> Operational Resources Required
+                                </h4>
+                                <div className="flex flex-wrap gap-1.5">
+                                  {item.resources.map((res, idx) => (
+                                    <span key={idx} className="px-2 py-1 bg-stone-100 text-stone-700 border border-stone-200 rounded text-[10px] font-medium">
+                                      {res}
+                                    </span>
+                                  ))}
                                 </div>
                               </div>
                             </div>
@@ -476,7 +519,7 @@ function InterventionPrioritizationTable() {
               })
             ) : (
               <tr>
-                <td colSpan={7} className="p-8 text-center text-xs text-stone-400 italic">
+                <td colSpan={7} className="p-8 text-center text-xs text-muted-foreground">
                   No interventions match the selected filters.
                 </td>
               </tr>

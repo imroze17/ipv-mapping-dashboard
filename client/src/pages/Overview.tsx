@@ -71,7 +71,32 @@ export default function Overview({ onTabChange }: OverviewProps) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-border">
+          {/* Toolkit Context Section (Placed Directly Below Executive Summary Text) */}
+          <div className="mt-6 pt-6 border-t border-border space-y-4">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-foreground font-serif flex items-center gap-2">
+              <Shield size={14} className="text-stone-500" /> Toolkit Context
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-muted-foreground leading-relaxed">
+              <div className="space-y-2">
+                <p>
+                  This mapping deliverable directly informs the design of a larger <strong>Navigator Practice Toolkit</strong>.
+                </p>
+                <p>
+                  Frontline workers at Community Health Centres (CHCs), Refugee Health Clinics, Emergency Departments, and Settlement Agencies will utilize this tool to coordinate care.
+                </p>
+              </div>
+              <div className="space-y-2">
+                <p>
+                  <strong>Sources & Evidence Base:</strong> Developed from extensive academic literature review, first-hand interviews with settlement and healthcare officials, and Subject Matter Expert (SME) validation.
+                </p>
+                <p className="text-[11px] text-stone-500 italic">
+                  Explore the "Evidence Base" collapsible row in Section C of each persona's pathway to view specific source citations.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-border">
             <div className="p-4 rounded-lg bg-stone-50 border border-border flex items-start gap-3">
               <div className="p-2 rounded bg-orange-100 text-orange-800">
                 <AlertTriangle size={18} />
@@ -102,41 +127,15 @@ export default function Overview({ onTabChange }: OverviewProps) {
           </div>
         </div>
 
-        {/* Toolkit Context Section (Moved Below Executive Summary) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="md:col-span-2 bg-card text-card-foreground rounded-xl border border-border p-6 shadow-sm space-y-4">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-foreground font-serif border-b border-border pb-2 flex items-center gap-2">
-              <Shield size={14} className="text-stone-500" /> Toolkit Context
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-muted-foreground leading-relaxed">
-              <div className="space-y-2">
-                <p>
-                  This mapping deliverable directly informs the design of a larger <strong>Navigator Practice Toolkit</strong>.
-                </p>
-                <p>
-                  Frontline workers at Community Health Centres (CHCs), Refugee Health Clinics, Emergency Departments, and Settlement Agencies will utilize this tool to coordinate care.
-                </p>
-              </div>
-              <div className="space-y-2">
-                <p>
-                  <strong>Sources & Evidence Base:</strong> Developed from extensive academic literature review, first-hand interviews with settlement and healthcare officials, and Subject Matter Expert (SME) validation.
-                </p>
-                <p className="text-[11px] text-stone-500 italic">
-                  Explore the "Evidence Base" collapsible row in Section C of each persona's pathway to view specific source citations.
-                </p>
-              </div>
+        {/* Technical Maintenance Section */}
+        <div className="bg-card text-card-foreground rounded-xl border border-border p-6 shadow-sm flex flex-col justify-between">
+          <div className="space-y-2">
+            <div className="text-xs font-bold text-foreground flex items-center gap-1.5">
+              <BookOpen size={12} /> Technical Maintenance
             </div>
-          </div>
-
-          <div className="bg-card text-card-foreground rounded-xl border border-border p-6 shadow-sm flex flex-col justify-between">
-            <div className="space-y-2">
-              <div className="text-xs font-bold text-foreground flex items-center gap-1.5">
-                <BookOpen size={12} /> Technical Maintenance
-              </div>
-              <p className="text-[11px] text-muted-foreground leading-relaxed">
-                This dashboard is maintained by Changemark. For content updates, additions, or technical feedback, please contact the project coordinator.
-              </p>
-            </div>
+            <p className="text-[11px] text-muted-foreground leading-relaxed">
+              This dashboard is maintained by Changemark. For content updates, additions, or technical feedback, please contact the project coordinator.
+            </p>
           </div>
         </div>
 
