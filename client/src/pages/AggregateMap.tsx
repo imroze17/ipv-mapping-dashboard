@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { sharedFrictions, opportunities, personas } from "../lib/data";
-import { AlertCircle, ShieldAlert, Check, Users, Sparkles, Filter, Info } from "lucide-react";
+import { sharedFrictions, opportunities, personas, interventionPriorities, synthesizedQuotes } from "../lib/data";
+import { AlertCircle, ShieldAlert, Check, Users, Sparkles, Filter, Info, Star, ChevronRight, ChevronDown, ListFilter, ArrowUpDown, BookOpen } from "lucide-react";
+import { QuoteCallout } from "../components/QuoteCallout";
 
 export default function AggregateMap() {
   const [activeFilter, setActiveFilter] = useState<string>("All");
@@ -182,6 +183,22 @@ export default function AggregateMap() {
         </div>
       </div>
 
+      {/* Synthesized Quotes Section */}
+      {synthesizedQuotes.some(q => q.placement === "aggregate") && (
+        <div className="space-y-4">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-foreground font-serif flex items-center gap-2">
+            <BookOpen size={16} className="text-stone-500" /> Cross-Cutting Stakeholder Perspectives
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {synthesizedQuotes
+              .filter(q => q.placement === "aggregate")
+              .map(quote => (
+                <QuoteCallout key={quote.id} quote={quote} />
+              ))}
+          </div>
+        </div>
+      )}
+
       {/* Highest-Impact Opportunities */}
       <div className="space-y-4">
         <div className="space-y-1">
@@ -242,6 +259,230 @@ export default function AggregateMap() {
             );
           })}
         </div>
+      </div>
+
+      {/* NEW Section: Intervention Prioritization Table */}
+      <InterventionPrioritizationTable />
+    </div>
+  );
+}
+
+// Interactive Intervention Prioritization Table Component
+function InterventionPrioritizationTable() {
+  const [filterCat, setFilterCat] = useState<string>("All");
+  const [filterFeasibility, setFilterFeasibility] = useState<string>("All");
+  const [filterImpact, setFilterImpact] = useState<string>("All");
+  const [expandedRow, setExpandedRow] = useState<number | null>(null);
+
+  const categories = ["All", "Navigator Practice", "Digital Tool", "System Improvement"];
+  const feasibilityLevels = ["All", "High", "Medium", "Low"];
+  const impactLevels = ["All", "High", "Medium"];
+
+  const filteredData = interventionPriorities.filter((item) => {
+    const matchCat = filterCat === "All" || item.category === filterCat;
+    const matchFeas = filterFeasibility === "All" || item.feasibility === filterFeasibility;
+    const matchImp = filterImpact === "All" || item.impact === filterImpact;
+    return matchCat && matchFeas && matchImp;
+  });
+
+  const toggleRow = (id: number) => {
+    setExpandedRow(expandedRow === id ? null : id);
+  };
+
+  const getBadgeStyle = (level: string) => {
+    switch (level) {
+      case "High":
+        return "bg-emerald-50 text-emerald-700 border-emerald-200/50";
+      case "Medium":
+        return "bg-amber-50 text-amber-700 border-amber-200/50";
+      case "Low":
+        return "bg-rose-50 text-rose-700 border-rose-200/50";
+      default:
+        return "bg-stone-50 text-stone-600 border-stone-200";
+    }
+  };
+
+  const getCategoryStyle = (cat: string) => {
+    switch (cat) {
+      case "Navigator Practice":
+        return "bg-[var(--intervention-light)] text-[var(--intervention-color)] border-[var(--intervention-color)]/10";
+      case "Digital Tool":
+        return "bg-[var(--digital-light)] text-[var(--digital-color)] border-[var(--digital-color)]/10";
+      case "System Improvement":
+        return "bg-stone-100 text-stone-600 border-stone-200/60";
+      default:
+        return "bg-stone-50 text-stone-600 border-stone-200";
+    }
+  };
+
+  return (
+    <div className="space-y-6 pt-6 border-t border-border">
+      <div className="space-y-1">
+        <h3 className="text-sm font-bold uppercase tracking-wider text-foreground font-serif flex items-center gap-2">
+          <Star size={16} className="text-stone-500 fill-stone-100" /> Intervention Prioritization Table
+        </h3>
+        <p className="text-xs text-muted-foreground">
+          An interactive, multi-factor analysis of potential solutions, evaluating impact, technical/operational feasibility, and required resources.
+        </p>
+      </div>
+
+      {/* Table Filters */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-stone-50 border border-border rounded-xl p-4">
+        {/* Category Filter */}
+        <div className="space-y-1.5">
+          <label className="text-[10px] font-bold text-stone-400 uppercase tracking-wider flex items-center gap-1">
+            <ListFilter size={10} /> Filter by Type:
+          </label>
+          <select
+            value={filterCat}
+            onChange={(e) => setFilterCat(e.target.value)}
+            className="w-full text-xs bg-white border border-border rounded-lg px-2.5 py-1.5 text-stone-700 focus:outline-none focus:ring-1 focus:ring-primary"
+          >
+            {categories.map(cat => (
+              <option key={cat} value={cat}>{cat}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Feasibility Filter */}
+        <div className="space-y-1.5">
+          <label className="text-[10px] font-bold text-stone-400 uppercase tracking-wider flex items-center gap-1">
+            <ArrowUpDown size={10} /> Filter by Feasibility:
+          </label>
+          <select
+            value={filterFeasibility}
+            onChange={(e) => setFilterFeasibility(e.target.value)}
+            className="w-full text-xs bg-white border border-border rounded-lg px-2.5 py-1.5 text-stone-700 focus:outline-none focus:ring-1 focus:ring-primary"
+          >
+            {feasibilityLevels.map(lvl => (
+              <option key={lvl} value={lvl}>{lvl === "All" ? "All Feasibility" : `${lvl} Feasibility`}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Impact Filter */}
+        <div className="space-y-1.5">
+          <label className="text-[10px] font-bold text-stone-400 uppercase tracking-wider flex items-center gap-1">
+            <Star size={10} /> Filter by Impact:
+          </label>
+          <select
+            value={filterImpact}
+            onChange={(e) => setFilterImpact(e.target.value)}
+            className="w-full text-xs bg-white border border-border rounded-lg px-2.5 py-1.5 text-stone-700 focus:outline-none focus:ring-1 focus:ring-primary"
+          >
+            {impactLevels.map(lvl => (
+              <option key={lvl} value={lvl}>{lvl === "All" ? "All Impact" : `${lvl} Impact`}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      {/* Prioritization Grid/Table */}
+      <div className="overflow-x-auto custom-scrollbar border border-border rounded-xl shadow-sm bg-card">
+        <table className="w-full border-collapse text-left min-w-[800px]">
+          <thead>
+            <tr className="border-b border-border bg-stone-50/50">
+              <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 w-[40px]"></th>
+              <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 w-[220px]">Intervention</th>
+              <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 text-center w-[150px]">Type</th>
+              <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 text-center w-[90px]">Impact</th>
+              <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 text-center w-[90px]">Feasibility</th>
+              <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 text-center w-[120px]">Timeline</th>
+              <th className="p-4 text-[10px] font-bold uppercase tracking-wider text-stone-400 text-center w-[120px]">Effort/Cost</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-border">
+            {filteredData.length > 0 ? (
+              filteredData.map((item) => {
+                const isExpanded = expandedRow === item.id;
+                return (
+                  <React.Fragment key={item.id}>
+                    <tr 
+                      onClick={() => toggleRow(item.id)}
+                      className="hover:bg-stone-50/40 transition-colors cursor-pointer"
+                    >
+                      {/* Expand Icon */}
+                      <td className="p-4 text-center border-r border-border">
+                        {isExpanded ? <ChevronDown size={14} className="text-stone-400" /> : <ChevronRight size={14} className="text-stone-400" />}
+                      </td>
+
+                      {/* Name */}
+                      <td className="p-4 text-xs font-semibold text-foreground border-r border-border">
+                        {item.name}
+                      </td>
+
+                      {/* Type */}
+                      <td className="p-4 border-r border-border text-center">
+                        <span className={`tag ${getCategoryStyle(item.category)}`}>
+                          {item.category}
+                        </span>
+                      </td>
+
+                      {/* Impact */}
+                      <td className="p-4 border-r border-border text-center">
+                        <span className={`tag border ${getBadgeStyle(item.impact)}`}>
+                          {item.impact}
+                        </span>
+                      </td>
+
+                      {/* Feasibility */}
+                      <td className="p-4 border-r border-border text-center">
+                        <span className={`tag border ${getBadgeStyle(item.feasibility)}`}>
+                          {item.feasibility}
+                        </span>
+                      </td>
+
+                      {/* Timeline */}
+                      <td className="p-4 border-r border-border text-center text-xs text-stone-600 font-medium">
+                        {item.timeline}
+                      </td>
+
+                      {/* Effort/Cost */}
+                      <td className="p-4 text-center text-xs text-stone-600 font-medium">
+                        {item.effort}
+                      </td>
+                    </tr>
+
+                    {/* Collapsible Detail Panel */}
+                    {isExpanded && (
+                      <tr className="bg-stone-50/50">
+                        <td colSpan={7} className="p-5 border-t border-b border-border">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="space-y-2">
+                              <h4 className="text-xs font-bold text-stone-500 uppercase tracking-wider">Detailed Description</h4>
+                              <p className="text-xs text-stone-700 leading-relaxed font-sans">
+                                {item.description}
+                              </p>
+                            </div>
+                            <div className="space-y-3">
+                              <h4 className="text-xs font-bold text-stone-500 uppercase tracking-wider">Strategic Fit</h4>
+                              <div className="bg-white p-3 rounded-lg border border-border space-y-1.5">
+                                <div className="flex justify-between text-[11px]">
+                                  <span className="font-semibold text-stone-500">Key Gaps Addressed:</span>
+                                  <span className="font-bold text-stone-700">{item.gapsAddressed}</span>
+                                </div>
+                                <div className="flex justify-between text-[11px]">
+                                  <span className="font-semibold text-stone-500">Resource Intensity:</span>
+                                  <span className="font-bold text-stone-700">{item.resources}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    )}
+                  </React.Fragment>
+                );
+              })
+            ) : (
+              <tr>
+                <td colSpan={7} className="p-8 text-center text-xs text-stone-400 italic">
+                  No interventions match the selected filters.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       </div>
     </div>
   );

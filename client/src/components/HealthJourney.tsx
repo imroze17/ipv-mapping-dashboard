@@ -1,6 +1,7 @@
 import React from "react";
+import { useState } from "react";
 import { Persona, InterventionItem } from "../lib/data";
-import { HelpCircle, ChevronRight } from "lucide-react";
+import { HelpCircle, ChevronRight, BookOpen, MessageSquare, ChevronDown } from "lucide-react";
 
 interface HealthJourneyProps {
   persona: Persona;
@@ -8,6 +9,21 @@ interface HealthJourneyProps {
 
 export default function HealthJourney({ persona }: HealthJourneyProps) {
   const { healthJourney, color, lightColor } = persona;
+  
+  // Track open/collapsed state for the evidence layer of each stage
+  const [openEvidence, setOpenEvidence] = useState<{ [key: number]: boolean }>({
+    0: false,
+    1: false,
+    2: false,
+    3: false
+  });
+
+  const toggleEvidence = (idx: number) => {
+    setOpenEvidence(prev => ({
+      ...prev,
+      [idx]: !prev[idx]
+    }));
+  };
 
   return (
     <div className="space-y-8 animate-fadeIn">
@@ -142,6 +158,65 @@ export default function HealthJourney({ persona }: HealthJourneyProps) {
                   </ul>
                 </td>
               ))}
+            </tr>
+
+            {/* Row 5: Collapsible Evidence Base (Light Stone bg) */}
+            <tr className="bg-stone-50/70">
+              <td className="p-4 font-bold text-xs text-stone-600 border-r border-border align-top">
+                <div className="flex flex-col gap-1">
+                  <span>Evidence Base 📚</span>
+                  <span className="text-[9px] font-normal text-stone-400 normal-case leading-tight">
+                    Literature and service provider interview citations
+                  </span>
+                </div>
+              </td>
+              {healthJourney.map((stage, idx) => {
+                const hasEvidence = stage.evidence && stage.evidence.length > 0;
+                const isOpen = openEvidence[idx];
+                return (
+                  <td key={idx} className="p-4 border-r border-border last:border-r-0 align-top">
+                    {hasEvidence ? (
+                      <div className="space-y-2">
+                        <button
+                          onClick={() => toggleEvidence(idx)}
+                          className="w-full flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-stone-500 hover:text-stone-800 bg-stone-100 hover:bg-stone-200/70 px-2 py-1 rounded transition-colors duration-200"
+                        >
+                          <span className="flex items-center gap-1">
+                            <BookOpen size={12} />
+                            {isOpen ? "Hide Evidence" : `View Evidence (${stage.evidence?.length})`}
+                          </span>
+                          {isOpen ? <ChevronDown size={12} /> : <ChevronRight size={12} />}
+                        </button>
+
+                        {isOpen && (
+                          <div className="space-y-3 pt-2 border-t border-stone-200/50 animate-slideDown">
+                            {stage.evidence?.map((item, eIdx) => (
+                              <div key={eIdx} className="bg-white p-3 rounded-lg border border-stone-200/60 shadow-sm space-y-1.5">
+                                <div className="flex items-center gap-1.5">
+                                  {item.source === "literature" ? (
+                                    <span className="inline-flex items-center gap-0.5 text-[9px] font-bold uppercase tracking-wider bg-stone-100 text-stone-600 px-1.5 py-0.5 rounded">
+                                      <BookOpen size={8} /> Literature
+                                    </span>
+                                  ) : (
+                                    <span className="inline-flex items-center gap-0.5 text-[9px] font-bold uppercase tracking-wider bg-stone-100 text-stone-600 px-1.5 py-0.5 rounded">
+                                      <MessageSquare size={8} /> Interview
+                                    </span>
+                                  )}
+                                </div>
+                                <p className="text-[11px] text-stone-600 leading-relaxed font-sans italic">
+                                  "{item.text}"
+                                </p>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <span className="text-[10px] text-stone-400 italic">No citations compiled for this stage</span>
+                    )}
+                  </td>
+                );
+              })}
             </tr>
           </tbody>
         </table>

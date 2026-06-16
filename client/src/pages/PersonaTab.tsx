@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Persona } from "../lib/data";
+import { Persona, synthesizedQuotes } from "../lib/data";
 import EmpathyMap from "../components/EmpathyMap";
+import { QuoteCallout } from "../components/QuoteCallout";
 import SettlementJourney from "../components/SettlementJourney";
 import HealthJourney from "../components/HealthJourney";
 import StakeholderMap from "../components/StakeholderMap";
@@ -100,6 +101,22 @@ export default function PersonaTab({ persona }: PersonaTabProps) {
           </p>
         </div>
       </div>
+
+      {/* Persona-Specific Synthesized Research Quotes Section */}
+      {synthesizedQuotes.some(q => q.placement === persona.id) && (
+        <div className="space-y-4 bg-stone-50/50 p-6 rounded-xl border border-border">
+          <h3 className="text-xs font-bold uppercase tracking-wider text-stone-500 flex items-center gap-1.5">
+            Synthesized Practitioner & Research Perspectives
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {synthesizedQuotes
+              .filter(q => q.placement === persona.id)
+              .map(quote => (
+                <QuoteCallout key={quote.id} quote={quote} />
+              ))}
+          </div>
+        </div>
+      )}
 
       {/* Sticky In-Page Anchor Navigation */}
       <div className="sticky top-[73px] z-40 bg-background/95 backdrop-blur-md border border-border rounded-xl p-2 shadow-sm">

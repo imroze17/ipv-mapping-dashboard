@@ -37,6 +37,10 @@ export interface Persona {
     friction: string[];
     equity: string[];
     intervention: InterventionItem[];
+    evidence?: {
+      source: "literature" | "interview";
+      text: string;
+    }[];
   }[];
   emotions: {
     stage: string;
@@ -139,6 +143,20 @@ export const personas: Persona[] = [
           { cat: "sys", text: "IPV-informed ED screening protocol" },
           { cat: "nav", text: "Navigator stationed in or near ED" },
           { cat: "sys", text: "Culturally safe disclosure scripts for intake nurse" }
+        ],
+        evidence: [
+          {
+            source: "literature",
+            text: "Children are sometimes brought in to translate at appointments, even when service providers strongly advise against it — exposing children to disclosures they should never have to interpret. (Giesbrecht, 2020)"
+          },
+          {
+            source: "literature",
+            text: "Documented cultural safety failures at point of access include one case where an organization sent two male workers to the home of a Muslim woman with limited English — illustrating that intake protocols can themselves become barriers. (Giesbrecht, 2020)"
+          },
+          {
+            source: "interview",
+            text: "Service providers report that partner accompaniment at ED intake is normalized — there is rarely a standardized protocol to create private time with the patient before the partner is present."
+          }
         ]
       },
       {
@@ -153,6 +171,16 @@ export const personas: Persona[] = [
           { cat: "nav", text: "Navigator bridges RAP casework and healthcare system" },
           { cat: "sys", text: "Translated materials in primary language" },
           { cat: "sys", text: "Education workshops in multiple languages" }
+        ],
+        evidence: [
+          {
+            source: "literature",
+            text: "Even where interpretation is provided, clients have experienced discomfort with the interpreter or the interpreter's discomfort with the content. Critically, interpreters are typically only available within the referring organization — not at the services the client is referred to. (Giesbrecht, 2023)"
+          },
+          {
+            source: "interview",
+            text: "Organizations frequently encounter clients arriving at follow-up appointments with medications or referrals from other providers — but with no understanding of their purpose and no information transferred between services. Communication silos are the norm, not the exception."
+          }
         ]
       },
       {
@@ -165,6 +193,16 @@ export const personas: Persona[] = [
         intervention: [
           { cat: "nav", text: "Safety planning co-created with navigator (her language)" },
           { cat: "nav", text: "Warm handoff to trusted outreach worker before leaving hospital" }
+        ],
+        evidence: [
+          {
+            source: "literature",
+            text: "Legal Aid eligibility criteria may inappropriately include the abusive partner's income in means-testing assessments, creating a financial barrier to legal support precisely when it is most needed. (Wuerch, 2025)"
+          },
+          {
+            source: "literature",
+            text: "In Saskatchewan, a recent policy change allows Permanent Residents immediate eligibility for a healthcare card, with a 1-month temporary card issued while a permanent address is confirmed. However, no standardized referral system for immigrants to access healthcare providers exists yet provincially. (Lane, 2022)"
+          }
         ]
       },
       {
@@ -178,6 +216,16 @@ export const personas: Persona[] = [
           { cat: "nav", text: "Navigator maintains continuity across re-entries to system" },
           { cat: "sys", text: "Shared care plan spanning settlement and health sectors" },
           { cat: "sys", text: "Workshops on abuse and health for clients and providers" }
+        ],
+        evidence: [
+          {
+            source: "literature",
+            text: "Women who have resided in Canada for 10 or more years access formal and informal IPV supports at rates comparable to the broader Canadian population — indicating the early settlement window (0–5 years) is the highest-risk period for falling through the cracks. (Giesbrecht, 2020)"
+          },
+          {
+            source: "literature",
+            text: "Some agencies operate under strict funding-mandated time limits: one organization reported a 2-year cap on newcomer family support; some shelters aim for a maximum 6-week stay. These structural limits can strand women in the return phase without continuity. (Giesbrecht, 2020)"
+          }
         ]
       }
     ],
@@ -290,6 +338,16 @@ export const personas: Persona[] = [
           { cat: "sys", text: "Clinic protocol requiring brief alone-time with patient (universal screening)" },
           { cat: "digital", text: "Subtle wellness screen embedded in MyHealth patient portal" },
           { cat: "digital", text: "Anonymous navigator chat accessible from a private device or clinic terminal" }
+        ],
+        evidence: [
+          {
+            source: "literature",
+            text: "Abusive partners exercise absolute financial control. Joint bank accounts are routinely opened on arrival, but in practice, the abuser manages all funds. The survivor may earn income but is denied access to her own money. (Giesbrecht, 2020)"
+          },
+          {
+            source: "interview",
+            text: "Interviews reveal that online patient portals (like MyHealth) represent a major digital friction point. When devices are shared or monitored, abusers can read clinical notes, review appointment history, and discover IPV disclosures."
+          }
         ]
       },
       {
@@ -304,6 +362,16 @@ export const personas: Persona[] = [
           { cat: "nav", text: "Navigator bridges GP and legal/immigration support" },
           { cat: "sys", text: "Workshops on abuse and health for both clients and providers" },
           { cat: "sys", text: "Education workshops in multiple languages" }
+        ],
+        evidence: [
+          {
+            source: "literature",
+            text: "Abusive partners have weaponized the healthcare system itself — demanding psychological assessments, disputing clinical diagnoses, and using psychiatric records in family court to dispute child custody. (Giesbrecht, 2020)"
+          },
+          {
+            source: "interview",
+            text: "Settlement workers report that survivors rarely recognize non-physical abuse (coercive control, isolation, financial withholding) as 'real abuse' because healthcare screening questions focus almost exclusively on physical violence."
+          }
         ]
       },
       {
@@ -316,6 +384,16 @@ export const personas: Persona[] = [
         intervention: [
           { cat: "nav", text: "Navigator provides confidential options including status-protected options" },
           { cat: "digital", text: "Digital tool with disguise/exit feature for safe device use" }
+        ],
+        evidence: [
+          {
+            source: "literature",
+            text: "Sponsored spouses face intense, continuous fear of deportation. Abusers exploit this vulnerability by falsely claiming they can cancel the sponsorship, deport the survivor, and take custody of the children if she seeks help. (Giesbrecht, 2023)"
+          },
+          {
+            source: "interview",
+            text: "Shelter intake forms require detailed immigration status data. When a survivor does not have her physical PR card (which is often withheld by the abuser), she is frequently turned away due to administrative risk."
+          }
         ]
       },
       {
@@ -328,6 +406,16 @@ export const personas: Persona[] = [
         intervention: [
           { cat: "nav", text: "Navigator maintains care continuity across visits" },
           { cat: "sys", text: "Sponsorship rights information integrated into care plan" }
+        ],
+        evidence: [
+          {
+            source: "literature",
+            text: "Immigration, Refugees and Citizenship Canada (IRCC) provides a temporary resident permit (TRP) pathway for out-of-status victims of family violence. However, primary care physicians and settlement workers are rarely trained to identify or navigate this pathway. (Holtmann, 2018)"
+          },
+          {
+            source: "interview",
+            text: "Service providers report that when an abuser changes the survivor's phone number or terminates her plan, she is completely cut off from all primary care and settlement follow-up, causing her to fall out of care."
+          }
         ]
       }
     ],
@@ -440,6 +528,16 @@ export const personas: Persona[] = [
           { cat: "sys", text: "Rural CHC IPV toolkit for frontline workers (this project's deliverable)" },
           { cat: "sys", text: "No-wrong-door rural referral network" },
           { cat: "sys", text: "Subsidized phone/internet for rural survivors" }
+        ],
+        evidence: [
+          {
+            source: "literature",
+            text: "Rural service providers are heavily isolated. A 'no-wrong-door' referral network is desperately needed to bridge differing mandates and privacy regulations between rural healthcare clinics and distant urban shelters. (Lane, 2022)"
+          },
+          {
+            source: "interview",
+            text: "Interviews reveal that rural healthcare providers rarely have any formal IPV training. They are highly dependent on informal networks or outdated paper lists to make referrals, often sending women to shelters that have been closed or full for months."
+          }
         ]
       },
       {
@@ -453,6 +551,16 @@ export const personas: Persona[] = [
           { cat: "nav", text: "Mandarin-language counselling via telehealth" },
           { cat: "nav", text: "Navigator bridges rural CHC and urban IPV specialists" },
           { cat: "sys", text: "Education workshops in multiple languages" }
+        ],
+        evidence: [
+          {
+            source: "literature",
+            text: "Rural communities present severe confidentiality risks. In small towns, local interpreters often belong to the same small social or religious circles as the abuser — creating an extreme barrier to safe disclosure. (Giesbrecht, 2020)"
+          },
+          {
+            source: "interview",
+            text: "Both rural organizations interviewed noted that wait times for mental health specialists are so long (often 12–18 months) that some desperate clients have actually returned to their home countries temporarily just to see a doctor."
+          }
         ]
       },
       {
@@ -466,6 +574,16 @@ export const personas: Persona[] = [
           { cat: "nav", text: "Virtual safety planning in Mandarin via telehealth" },
           { cat: "nav", text: "Navigator coordinates transportation logistics" },
           { cat: "digital", text: "Digital resource hub (Mandarin, audio-visual, no literacy required)" }
+        ],
+        evidence: [
+          {
+            source: "literature",
+            text: "Only 4% of domestic violence shelters in Canada are located in rural municipalities or communities with populations under 1,000. Survivors must travel hours by road to reach safety, which is impossible without independent transportation. (Giesbrecht, 2020)"
+          },
+          {
+            source: "interview",
+            text: "Practitioners report that safety planning templates assume a survivor can physically leave her home at any moment. In rural winter conditions with no public transit or rideshare, these templates are practically useless."
+          }
         ]
       },
       {
@@ -480,6 +598,16 @@ export const personas: Persona[] = [
           { cat: "sys", text: "Employer-tied status risk integrated into care plan" },
           { cat: "digital", text: "Offline resource options (audio, community drop-ins if any exist)" },
           { cat: "sys", text: "Workshops on abuse and health for clients and providers" }
+        ],
+        evidence: [
+          {
+            source: "literature",
+            text: "Survivors on employer-tied work permits (e.g., agricultural or care workers) face extreme immigration precarity. Reporting abuse risks losing their job, which automatically invalidates their legal status in Canada. (Holtmann, 2018)"
+          },
+          {
+            source: "interview",
+            text: "Service providers emphasize that rural digital connectivity is highly unstable. If a survivor's cell service or internet is cut off by her partner, she loses all contact with virtual support groups and telehealth counselors."
+          }
         ]
       }
     ],
@@ -588,6 +716,16 @@ export const personas: Persona[] = [
           { cat: "sys", text: "'No door is the wrong door' protocol — health service regardless of documentation" },
           { cat: "nav", text: "Embed IPV resources and referral scripts into LINC classes, training language teachers as safe entry points" },
           { cat: "digital", text: "Automated tracking tools to reduce admin workload" }
+        ],
+        evidence: [
+          {
+            source: "interview",
+            text: "Maya's agency experiences extreme operational stress. Shelter capacity is frequently at 100%, and workers spend hours calling distant agencies because they lack an automated system to check vacancy rates."
+          },
+          {
+            source: "interview",
+            text: "Both organizations interviewed expressed interest in transitioning to cloud-based platforms for client files, but had hesitations about security. This also limits organizations' ability to preserve digital evidence (texts, photos, bank statements) on a client's behalf."
+          }
         ]
       },
       {
@@ -608,6 +746,16 @@ export const personas: Persona[] = [
         intervention: [
           { cat: "sys", text: "Gender-matching protocols for clinical providers and language services" },
           { cat: "nav", text: "Train interpreters with IPV knowledge to support health navigation" }
+        ],
+        evidence: [
+          {
+            source: "literature",
+            text: "Secondary traumatic stress and compassion fatigue are rampant among frontline IPV and settlement staff. Organizations rarely have funding or policies to provide professional clinical supervision or psychological support for their own workers. (Giesbrecht, 2020)"
+          },
+          {
+            source: "interview",
+            text: "Maya reports that working with phone-based interpreters often breaks the trust needed for graphic IPV disclosures. Interpreters frequently lack training on trauma-informed communication, sometimes gaslighting or judging the survivor mid-translation."
+          }
         ]
       },
       {
@@ -627,6 +775,12 @@ export const personas: Persona[] = [
         intervention: [
           { cat: "sys", text: "Mandatory warm hand-off protocol between clinicians and community IPV caseworkers" },
           { cat: "digital", text: "Multi-language audio/visual playback tools for reviewing clinical discharge materials" }
+        ],
+        evidence: [
+          {
+            source: "interview",
+            text: "The lack of digital automation — including dictation tools and automated case management — was cited as a significant challenge. The main barrier is cost. Organizations are currently using a mix of spreadsheets, Dynamex, custom case management systems, and Word or PDF documents."
+          }
         ]
       },
       {
@@ -648,6 +802,12 @@ export const personas: Persona[] = [
         intervention: [
           { cat: "sys", text: "Co-located health, legal, and settlement services within a single hub" },
           { cat: "nav", text: "Women's-only coffee circles to distribute medical, legal, and safety navigation info" }
+        ],
+        evidence: [
+          {
+            source: "literature",
+            text: "Non-profit settlement agencies operate in strict silos. Outdated directories and a lack of standardized multi-agency protocols mean caseworkers must rely on personal contacts to coordinate multi-sectoral support. (Giesbrecht, 2020)"
+          }
         ]
       }
     ],
@@ -719,4 +879,284 @@ export const opportunities: OpportunityPoint[] = [
   { opportunity: "Trauma-informed IPV training for community interpreters", personas: ["Maya", "Amara", "Elena"], stage: "Treatment / All", type: "Navigator Practice" },
   { opportunity: "Relational safety funder metrics", personas: ["Maya"], stage: "All", type: "System Improvements" },
   { opportunity: "Automated, dynamic resource directory aggregator", personas: ["Maya"], stage: "All", type: "Digital Tools" }
+];
+
+export interface InterventionPriority {
+  id: string;
+  intervention: string;
+  barriersToEntry: string;
+  timing: "Immediate" | "Immediate to medium-term" | "Medium-term" | "Medium to long-term" | "Long-term";
+  resourcing: "Low" | "Medium" | "Medium to high" | "High";
+  scopeOfImpact: ("Individual" | "Organizational" | "Systemic")[];
+  catalystPotential: "Low" | "Medium" | "High";
+  category: "Clinical" | "Navigation" | "Digital" | "Systemic";
+}
+
+export const interventionPriorities: InterventionPriority[] = [
+  {
+    id: "ed-screening",
+    intervention: "IPV-informed ED screening protocol including brief alone time with patient",
+    barriersToEntry: "Workflow changes, staff buy-in, resource shortages (e.g., male clinicians not allowed alone with female clients requiring two staff), language barrier",
+    timing: "Immediate",
+    resourcing: "Low",
+    scopeOfImpact: ["Individual", "Organizational"],
+    catalystPotential: "Medium",
+    category: "Clinical"
+  },
+  {
+    id: "disclosure-scripts",
+    intervention: "Culturally safe disclosure scripts for staff",
+    barriersToEntry: "Workflow changes, staff buy-in, time required to translate",
+    timing: "Immediate",
+    resourcing: "Low",
+    scopeOfImpact: ["Individual", "Organizational"],
+    catalystPotential: "Medium",
+    category: "Clinical"
+  },
+  {
+    id: "sponsorship-care-plan",
+    intervention: "Sponsorship rights and immigration risks integrated into care plan",
+    barriersToEntry: "Ongoing changes to immigration policies, requirement to translate into multiple languages, staff buy-in and capacity",
+    timing: "Medium-term",
+    resourcing: "High",
+    scopeOfImpact: ["Individual", "Organizational", "Systemic"],
+    catalystPotential: "High",
+    category: "Systemic"
+  },
+  {
+    id: "in-person-navigator",
+    intervention: "In-person navigator (language-matched) to follow the client throughout their journey",
+    barriersToEntry: "Funding for new positions, time to hire and train, integration into system to effectively support clients",
+    timing: "Long-term",
+    resourcing: "High",
+    scopeOfImpact: ["Individual", "Organizational"],
+    catalystPotential: "High",
+    category: "Navigation"
+  },
+  {
+    id: "co-located-services",
+    intervention: "Co-located services (settlement and health in one site)",
+    barriersToEntry: "Systems-level realignment, funding for new positions, organizational buy-in, possible hiring",
+    timing: "Long-term",
+    resourcing: "High",
+    scopeOfImpact: ["Individual", "Systemic"],
+    catalystPotential: "High",
+    category: "Systemic"
+  },
+  {
+    id: "translated-materials",
+    intervention: "Translated materials",
+    barriersToEntry: "Time taken to translate and disseminate",
+    timing: "Immediate",
+    resourcing: "Low",
+    scopeOfImpact: ["Individual", "Organizational"],
+    catalystPotential: "Medium",
+    category: "Clinical"
+  },
+  {
+    id: "ipv-toolkit",
+    intervention: "IPV toolkit for frontline workers",
+    barriersToEntry: "Time taken to develop, staff buy-in",
+    timing: "Immediate",
+    resourcing: "Low",
+    scopeOfImpact: ["Individual", "Organizational"],
+    catalystPotential: "Medium",
+    category: "Navigation"
+  },
+  {
+    id: "rural-referral-network",
+    intervention: "No-wrong-door rural referral network",
+    barriersToEntry: "Individual and organizational buy-in, coordination, differing mandates and privacy requirements, staff training, change to existing workflows",
+    timing: "Medium to long-term",
+    resourcing: "Medium",
+    scopeOfImpact: ["Individual", "Organizational", "Systemic"],
+    catalystPotential: "High",
+    category: "Systemic"
+  },
+  {
+    id: "rural-phone-internet",
+    intervention: "Subsidized phone/internet for rural survivors",
+    barriersToEntry: "Funding, attainment of phones, development of policies and procedures, organizational buy-in, coordination with phone and internet providers, confidentiality for billing",
+    timing: "Long-term",
+    resourcing: "High",
+    scopeOfImpact: ["Individual", "Organizational"],
+    catalystPotential: "Medium",
+    category: "Digital"
+  },
+  {
+    id: "client-edu-workshops",
+    intervention: "Education workshops in multiple languages for clients",
+    barriersToEntry: "Translation and development costs, hiring skilled facilitators, awareness and marketing, transportation for clients, cultural adaptation of materials",
+    timing: "Medium-term",
+    resourcing: "Medium",
+    scopeOfImpact: ["Individual"],
+    catalystPotential: "Medium",
+    category: "Clinical"
+  },
+  {
+    id: "abuse-health-workshops",
+    intervention: "Workshops on abuse and health for clients and providers",
+    barriersToEntry: "Same as client workshops, plus competing staff training capacity and priorities, staff engagement",
+    timing: "Medium-term",
+    resourcing: "Medium",
+    scopeOfImpact: ["Individual", "Organizational"],
+    catalystPotential: "High",
+    category: "Clinical"
+  },
+  {
+    id: "myhealth-screen",
+    intervention: "Subtle wellness screen embedded in MyHealth patient portal",
+    barriersToEntry: "Integration with existing IT systems, digital literacy among users, possible translation costs",
+    timing: "Immediate",
+    resourcing: "Low",
+    scopeOfImpact: ["Individual", "Organizational"],
+    catalystPotential: "Low",
+    category: "Digital"
+  },
+  {
+    id: "navigator-chat",
+    intervention: "Navigator accessible via chat on mobile device or laptop",
+    barriersToEntry: "IT setup requirements, funding and hiring, internet access requirements, digital literacy, availability in multiple languages, privacy and confidentiality concerns",
+    timing: "Medium to long-term",
+    resourcing: "High",
+    scopeOfImpact: ["Individual", "Organizational"],
+    catalystPotential: "High",
+    category: "Navigation"
+  },
+  {
+    id: "disguise-exit-tool",
+    intervention: "Digital tool with disguise/exit feature for safe device use",
+    barriersToEntry: "IT capability, user awareness of safety feature, functionality across devices",
+    timing: "Immediate to medium-term",
+    resourcing: "Medium",
+    scopeOfImpact: ["Individual", "Organizational"],
+    catalystPotential: "Low",
+    category: "Digital"
+  },
+  {
+    id: "digital-resource-hub",
+    intervention: "Digital resource hub",
+    barriersToEntry: "Development and ongoing content creation, translation, awareness among providers and users, digital literacy barriers",
+    timing: "Medium-term",
+    resourcing: "Medium to high",
+    scopeOfImpact: ["Individual", "Organizational", "Systemic"],
+    catalystPotential: "High",
+    category: "Digital"
+  },
+  {
+    id: "offline-resources",
+    intervention: "Offline resource options (audio, community drop-ins)",
+    barriersToEntry: "Staffing and facility requirements, transportation challenges, funding, reaching isolated individuals, multilingual support needed",
+    timing: "Medium to long-term",
+    resourcing: "Medium to high",
+    scopeOfImpact: ["Individual", "Organizational", "Systemic"],
+    catalystPotential: "Medium",
+    category: "Digital"
+  }
+];
+
+export interface SynthesizedQuote {
+  id: string;
+  text: string;
+  attribution: string;
+  theme: string;
+  placement: "overview" | "amara" | "priya" | "elena" | "maya" | "aggregate";
+}
+
+export const synthesizedQuotes: SynthesizedQuote[] = [
+  // OVERVIEW PAGE
+  {
+    id: "q-children-translators",
+    text: "Children are sometimes brought in to translate, even when we strongly advise against it. It puts them in an impossible position.",
+    attribution: "Service provider interview — synthesized",
+    theme: "Children & Families",
+    placement: "overview"
+  },
+  {
+    id: "q-joint-bank",
+    text: "The bank account is set up on arrival, with both names on it — but in practice, he controls it. She may be earning income but has no access to it.",
+    attribution: "Literature review — Giesbrecht, 2020",
+    theme: "Financial Control",
+    placement: "overview"
+  },
+
+  // AMARA
+  {
+    id: "q-retelling",
+    text: "Every time she moves to a new service, she has to tell her story again from the beginning. It's re-traumatizing, and it's one of the biggest barriers to continuity of care.",
+    attribution: "Literature review — Holtmann, 2018",
+    theme: "System Fragmentation",
+    placement: "amara"
+  },
+  {
+    id: "q-cultural-safety",
+    text: "An organization reportedly sent two male workers to the home of a Muslim woman with limited English. These are the moments when the system itself becomes the barrier.",
+    attribution: "Literature review — Giesbrecht, 2020",
+    theme: "Cultural Safety",
+    placement: "amara"
+  },
+
+  // PRIYA
+  {
+    id: "q-sponsorship-fear",
+    text: "She doesn't know that she can't be deported because of the abuse. He's told her she'll lose everything if she says anything — and she believes him.",
+    attribution: "Literature review — Giesbrecht, 2023",
+    theme: "Immigration Fear",
+    placement: "priya"
+  },
+  {
+    id: "q-psychiatric-misuse",
+    text: "Partners have used the healthcare system against these women — requesting assessments, disputing diagnoses. It's another form of control that the system isn't designed to recognize.",
+    attribution: "Literature review — Giesbrecht, 2020",
+    theme: "Healthcare Misuse",
+    placement: "priya"
+  },
+
+  // ELENA
+  {
+    id: "q-home-country",
+    text: "The wait times here are so long that some clients have actually gone back to their home country to see a doctor. That tells you something about the state of access.",
+    attribution: "Service provider interview — synthesized",
+    theme: "Rural Access",
+    placement: "elena"
+  },
+  {
+    id: "q-digital-safety",
+    text: "We check every phone that comes in now — location sharing, tracking apps. If we don't address it at intake, we're putting her at risk the moment she walks out the door.",
+    attribution: "Service provider interview — synthesized",
+    theme: "Digital Safety",
+    placement: "elena"
+  },
+
+  // MAYA
+  {
+    id: "q-compassion-fatigue",
+    text: "We're told not to take it home with us. But there's no real support for practitioners. You just absorb it.",
+    attribution: "Literature review — Giesbrecht, 2020",
+    theme: "Practitioner Wellbeing",
+    placement: "maya"
+  },
+  {
+    id: "q-referral-spreadsheet",
+    text: "Our referral list lives on a spreadsheet. We do our best to keep it updated, but sometimes a woman gets referred to a shelter that's been full for months.",
+    attribution: "Service provider interview — synthesized",
+    theme: "Referral Networks",
+    placement: "maya"
+  },
+
+  // AGGREGATE MAP
+  {
+    id: "q-legal-aid-income",
+    text: "Legal Aid eligibility criteria may include the abusive partner's income in the means test — creating a financial barrier to legal support at exactly the moment it's most needed.",
+    attribution: "Literature review — Wuerch, 2025",
+    theme: "Systemic Barrier",
+    placement: "aggregate"
+  },
+  {
+    id: "q-immigration-complexity",
+    text: "Healthcare providers reported feeling overwhelmed by constantly changing immigration policies. When they don't know the system, they can't make the right referral — even when they want to.",
+    attribution: "Service provider interview — synthesized",
+    theme: "System Coordination",
+    placement: "aggregate"
+  }
 ];

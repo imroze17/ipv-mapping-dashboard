@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "wouter";
-import { personas } from "../lib/data";
+import { personas, synthesizedQuotes } from "../lib/data";
 import { Users, AlertTriangle, ArrowRight, ClipboardList, Shield, Compass, BookOpen } from "lucide-react";
+import { QuoteCallout } from "../components/QuoteCallout";
 
 interface OverviewProps {
   onTabChange: (tab: string) => void;
@@ -97,6 +98,20 @@ export default function Overview({ onTabChange }: OverviewProps) {
                 <h4 className="text-xs font-bold text-foreground">Safe Interventions</h4>
                 <p className="text-[11px] text-muted-foreground mt-1">Highlighting where navigators can co-create safety plans.</p>
               </div>
+            </div>
+          </div>
+
+          {/* Synthesized Research Quotes Section */}
+          <div className="space-y-4 pt-4 border-t border-border">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-stone-500 flex items-center gap-2">
+              <BookOpen size={14} /> Key Synthesized Findings from Research & Interviews
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {synthesizedQuotes
+                .filter(q => q.placement === "overview")
+                .map(quote => (
+                  <QuoteCallout key={quote.id} quote={quote} />
+                ))}
             </div>
           </div>
         </div>
