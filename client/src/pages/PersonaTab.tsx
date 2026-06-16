@@ -1,17 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Persona, synthesizedQuotes } from "../lib/data";
+import { useState, useRef, useEffect } from "react";
+import { Persona } from "../lib/data";
 import EmpathyMap from "../components/EmpathyMap";
 import { QuoteCallout } from "../components/QuoteCallout";
 import SettlementJourney from "../components/SettlementJourney";
 import HealthJourney from "../components/HealthJourney";
 import StakeholderMap from "../components/StakeholderMap";
-import { Anchor, Compass, Heart, Map, Users, ChevronDown } from "lucide-react";
+import { Compass, Heart, Map, Users, ChevronDown } from "lucide-react";
 
 interface PersonaTabProps {
   persona: Persona;
+  onNavigateToOpportunity?: (id: string) => void;
 }
 
-export default function PersonaTab({ persona }: PersonaTabProps) {
+export default function PersonaTab({ persona, onNavigateToOpportunity }: PersonaTabProps) {
   const [activeSection, setActiveSection] = useState<string>("empathy");
   const [isNavDropdownOpen, setIsNavDropdownOpen] = useState<boolean>(false);
 
@@ -60,114 +61,77 @@ export default function PersonaTab({ persona }: PersonaTabProps) {
   }, []);
 
   return (
-    <div className="space-y-10 animate-fadeIn">
-      {/* Persona Context Banner */}
+    <div className="space-y-8 animate-fadeIn">
+      {/* Editorial Persona Header Banner */}
       <div 
-        style={{ 
-          backgroundColor: persona.lightColor,
-          borderLeftColor: persona.color 
-        }} 
-        className="rounded-2xl border-l-4 p-6 lg:p-8 shadow-sm relative overflow-hidden"
+        style={{ borderLeftColor: persona.color }} 
+        className="bg-white rounded-2xl border border-border border-l-[6px] p-6 lg:p-8 shadow-sm space-y-4"
       >
-        <div className="relative z-10 max-w-4xl space-y-3">
-          <div className="flex flex-wrap gap-2 items-center">
-            <span 
-              style={{ backgroundColor: persona.color }} 
-              className="text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full"
-            >
-              {persona.type}
-            </span>
-            <span className="text-xs font-semibold text-muted-foreground bg-white/60 px-2 py-0.5 rounded border border-stone-200">
-              {persona.status}
-            </span>
-            <span className="text-xs font-semibold text-muted-foreground bg-white/60 px-2 py-0.5 rounded border border-stone-200">
-              {persona.location}
-            </span>
-            <span className="text-xs font-semibold text-muted-foreground bg-white/60 px-2 py-0.5 rounded border border-stone-200">
-              {persona.languages}
-            </span>
-          </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <span 
+            style={{ backgroundColor: persona.lightColor, color: persona.color }} 
+            className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md"
+          >
+            {persona.type}
+          </span>
+          <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider">
+            {persona.status}
+          </span>
+        </div>
 
-          <h2 className="text-2xl lg:text-3xl font-serif font-bold text-foreground">
-            {persona.name}'s {persona.type === "Practitioner" ? "Practitioner Workflow Map" : "Pathway Map"}
+        <div className="space-y-2">
+          <h2 className="text-2xl lg:text-3.5xl font-serif font-bold text-foreground leading-tight">
+            {persona.name}
           </h2>
-          
-          <blockquote className="border-l-2 border-stone-400 pl-3 py-0.5 italic text-xs lg:text-sm text-stone-600 leading-relaxed">
-            "{persona.quote}"
-          </blockquote>
-
-          <p className="text-xs text-muted-foreground leading-relaxed max-w-3xl">
-            {persona.description}
+          <p className="text-xs text-muted-foreground max-w-3xl leading-relaxed italic">
+            "{persona.bio}"
           </p>
+        </div>
+
+        {/* Dynamic Context Block */}
+        <div className="pt-4 border-t border-border grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <div className="space-y-1">
+            <span className="font-bold text-stone-400 uppercase tracking-wider text-[10px]">Location & Context</span>
+            <p className="text-stone-700 font-medium">{persona.location}</p>
+          </div>
+          <div className="space-y-1">
+            <span className="font-bold text-stone-400 uppercase tracking-wider text-[10px]">Primary Vulnerabilities</span>
+            <p className="text-stone-700 font-medium">
+              {persona.type === "Practitioner" ? "Burnout, quota pressures, unintegrated tools" : "Isolation, linguistic barriers, systemic gaps"}
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Persona-Specific Synthesized Research Quotes Section */}
-      {synthesizedQuotes.some(q => q.placement === persona.id) && (
-        <div className="space-y-4 bg-stone-50/50 p-6 rounded-xl border border-border">
-          <h3 className="text-xs font-bold uppercase tracking-wider text-stone-500 flex items-center gap-1.5">
-            Synthesized Practitioner & Research Perspectives
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {synthesizedQuotes
-              .filter(q => q.placement === persona.id)
-              .map(quote => (
-                <QuoteCallout key={quote.id} quote={quote} />
-              ))}
-          </div>
-        </div>
-      )}
+      {/* Synthesized Research Quote Block */}
+      <QuoteCallout placement={persona.id as any} />
 
-      {/* Sticky In-Page Anchor Navigation */}
-      <div className="sticky top-[73px] z-40 bg-background/95 backdrop-blur-md border border-border rounded-xl p-2 shadow-sm">
-        {/* Desktop Anchor Nav */}
-        <div className="hidden md:flex items-center justify-between px-2">
-          <div className="flex gap-1">
-            {sections.map((section) => {
-              const isActive = activeSection === section.id;
-              return (
-                <button
-                  key={section.id}
-                  onClick={() => scrollToSection(section.id, section.ref)}
-                  style={{
-                    color: isActive ? "white" : "var(--foreground)",
-                    backgroundColor: isActive ? persona.color : "transparent"
-                  }}
-                  className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${!isActive && "hover:bg-stone-100"}`}
-                >
-                  {section.icon}
-                  {section.label}
-                </button>
-              );
-            })}
-          </div>
-          
-          <div className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1">
-            <Anchor size={12} />
-            <span>Anchor Nav</span>
-          </div>
-        </div>
-
-        {/* Mobile Anchor Nav Dropdown */}
-        <div className="md:hidden relative">
-          <button
+      {/* Sticky Sub-Navigation */}
+      <div className="sticky top-[84px] z-40 bg-stone-50/90 backdrop-blur-md border border-border rounded-xl p-1 shadow-sm">
+        {/* Mobile Dropdown Trigger */}
+        <div className="md:hidden">
+          <button 
             onClick={() => setIsNavDropdownOpen(!isNavDropdownOpen)}
-            className="w-full px-4 py-2.5 flex items-center justify-between rounded-lg bg-stone-50 border border-border text-xs font-bold text-foreground"
+            className="w-full px-4 py-2.5 text-xs font-bold text-stone-700 flex items-center justify-between"
           >
             <span className="flex items-center gap-2">
-              {sections.find((s) => s.id === activeSection)?.icon}
-              {sections.find((s) => s.id === activeSection)?.label}
+              {sections.find(s => s.id === activeSection)?.icon}
+              {sections.find(s => s.id === activeSection)?.label}
             </span>
             <ChevronDown size={14} className={`transition-transform duration-200 ${isNavDropdownOpen ? "rotate-180" : ""}`} />
           </button>
-
+          
           {isNavDropdownOpen && (
-            <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-border rounded-lg shadow-md py-1 z-50 animate-fadeIn">
+            <div className="border-t border-border mt-1 py-1 space-y-1">
               {sections.map((section) => (
                 <button
                   key={section.id}
                   onClick={() => scrollToSection(section.id, section.ref)}
-                  className={`w-full px-4 py-2.5 text-left text-xs font-semibold flex items-center gap-2 hover:bg-stone-50 ${activeSection === section.id ? "text-primary" : "text-foreground"}`}
+                  className={`w-full text-left px-4 py-2 text-xs font-semibold flex items-center gap-2 ${
+                    activeSection === section.id 
+                      ? "bg-stone-100 text-foreground font-bold" 
+                      : "text-muted-foreground hover:bg-stone-50"
+                  }`}
                 >
                   {section.icon}
                   {section.label}
@@ -175,6 +139,31 @@ export default function PersonaTab({ persona }: PersonaTabProps) {
               ))}
             </div>
           )}
+        </div>
+
+        {/* Desktop Horizontal List */}
+        <div className="hidden md:flex gap-1">
+          {sections.map((section) => {
+            const isSelected = activeSection === section.id;
+            return (
+              <button
+                key={section.id}
+                onClick={() => scrollToSection(section.id, section.ref)}
+                style={{ 
+                  backgroundColor: isSelected ? persona.lightColor : "transparent",
+                  color: isSelected ? persona.color : "inherit"
+                }}
+                className={`flex-1 py-2.5 rounded-lg text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                  isSelected 
+                    ? "shadow-sm font-extrabold" 
+                    : "text-muted-foreground hover:bg-stone-100 hover:text-foreground"
+                }`}
+              >
+                {section.icon}
+                {section.label}
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -192,7 +181,7 @@ export default function PersonaTab({ persona }: PersonaTabProps) {
 
         {/* Section C — Health Journey */}
         <div ref={healthRef} className="scroll-mt-36">
-          <HealthJourney persona={persona} />
+          <HealthJourney persona={persona} onNavigateToOpportunity={onNavigateToOpportunity} />
         </div>
 
         {/* Section D — Stakeholder Map */}

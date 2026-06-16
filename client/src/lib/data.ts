@@ -883,175 +883,209 @@ export const opportunities: OpportunityPoint[] = [
 
 export interface InterventionPriority {
   id: string;
-  intervention: string;
-  barriersToEntry: string;
-  timing: "Immediate" | "Immediate to medium-term" | "Medium-term" | "Medium to long-term" | "Long-term";
-  resourcing: "Low" | "Medium" | "Medium to high" | "High";
-  scopeOfImpact: ("Individual" | "Organizational" | "Systemic")[];
-  catalystPotential: "Low" | "Medium" | "High";
-  category: "Clinical" | "Navigation" | "Digital" | "Systemic";
+  name: string;
+  category: "Navigator Practice" | "Digital Tool" | "System Improvement";
+  impact: "High" | "Medium" | "Low";
+  feasibility: "High" | "Medium" | "Low";
+  timeline: string;
+  effort: string;
+  description: string;
+  gapsAddressed: string;
+  resources: string;
 }
 
 export const interventionPriorities: InterventionPriority[] = [
   {
-    id: "ed-screening",
-    intervention: "IPV-informed ED screening protocol including brief alone time with patient",
-    barriersToEntry: "Workflow changes, staff buy-in, resource shortages (e.g., male clinicians not allowed alone with female clients requiring two staff), language barrier",
-    timing: "Immediate",
-    resourcing: "Low",
-    scopeOfImpact: ["Individual", "Organizational"],
-    catalystPotential: "Medium",
-    category: "Clinical"
+    id: "ipv-informed-ed-screening-protocol-inclu",
+    name: "IPV informed ED screening protocol including brief alone time with patient",
+    category: "System Improvement",
+    impact: "Medium",
+    feasibility: "High",
+    timeline: "Immediate",
+    effort: "Low",
+    description: "Workflow changes, staff buy-in, resource shortages (e.g., male clinicians not allowed alone with female clients requiring two staff), language barrier",
+    gapsAddressed: "Individual, Organizational",
+    resources: "Low"
   },
   {
-    id: "disclosure-scripts",
-    intervention: "Culturally safe disclosure scripts for staff",
-    barriersToEntry: "Workflow changes, staff buy-in, time required to translate",
-    timing: "Immediate",
-    resourcing: "Low",
-    scopeOfImpact: ["Individual", "Organizational"],
-    catalystPotential: "Medium",
-    category: "Clinical"
+    id: "culturally-safe-disclosure-scripts-for-s",
+    name: "Culturally safe disclosure scripts for staff",
+    category: "Navigator Practice",
+    impact: "Medium",
+    feasibility: "High",
+    timeline: "Immediate",
+    effort: "Low",
+    description: "Workflow changes, staff buy-in, time required to translate",
+    gapsAddressed: "Individual, Organizational",
+    resources: "Low"
   },
   {
-    id: "sponsorship-care-plan",
-    intervention: "Sponsorship rights and immigration risks integrated into care plan",
-    barriersToEntry: "Ongoing changes to immigration policies, requirement to translate into multiple languages, staff buy-in and capacity",
-    timing: "Medium-term",
-    resourcing: "High",
-    scopeOfImpact: ["Individual", "Organizational", "Systemic"],
-    catalystPotential: "High",
-    category: "Systemic"
+    id: "sponsorship-rights-and-other-immigration",
+    name: "Sponsorship rights and other immigration risks integrated into care plan",
+    category: "System Improvement",
+    impact: "High",
+    feasibility: "Low",
+    timeline: "Medium-term",
+    effort: "High",
+    description: "Ongoing changes to immigration policies and procedures, requirement to translate information into multiple languages, staff buy-in, staff capacity",
+    gapsAddressed: "Individual, Organizational, Systemic",
+    resources: "High"
   },
   {
-    id: "in-person-navigator",
-    intervention: "In-person navigator (language-matched) to follow the client throughout their journey",
-    barriersToEntry: "Funding for new positions, time to hire and train, integration into system to effectively support clients",
-    timing: "Long-term",
-    resourcing: "High",
-    scopeOfImpact: ["Individual", "Organizational"],
-    catalystPotential: "High",
-    category: "Navigation"
+    id: "in-person-navigator-to-follow-the-client",
+    name: "In-person navigator to follow the client throughout their journey that speaks the client’s language",
+    category: "Navigator Practice",
+    impact: "High",
+    feasibility: "Low",
+    timeline: "Long-term",
+    effort: "High",
+    description: "Funding for new positions, time to hire and/or train, integration into system to effectively support clients",
+    gapsAddressed: "Individual, Organizational",
+    resources: "High"
   },
   {
-    id: "co-located-services",
-    intervention: "Co-located services (settlement and health in one site)",
-    barriersToEntry: "Systems-level realignment, funding for new positions, organizational buy-in, possible hiring",
-    timing: "Long-term",
-    resourcing: "High",
-    scopeOfImpact: ["Individual", "Systemic"],
-    catalystPotential: "High",
-    category: "Systemic"
+    id: "co-located-services-settlement-and-healt",
+    name: "Co-located services (settlement and health in one site)",
+    category: "System Improvement",
+    impact: "High",
+    feasibility: "Low",
+    timeline: "Long-term",
+    effort: "High",
+    description: "Systems level re-alignment, funding for new positions, organizational buy-in, possible hiring",
+    gapsAddressed: "Individual, Systemic",
+    resources: "High"
   },
   {
     id: "translated-materials",
-    intervention: "Translated materials",
-    barriersToEntry: "Time taken to translate and disseminate",
-    timing: "Immediate",
-    resourcing: "Low",
-    scopeOfImpact: ["Individual", "Organizational"],
-    catalystPotential: "Medium",
-    category: "Clinical"
+    name: "Translated materials",
+    category: "Navigator Practice",
+    impact: "Medium",
+    feasibility: "High",
+    timeline: "Immediate",
+    effort: "Low",
+    description: "Time taken to translate and disseminate",
+    gapsAddressed: "Individual, Organizational",
+    resources: "Low"
   },
   {
-    id: "ipv-toolkit",
-    intervention: "IPV toolkit for frontline workers",
-    barriersToEntry: "Time taken to develop, staff buy-in",
-    timing: "Immediate",
-    resourcing: "Low",
-    scopeOfImpact: ["Individual", "Organizational"],
-    catalystPotential: "Medium",
-    category: "Navigation"
+    id: "ipv-toolkit-for-frontline-workers",
+    name: "IPV toolkit for frontline workers",
+    category: "Navigator Practice",
+    impact: "Medium",
+    feasibility: "High",
+    timeline: "Immediate",
+    effort: "Low",
+    description: "Time taken to develop, staff buy-in",
+    gapsAddressed: "Individual, Organizational",
+    resources: "Low"
   },
   {
-    id: "rural-referral-network",
-    intervention: "No-wrong-door rural referral network",
-    barriersToEntry: "Individual and organizational buy-in, coordination, differing mandates and privacy requirements, staff training, change to existing workflows",
-    timing: "Medium to long-term",
-    resourcing: "Medium",
-    scopeOfImpact: ["Individual", "Organizational", "Systemic"],
-    catalystPotential: "High",
-    category: "Systemic"
+    id: "no-wrong-door-rural-referral-network",
+    name: "No-wrong-door rural referral network",
+    category: "System Improvement",
+    impact: "High",
+    feasibility: "Medium",
+    timeline: "Medium to long-term",
+    effort: "Medium",
+    description: "Individual and organizational buy-in, coordination, differing mandates and privacy requirements, staff training, change to existing workflows",
+    gapsAddressed: "Individual, Organizational, Systemic",
+    resources: "Medium"
   },
   {
-    id: "rural-phone-internet",
-    intervention: "Subsidized phone/internet for rural survivors",
-    barriersToEntry: "Funding, attainment of phones, development of policies and procedures, organizational buy-in, coordination with phone and internet providers, confidentiality for billing",
-    timing: "Long-term",
-    resourcing: "High",
-    scopeOfImpact: ["Individual", "Organizational"],
-    catalystPotential: "Medium",
-    category: "Digital"
+    id: "subsidized-phone-internet-for-rural-surv",
+    name: "Subsidized phone/internet for rural survivors",
+    category: "System Improvement",
+    impact: "Medium",
+    feasibility: "Low",
+    timeline: "Long-term",
+    effort: "High",
+    description: "Funding, attainment of phones, development of policies and procedures, organizational buy-in, coordination / collaboration with phone and internet providers, confidentiality for billing",
+    gapsAddressed: "Individual, Organizational",
+    resources: "High"
   },
   {
-    id: "client-edu-workshops",
-    intervention: "Education workshops in multiple languages for clients",
-    barriersToEntry: "Translation and development costs, hiring skilled facilitators, awareness and marketing, transportation for clients, cultural adaptation of materials",
-    timing: "Medium-term",
-    resourcing: "Medium",
-    scopeOfImpact: ["Individual"],
-    catalystPotential: "Medium",
-    category: "Clinical"
+    id: "education-workshops-in-multiple-language",
+    name: "Education workshops in multiple languages for clients",
+    category: "Navigator Practice",
+    impact: "Medium",
+    feasibility: "Medium",
+    timeline: "Medium-term",
+    effort: "Medium",
+    description: "Translation and development costs, hiring or identification of skilled facilitators, awareness and marketing, transportation for clients, cultural adaptation of materials",
+    gapsAddressed: "Individual",
+    resources: "Medium"
   },
   {
-    id: "abuse-health-workshops",
-    intervention: "Workshops on abuse and health for clients and providers",
-    barriersToEntry: "Same as client workshops, plus competing staff training capacity and priorities, staff engagement",
-    timing: "Medium-term",
-    resourcing: "Medium",
-    scopeOfImpact: ["Individual", "Organizational"],
-    catalystPotential: "High",
-    category: "Clinical"
+    id: "workshops-on-abuse-and-health-for-client",
+    name: "Workshops on abuse and health for clients and providers",
+    category: "Navigator Practice",
+    impact: "High",
+    feasibility: "Medium",
+    timeline: "Medium-term",
+    effort: "Medium",
+    description: "Same as cell above and: competing staff training capacity and priorities, staff engagement",
+    gapsAddressed: "Individual, Organizational",
+    resources: "Medium"
   },
   {
-    id: "myhealth-screen",
-    intervention: "Subtle wellness screen embedded in MyHealth patient portal",
-    barriersToEntry: "Integration with existing IT systems, digital literacy among users, possible translation costs",
-    timing: "Immediate",
-    resourcing: "Low",
-    scopeOfImpact: ["Individual", "Organizational"],
-    catalystPotential: "Low",
-    category: "Digital"
+    id: "subtle-wellness-screen-embedded-in-myhea",
+    name: "Subtle wellness screen embedded in MyHealth patient portal",
+    category: "Digital Tool",
+    impact: "Low",
+    feasibility: "High",
+    timeline: "Immediate",
+    effort: "Low",
+    description: "Integration with existing IT systems, digital literacy amongst users, possible translation costs",
+    gapsAddressed: "Individual, Organizational",
+    resources: "Low"
   },
   {
-    id: "navigator-chat",
-    intervention: "Navigator accessible via chat on mobile device or laptop",
-    barriersToEntry: "IT setup requirements, funding and hiring, internet access requirements, digital literacy, availability in multiple languages, privacy and confidentiality concerns",
-    timing: "Medium to long-term",
-    resourcing: "High",
-    scopeOfImpact: ["Individual", "Organizational"],
-    catalystPotential: "High",
-    category: "Navigation"
+    id: "navigator-accessible-via-chat-on-mobile",
+    name: "Navigator accessible via chat on mobile device or laptop",
+    category: "Digital Tool",
+    impact: "High",
+    feasibility: "Low",
+    timeline: "Medium to long-term",
+    effort: "High",
+    description: "IT set-up requirements, funding and hiring for position, internet access requirements, digital literacy amongst users, availability in multiple languages, privacy and confidentiality concerns",
+    gapsAddressed: "Individual, Organizational",
+    resources: "High"
   },
   {
-    id: "disguise-exit-tool",
-    intervention: "Digital tool with disguise/exit feature for safe device use",
-    barriersToEntry: "IT capability, user awareness of safety feature, functionality across devices",
-    timing: "Immediate to medium-term",
-    resourcing: "Medium",
-    scopeOfImpact: ["Individual", "Organizational"],
-    catalystPotential: "Low",
-    category: "Digital"
+    id: "digital-tool-with-disguise-exit-feature",
+    name: "Digital tool with disguise/exit feature for safe device use",
+    category: "Digital Tool",
+    impact: "Low",
+    feasibility: "Medium",
+    timeline: "Immediate to medium-term",
+    effort: "Medium",
+    description: "IT capability, user awareness of safety feature, functionality across devices",
+    gapsAddressed: "Individual, Organizational",
+    resources: "Medium"
   },
   {
     id: "digital-resource-hub",
-    intervention: "Digital resource hub",
-    barriersToEntry: "Development and ongoing content creation, translation, awareness among providers and users, digital literacy barriers",
-    timing: "Medium-term",
-    resourcing: "Medium to high",
-    scopeOfImpact: ["Individual", "Organizational", "Systemic"],
-    catalystPotential: "High",
-    category: "Digital"
+    name: "Digital resource hub",
+    category: "Digital Tool",
+    impact: "High",
+    feasibility: "Low",
+    timeline: "Medium-term",
+    effort: "Medium to high",
+    description: "Development and ongoing content creation, translation, awareness amongst providers and users, digital literacy barriers",
+    gapsAddressed: "Individual, Organizational, Systemic",
+    resources: "Medium to high"
   },
   {
-    id: "offline-resources",
-    intervention: "Offline resource options (audio, community drop-ins)",
-    barriersToEntry: "Staffing and facility requirements, transportation challenges, funding, reaching isolated individuals, multilingual support needed",
-    timing: "Medium to long-term",
-    resourcing: "Medium to high",
-    scopeOfImpact: ["Individual", "Organizational", "Systemic"],
-    catalystPotential: "Medium",
-    category: "Digital"
+    id: "offline-resource-options-audio-community",
+    name: "Offline resource options (audio, community drop-ins)",
+    category: "Digital Tool",
+    impact: "Medium",
+    feasibility: "Low",
+    timeline: "Medium to long-term",
+    effort: "Medium to high",
+    description: "Staffing and facility requirements, transportation challenges for users, funding for resources, reaching isolated individuals, need for multilingual support",
+    gapsAddressed: "Individual, Organizational, Systemic",
+    resources: "Medium to high"
   }
 ];
 

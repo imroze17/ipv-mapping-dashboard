@@ -1,29 +1,48 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Overview from "./Overview";
 import PersonaTab from "./PersonaTab";
 import AggregateMap from "./AggregateMap";
 import SidebarLegend from "../components/SidebarLegend";
 import AccessibilityControls from "../components/AccessibilityControls";
 import { personas } from "../lib/data";
-import { LayoutDashboard, Users, Map, HelpCircle, Heart, Compass, ShieldAlert, Sparkles, AlertTriangle } from "lucide-react";
+import { LayoutDashboard, Users, Map, ShieldAlert } from "lucide-react";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<string>("overview");
+  const [selectedInterventionId, setSelectedInterventionId] = useState<string | null>(null);
+
+  const handleNavigateToOpportunity = (id: string) => {
+    setSelectedInterventionId(id);
+    setActiveTab("aggregate");
+    
+    // Scroll to prioritization table
+    setTimeout(() => {
+      const element = document.getElementById("prioritization-table-section");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100);
+  };
 
   const renderActiveContent = () => {
     switch (activeTab) {
       case "overview":
         return <Overview onTabChange={setActiveTab} />;
       case "amara":
-        return <PersonaTab persona={personas[0]} />;
+        return <PersonaTab persona={personas[0]} onNavigateToOpportunity={handleNavigateToOpportunity} />;
       case "priya":
-        return <PersonaTab persona={personas[1]} />;
+        return <PersonaTab persona={personas[1]} onNavigateToOpportunity={handleNavigateToOpportunity} />;
       case "elena":
-        return <PersonaTab persona={personas[2]} />;
+        return <PersonaTab persona={personas[2]} onNavigateToOpportunity={handleNavigateToOpportunity} />;
       case "maya":
-        return <PersonaTab persona={personas[3]} />;
+        return <PersonaTab persona={personas[3]} onNavigateToOpportunity={handleNavigateToOpportunity} />;
       case "aggregate":
-        return <AggregateMap />;
+        return (
+          <AggregateMap 
+            highlightedInterventionId={selectedInterventionId} 
+            onClearHighlight={() => setSelectedInterventionId(null)} 
+          />
+        );
       default:
         return <Overview onTabChange={setActiveTab} />;
     }
