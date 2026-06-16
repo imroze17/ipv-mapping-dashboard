@@ -83,8 +83,11 @@ export default function PersonaTab({ persona, onNavigateToOpportunity }: Persona
           <h2 className="text-2xl lg:text-3.5xl font-serif font-bold text-foreground leading-tight">
             {persona.name}
           </h2>
-          <p className="text-xs text-muted-foreground max-w-3xl leading-relaxed italic">
-            "{persona.bio}"
+          <blockquote className="border-l-2 border-stone-300 pl-3 py-0.5 italic text-xs lg:text-sm text-stone-600 leading-relaxed">
+            "{persona.quote}"
+          </blockquote>
+          <p className="text-xs text-muted-foreground max-w-3xl leading-relaxed">
+            {persona.description}
           </p>
         </div>
 
