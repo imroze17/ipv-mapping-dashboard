@@ -308,14 +308,11 @@ export default function HealthJourney({ persona, onNavigateToOpportunity }: Heal
                               <div key={eIdx} className="space-y-1 border-b border-stone-100 last:border-b-0 pb-2 last:pb-0">
                                 <div className="flex items-center gap-1.5">
                                   <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-stone-100 text-stone-600">
-                                    {ev.type}
-                                  </span>
-                                  <span className="text-[10px] font-bold text-stone-700 italic">
-                                    {ev.source}
+                                    {ev.source === "literature" ? "Literature" : "Interview"}
                                   </span>
                                 </div>
                                 <p className="text-[11px] text-stone-600 leading-relaxed font-serif">
-                                  "{ev.quote}"
+                                  "{ev.text}"
                                 </p>
                               </div>
                             ))}
