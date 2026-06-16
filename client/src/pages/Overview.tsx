@@ -185,10 +185,8 @@ export default function Overview({ onTabChange }: OverviewProps) {
                 className={`bg-card text-card-foreground rounded-xl border border-border p-6 shadow-sm transition-all duration-300 hover:shadow-md ${borderHoverClass} flex flex-col justify-between space-y-6 group`}
               >
                 <div className="space-y-4">
-                  <div className="flex justify-start items-start">
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-stone-100 border border-stone-200">
-                      {persona.type}
-                    </span>
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-stone-500">
+                    {persona.type}
                   </div>
 
                   <div className="space-y-1">

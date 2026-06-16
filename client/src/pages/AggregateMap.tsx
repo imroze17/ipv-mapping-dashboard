@@ -206,11 +206,11 @@ export default function AggregateMap({ highlightedInterventionId, onClearHighlig
                   </h4>
                 </div>
 
-                <div className="pt-3 border-t border-border flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div className="pt-3 border-t border-border flex flex-col gap-2">
                   <span className="text-[10px] text-stone-400 uppercase tracking-wider font-bold shrink-0">
                     Impacts:
                   </span>
-                  <div className="flex flex-wrap gap-1.5 justify-start sm:justify-end">
+                  <div className="flex flex-wrap gap-1.5 justify-start">
                     {opp.personas.map((name) => {
                       const pColor = 
                         name === "Amara" ? "bg-[var(--amara-light)] text-[var(--amara-color)] border-[var(--amara-color)]/10" :
