@@ -265,7 +265,7 @@ export const personas: Persona[] = [
     agency: "Medium",
     languages: "Moderate English",
     quote: "If I leave, will I lose my immigration status? I was independent before — now I have nothing that's mine.",
-    description: "Priya joined her husband's extended family in a mid-urban centre. Educated and tech-savvy, but socially isolated within her sponsorship circle and unable to attain employment in her field. Husband manages finances and immigration paperwork. Phone and computer are monitored — searching 'domestic violence' is unsafe. In-laws accompany her to appointments to support translation, blocking private disclosure. Fears sponsorship cancellation if she reports.",
+    description: "Priya joined her husband's extended family in a mid-urban centre. She is educated and tech-savvy, but socially isolated within her sponsorship circle and unable to attain employment in her field. Her husband manages the finances and immigration paperwork. Her phone and computer are monitored — searching 'domestic violence' is unsafe. She fears sponsorship cancellation if she reports.",
     color: "var(--priya-color)",
     lightColor: "var(--priya-light)",
     empathy: {
@@ -288,7 +288,7 @@ export const personas: Persona[] = [
         "Husband controls joint bank account (set up by settlement agency)",
         "Family members accompany her to every appointment",
         "DV resources available only in English",
-        "Online resources with no privacy — device monitored by family"
+        "Online resources with no privacy — device monitored by husband"
       ],
       says: [
         "Searches 'family rights Canada' instead of 'abuse' or 'domestic violence'",
@@ -313,7 +313,7 @@ export const personas: Persona[] = [
       {
         stage: "Early Settlement",
         events: "Foreign credential recognition process, seeking employment, settlement agency contact",
-        barriers: ["In-laws accompany to all appointments", "Credential barriers limit independence"]
+        barriers: ["Husband accompanies to all appointments", "Credential barriers limit independence"]
       },
       {
         stage: "Isolation Deepens",
@@ -332,7 +332,7 @@ export const personas: Persona[] = [
         stageLabel: "Stage 1",
         stageColor: "#0580A0",
         touchpoints: ["Routine visit to family physician", "Child immunization appointment", "Clinic receptionist", "Online health portal (MyHealth)"],
-        friction: ["Partner or in-law accompanies to appointment — no private screening opportunity", "No clinic protocol to see patient alone", "Partner translates during appointment, blocking disclosure"],
+        friction: ["Partner accompanies to appointment — no private screening opportunity", "No clinic protocol to see patient alone", "Partner translates during appointment, blocking disclosure"],
         equity: ["IPV screening not trauma-informed", "No process to see patient privately", "Device monitoring prevents safe use of online health portal"],
         intervention: [
           { cat: "sys", text: "Clinic protocol requiring brief alone-time with patient (universal screening)" },

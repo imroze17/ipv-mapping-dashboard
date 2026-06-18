@@ -52,7 +52,7 @@ export default function Overview({ onTabChange }: OverviewProps) {
               Executive Summary & Purpose
             </h2>
             <p className="text-xs text-muted-foreground">
-              Draft — June 2026 | Prepared for VESTA
+              Prepared for VESTA
             </p>
           </div>
           
@@ -127,17 +127,7 @@ export default function Overview({ onTabChange }: OverviewProps) {
           </div>
         </div>
 
-        {/* Technical Maintenance Section */}
-        <div className="bg-card text-card-foreground rounded-xl border border-border p-6 shadow-sm flex flex-col justify-between">
-          <div className="space-y-2">
-            <div className="text-xs font-bold text-foreground flex items-center gap-1.5">
-              <BookOpen size={12} /> Technical Maintenance
-            </div>
-            <p className="text-[11px] text-muted-foreground leading-relaxed">
-              This dashboard is maintained by Changemark. For content updates, additions, or technical feedback, please contact the project coordinator.
-            </p>
-          </div>
-        </div>
+
 
         {/* Synthesized Research Quotes Section */}
         <div className="bg-card text-card-foreground rounded-xl border border-border p-6 shadow-sm space-y-4">
